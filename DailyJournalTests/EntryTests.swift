@@ -63,6 +63,20 @@ class EntryTests: XCTestCase {
         XCTAssertTrue(entry?.isIdentical(to: someEntry) == true)
         XCTAssertEqual(entry?.text, .some("일기 내용 수정"))
     }
+    
+    func testRemoveEntry() {
+        // Setup
+        let id: UUID = UUID()
+        let someEntry = Entry(id: id, createdAt: Date(), text: "1")
+        let journal = InMemoryEntryRepository(entriesArray: [someEntry])
+        
+        // Run
+        journal.remove(someEntry)
+        
+        // Verify
+        let entry = journal.entry(with: id)
+        XCTAssertEqual(entry, nil)
+    }
 
 }
 
