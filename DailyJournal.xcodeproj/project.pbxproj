@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36286AA32197F0B3009A3856 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36286AA22197F0B3009A3856 /* Entry.swift */; };
 		3634355221948F9E003CD893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634355121948F9E003CD893 /* AppDelegate.swift */; };
 		3634355421948F9E003CD893 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634355321948F9E003CD893 /* ViewController.swift */; };
 		3634355721948F9E003CD893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634355521948F9E003CD893 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36286AA22197F0B3009A3856 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		3634354E21948F9E003CD893 /* DailyJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3634355121948F9E003CD893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3634355321948F9E003CD893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				3634355821948F9F003CD893 /* Assets.xcassets */,
 				3634355A21948F9F003CD893 /* LaunchScreen.storyboard */,
 				3634355D21948F9F003CD893 /* Info.plist */,
+				36286AA22197F0B3009A3856 /* Entry.swift */,
 			);
 			path = DailyJournal;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36286AA32197F0B3009A3856 /* Entry.swift in Sources */,
 				3634355421948F9E003CD893 /* ViewController.swift in Sources */,
 				3634355221948F9E003CD893 /* AppDelegate.swift in Sources */,
 			);
