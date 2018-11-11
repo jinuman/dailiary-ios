@@ -21,5 +21,18 @@ class EntryTests: XCTestCase {
         // Verify
         XCTAssertEqual(entry.text, "first journal")
     }
+    
+    func testEntryEqual() {
+        // Setup
+        let tempId: UUID = UUID()
+        let tempDate: Date = Date()
+        let entry = Entry(id: tempId, createdAt: tempDate, text: "1")
+        let entry2 = Entry(id: tempId, createdAt: tempDate, text: "1")
+        
+        // Verify
+        XCTAssertEqual(entry, entry2)
+    }
 
 }
+
+
