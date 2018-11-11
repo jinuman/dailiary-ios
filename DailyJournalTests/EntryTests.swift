@@ -90,6 +90,54 @@ class EntryTests: XCTestCase {
         let entry = journal.entry(with: id)
         XCTAssertEqual(entry, nil)
     }
+    
+    func test_최근_순으로_엔트리를_불러올_수_있다() {
+        // Setup
+        let dayBeforeYesterday = Entry(id: UUID(), createdAt: Date.distantPast, text: "그저께 일기")
+        let yesterDay = Entry(id: UUID(), createdAt: Date(), text: "어제 일기")
+        let today = Entry(id: UUID(), createdAt: Date.distantFuture, text: "오늘 일기")
+        
+        let journal = InMemoryEntryRepository(entriesArray: [dayBeforeYesterday, yesterDay, today])
+        
+        // Run
+        let entries = journal.recentEntries(max: 3)
+        
+        // Verify
+        XCTAssertEqual(entries.count, 3)
+        XCTAssertEqual(entries, [today, yesterDay, dayBeforeYesterday])
+    }
+    
+    func test_요청한_엔트리의_수만큼_최신_순으로_반환한다() {
+        // Setup
+        let dayBeforeYesterday = Entry(id: UUID(), createdAt: Date.distantPast, text: "그저께 일기")
+        let yesterDay = Entry(id: UUID(), createdAt: Date(), text: "어제 일기")
+        let today = Entry(id: UUID(), createdAt: Date.distantFuture, text: "오늘 일기")
+        
+        let journal = InMemoryEntryRepository(entriesArray: [dayBeforeYesterday, yesterDay, today])
+        
+        // Run
+        let entries = journal.recentEntries(max: 1)
+        
+        // Verify
+        XCTAssertEqual(entries.count, 1)
+        XCTAssertEqual(entries, [today])
+    }
+    
+    func test_존재하는_엔트리보다_많은_수를_요청하면_존재하는_엔트리만큼만_반환한다() {
+        // Setup
+        let dayBeforeYesterday = Entry(id: UUID(), createdAt: Date.distantPast, text: "그저께 일기")
+        let yesterDay = Entry(id: UUID(), createdAt: Date(), text: "어제 일기")
+        let today = Entry(id: UUID(), createdAt: Date.distantFuture, text: "오늘 일기")
+        
+        let journal = InMemoryEntryRepository(entriesArray: [dayBeforeYesterday, yesterDay, today])
+        
+        // Run
+        let entries = journal.recentEntries(max: 10)
+        
+        // Verify
+        XCTAssertEqual(entries.count, 3)
+        XCTAssertEqual(entries, [today, yesterDay, dayBeforeYesterday])
+    }
 
 }
 
