@@ -14,7 +14,7 @@
 		3634355721948F9E003CD893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634355521948F9E003CD893 /* Main.storyboard */; };
 		3634355921948F9F003CD893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3634355821948F9F003CD893 /* Assets.xcassets */; };
 		3634355C21948F9F003CD893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634355A21948F9F003CD893 /* LaunchScreen.storyboard */; };
-		3634356721948F9F003CD893 /* DailyJournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634356621948F9F003CD893 /* DailyJournalTests.swift */; };
+		3634356721948F9F003CD893 /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634356621948F9F003CD893 /* EntryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,7 @@
 		3634355B21948F9F003CD893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3634355D21948F9F003CD893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3634356221948F9F003CD893 /* DailyJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3634356621948F9F003CD893 /* DailyJournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyJournalTests.swift; sourceTree = "<group>"; };
+		3634356621948F9F003CD893 /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
 		3634356821948F9F003CD893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +96,7 @@
 		3634356521948F9F003CD893 /* DailyJournalTests */ = {
 			isa = PBXGroup;
 			children = (
-				3634356621948F9F003CD893 /* DailyJournalTests.swift */,
+				3634356621948F9F003CD893 /* EntryTests.swift */,
 				3634356821948F9F003CD893 /* Info.plist */,
 			);
 			path = DailyJournalTests;
@@ -214,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3634356721948F9F003CD893 /* DailyJournalTests.swift in Sources */,
+				3634356721948F9F003CD893 /* EntryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
