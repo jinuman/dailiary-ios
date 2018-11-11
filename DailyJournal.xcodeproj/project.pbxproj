@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36286AA32197F0B3009A3856 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36286AA22197F0B3009A3856 /* Entry.swift */; };
+		36286AA52197F2F8009A3856 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36286AA42197F2F8009A3856 /* EntryRepository.swift */; };
+		36286AA921980AE1009A3856 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36286AA821980AE1009A3856 /* Identifiable.swift */; };
 		3634355221948F9E003CD893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634355121948F9E003CD893 /* AppDelegate.swift */; };
 		3634355421948F9E003CD893 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634355321948F9E003CD893 /* ViewController.swift */; };
 		3634355721948F9E003CD893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634355521948F9E003CD893 /* Main.storyboard */; };
 		3634355921948F9F003CD893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3634355821948F9F003CD893 /* Assets.xcassets */; };
 		3634355C21948F9F003CD893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634355A21948F9F003CD893 /* LaunchScreen.storyboard */; };
-		3634356721948F9F003CD893 /* DailyJournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634356621948F9F003CD893 /* DailyJournalTests.swift */; };
+		3634356721948F9F003CD893 /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634356621948F9F003CD893 /* EntryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36286AA22197F0B3009A3856 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		36286AA42197F2F8009A3856 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
+		36286AA821980AE1009A3856 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		3634354E21948F9E003CD893 /* DailyJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3634355121948F9E003CD893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3634355321948F9E003CD893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,7 +40,7 @@
 		3634355B21948F9F003CD893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3634355D21948F9F003CD893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3634356221948F9F003CD893 /* DailyJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3634356621948F9F003CD893 /* DailyJournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyJournalTests.swift; sourceTree = "<group>"; };
+		3634356621948F9F003CD893 /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
 		3634356821948F9F003CD893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +62,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36286AAB21981881009A3856 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3634355521948F9E003CD893 /* Main.storyboard */,
+				3634355A21948F9F003CD893 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		36286AAC2198189D009A3856 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3634355821948F9F003CD893 /* Assets.xcassets */,
+				3634355D21948F9F003CD893 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		36286AAD219818AD009A3856 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				36286AAE219818C2009A3856 /* Models */,
+				36286AB1219818F1009A3856 /* Controllers */,
+				36286AB0219818E1009A3856 /* Shared */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		36286AAE219818C2009A3856 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				36286AA22197F0B3009A3856 /* Entry.swift */,
+				36286AA42197F2F8009A3856 /* EntryRepository.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		36286AB0219818E1009A3856 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3634355121948F9E003CD893 /* AppDelegate.swift */,
+				36286AA821980AE1009A3856 /* Identifiable.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		36286AB1219818F1009A3856 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3634355321948F9E003CD893 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		3634354521948F9E003CD893 = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +137,9 @@
 		3634355021948F9E003CD893 /* DailyJournal */ = {
 			isa = PBXGroup;
 			children = (
-				3634355121948F9E003CD893 /* AppDelegate.swift */,
-				3634355321948F9E003CD893 /* ViewController.swift */,
-				3634355521948F9E003CD893 /* Main.storyboard */,
-				3634355821948F9F003CD893 /* Assets.xcassets */,
-				3634355A21948F9F003CD893 /* LaunchScreen.storyboard */,
-				3634355D21948F9F003CD893 /* Info.plist */,
+				36286AAD219818AD009A3856 /* Sources */,
+				36286AAB21981881009A3856 /* Storyboards */,
+				36286AAC2198189D009A3856 /* Resources */,
 			);
 			path = DailyJournal;
 			sourceTree = "<group>";
@@ -90,7 +147,7 @@
 		3634356521948F9F003CD893 /* DailyJournalTests */ = {
 			isa = PBXGroup;
 			children = (
-				3634356621948F9F003CD893 /* DailyJournalTests.swift */,
+				3634356621948F9F003CD893 /* EntryTests.swift */,
 				3634356821948F9F003CD893 /* Info.plist */,
 			);
 			path = DailyJournalTests;
@@ -197,7 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36286AA32197F0B3009A3856 /* Entry.swift in Sources */,
 				3634355421948F9E003CD893 /* ViewController.swift in Sources */,
+				36286AA52197F2F8009A3856 /* EntryRepository.swift in Sources */,
+				36286AA921980AE1009A3856 /* Identifiable.swift in Sources */,
 				3634355221948F9E003CD893 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3634356721948F9F003CD893 /* DailyJournalTests.swift in Sources */,
+				3634356721948F9F003CD893 /* EntryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +421,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DailyJournal/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/DailyJournal/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +439,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DailyJournal/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/DailyJournal/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
