@@ -9,6 +9,14 @@
 import UIKit
 import SnapKit
 
+extension DateFormatter {
+    static var entryDateFormatter: DateFormatter = { () -> DateFormatter in
+        let df = DateFormatter()
+        df.dateFormat = "yyyy. MM. dd. EEE"
+        return df
+    }()
+}
+
 let tmpTxt = """
 There are five people in my family and I’m the second youngest.
 I’m living in Bundang with my father and mother at the moment.
@@ -26,6 +34,7 @@ I want to get a job as an iOS developer as soon as possible.
 class EntryViewController: UIViewController {
     let headerView: UIView = UIView()
     let textView: UITextView = UITextView()
+    let dateLabel: UILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +45,11 @@ class EntryViewController: UIViewController {
         headerView.backgroundColor = UIColor.init(red: 0.909, green: 0.510, blue: 0.488, alpha: 1.0)
         textView.text = tmpTxt
         textView.font = UIFont.systemFont(ofSize: 50)
+        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
     }
     
     private func addSubviews() {
+        headerView.addSubview(dateLabel)
         view.addSubview(headerView)
         view.addSubview(textView)
     }
@@ -52,6 +63,11 @@ class EntryViewController: UIViewController {
         textView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        dateLabel.snp.makeConstraints{
+            $0.leading.equalToSuperview().offset(8)
+            $0.bottom.equalToSuperview().offset(-8)
         }
     }
     
