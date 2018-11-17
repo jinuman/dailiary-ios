@@ -35,6 +35,7 @@ class EntryViewController: UIViewController {
     let headerView: UIView = UIView()
     let textView: UITextView = UITextView()
     let dateLabel: UILabel = UILabel()
+    let button: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +47,14 @@ class EntryViewController: UIViewController {
         textView.text = tmpTxt
         textView.font = UIFont.systemFont(ofSize: 50)
         dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
+        dateLabel.textColor = UIColor.white
+        button.setImage(#imageLiteral(resourceName: "baseline_save_white_36pt"), for: .normal)
+        button.tintColor = UIColor.white
     }
     
     private func addSubviews() {
         headerView.addSubview(dateLabel)
+        headerView.addSubview(button)
         view.addSubview(headerView)
         view.addSubview(textView)
     }
@@ -57,7 +62,7 @@ class EntryViewController: UIViewController {
     private func layout() {
         headerView.snp.makeConstraints {
             $0.leading.top.trailing.equalToSuperview()
-            $0.height.equalTo(100)
+            $0.height.equalTo(120)
         }
         
         textView.snp.makeConstraints {
@@ -68,6 +73,11 @@ class EntryViewController: UIViewController {
         dateLabel.snp.makeConstraints{
             $0.leading.equalToSuperview().offset(8)
             $0.bottom.equalToSuperview().offset(-8)
+        }
+        
+        button.snp.makeConstraints{
+            $0.centerY.equalTo(dateLabel)
+            $0.trailing.equalToSuperview().offset(-8)
         }
     }
     
