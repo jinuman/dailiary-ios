@@ -37,6 +37,9 @@ class EntryViewController: UIViewController {
     let dateLabel: UILabel = UILabel()
     let button: UIButton = UIButton()
     
+    let repo: EntryRepository = InMemoryEntryRepository()
+    private var editingEntry: Entry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +51,13 @@ class EntryViewController: UIViewController {
         textView.font = UIFont.systemFont(ofSize: 50)
         dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
         dateLabel.textColor = UIColor.white
-        button.setImage(#imageLiteral(resourceName: "baseline_save_white_36pt"), for: .normal)
         button.tintColor = UIColor.white
+        updateSubviews(for: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textView.becomeFirstResponder()
     }
     
     private func addSubviews() {
@@ -78,6 +86,44 @@ class EntryViewController: UIViewController {
         button.snp.makeConstraints{
             $0.centerY.equalTo(dateLabel)
             $0.trailing.equalToSuperview().offset(-8)
+        }
+    }
+    
+    @objc func saveEntry(_ sender: Any) {
+        if let editing = editingEntry {
+            editing.text = textView.text
+            repo.update(editing)
+        } else {
+            let newEntry: Entry = Entry(text: textView.text)
+            repo.add(newEntry)
+            editingEntry = newEntry
+        }
+        updateSubviews(for: false)
+        textView.resignFirstResponder()
+    }
+    
+    @objc func editEntry(_ sender: Any) {
+        updateSubviews(for: true)
+        textView.becomeFirstResponder()
+    }
+    
+    fileprivate func updateSubviews(for isEditing: Bool) {
+        if isEditing {
+            textView.isEditable = true
+            
+            button.setImage(#imageLiteral(resourceName: "baseline_save_white_36pt"), for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
+            button.addTarget(self,
+                             action: #selector(saveEntry(_:)),
+                             for: UIControl.Event.touchUpInside)
+        } else {
+            textView.isEditable = false
+            
+            button.setImage(#imageLiteral(resourceName: "baseline_edit_white_36pt"), for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
+            button.addTarget(self,
+                             action: #selector(editEntry(_:)),
+                             for: UIControl.Event.touchUpInside)
         }
     }
     
