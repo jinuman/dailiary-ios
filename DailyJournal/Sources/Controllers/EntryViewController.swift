@@ -36,6 +36,8 @@ class EntryViewController: UIViewController {
     let textView: UITextView = UITextView()
     let dateLabel: UILabel = UILabel()
     let button: UIButton = UIButton()
+    var headerViewHeightConstraint: Constraint!
+    var textViewBottomConstraint: Constraint!
     
     let repo: EntryRepository = InMemoryEntryRepository()
     private var editingEntry: Entry?
@@ -52,7 +54,33 @@ class EntryViewController: UIViewController {
         dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
         dateLabel.textColor = UIColor.white
         button.tintColor = UIColor.white
+        
         updateSubviews(for: true)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillShow),
+                                       name: UIResponder.keyboardWillShowNotification,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(keyboardWillHide),
+                                       name: UIResponder.keyboardWillHideNotification,
+                                       object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ note: Notification) {
+        guard
+            let userInfo = note.userInfo,
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+            else { return }
+        let keyboardHeight = keyboardFrame.cgRectValue.height
+        textViewBottomConstraint.update(offset: -keyboardHeight)
+        headerViewHeightConstraint.update(offset: 100)
+    }
+    
+    @objc func keyboardWillHide(_ note: Notification) {
+        textViewBottomConstraint.update(offset: 0)
+        headerViewHeightConstraint.update(offset: 120)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,12 +98,13 @@ class EntryViewController: UIViewController {
     private func layout() {
         headerView.snp.makeConstraints {
             $0.leading.top.trailing.equalToSuperview()
-            $0.height.equalTo(120)
+            headerViewHeightConstraint = $0.height.equalTo(120).constraint
         }
         
         textView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
+            textViewBottomConstraint = $0.bottom.equalToSuperview().constraint
         }
         
         dateLabel.snp.makeConstraints{
