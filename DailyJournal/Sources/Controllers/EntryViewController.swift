@@ -59,16 +59,16 @@ class EntryViewController: UIViewController {
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillShow),
+                                       selector: #selector(handleKeyboardAppearance),
                                        name: UIResponder.keyboardWillShowNotification,
                                        object: nil)
         notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillHide),
+                                       selector: #selector(handleKeyboardAppearance),
                                        name: UIResponder.keyboardWillHideNotification,
                                        object: nil)
     }
     
-    @objc func keyboardWillShow(_ note: Notification) {
+    @objc func handleKeyboardAppearance(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
             let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
@@ -76,29 +76,14 @@ class EntryViewController: UIViewController {
             let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt
             else { return }
         
+        let isKeyboardWillShow: Bool = note.name == UIResponder.keyboardWillShowNotification
+        let keyboardHeight = isKeyboardWillShow ? keyboardFrame.cgRectValue.height : 0
         let animationOption = UIView.AnimationOptions.init(rawValue: curve)
         
         UIView.animate(withDuration: duration, delay: 0.0, options: animationOption, animations: {
-            let keyboardHeight = keyboardFrame.cgRectValue.height
             self.textViewBottomConstraint.update(offset: -keyboardHeight)
             self.headerViewHeightConstraint.update(offset: 100)
             self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
-    @objc func keyboardWillHide(_ note: Notification) {
-        guard
-            let userInfo = note.userInfo,
-            let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
-            let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt
-            else { return }
-        let animationOption = UIView.AnimationOptions.init(rawValue: curve)
-        
-        UIView.animate(
-            withDuration: duration, delay: 0.0, options: animationOption, animations: {
-                self.textViewBottomConstraint.update(offset: 0)
-                self.headerViewHeightConstraint.update(offset: 120)
-                self.view.layoutIfNeeded()
         }, completion: nil)
     }
     
@@ -161,7 +146,6 @@ class EntryViewController: UIViewController {
             textView.isEditable = true
             
             button.setImage(#imageLiteral(resourceName: "baseline_save_white_36pt"), for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self,
                              action: #selector(saveEntry(_:)),
                              for: UIControl.Event.touchUpInside)
@@ -169,7 +153,6 @@ class EntryViewController: UIViewController {
             textView.isEditable = false
             
             button.setImage(#imageLiteral(resourceName: "baseline_edit_white_36pt"), for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self,
                              action: #selector(editEntry(_:)),
                              for: UIControl.Event.touchUpInside)
