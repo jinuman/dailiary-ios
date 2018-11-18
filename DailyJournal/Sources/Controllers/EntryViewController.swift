@@ -146,6 +146,7 @@ class EntryViewController: UIViewController {
             textView.isEditable = true
             
             button.setImage(#imageLiteral(resourceName: "baseline_save_white_36pt"), for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self,
                              action: #selector(saveEntry(_:)),
                              for: UIControl.Event.touchUpInside)
@@ -153,6 +154,7 @@ class EntryViewController: UIViewController {
             textView.isEditable = false
             
             button.setImage(#imageLiteral(resourceName: "baseline_edit_white_36pt"), for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self,
                              action: #selector(editEntry(_:)),
                              for: UIControl.Event.touchUpInside)
