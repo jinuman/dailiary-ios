@@ -11,11 +11,11 @@
 		36286AA52197F2F8009A3856 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36286AA42197F2F8009A3856 /* EntryRepository.swift */; };
 		36286AA921980AE1009A3856 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36286AA821980AE1009A3856 /* Identifiable.swift */; };
 		3634355221948F9E003CD893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634355121948F9E003CD893 /* AppDelegate.swift */; };
-		3634355421948F9E003CD893 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634355321948F9E003CD893 /* ViewController.swift */; };
 		3634355721948F9E003CD893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634355521948F9E003CD893 /* Main.storyboard */; };
 		3634355921948F9F003CD893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3634355821948F9F003CD893 /* Assets.xcassets */; };
 		3634355C21948F9F003CD893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3634355A21948F9F003CD893 /* LaunchScreen.storyboard */; };
 		3634356721948F9F003CD893 /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3634356621948F9F003CD893 /* EntryTests.swift */; };
+		36CD3469219FDDF500D6935F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD3468219FDDF500D6935F /* EntryViewController.swift */; };
 		8FDC1D6E40A67BA078C7EF18 /* Pods_DailyJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E44FE79E058B6795ED170 /* Pods_DailyJournal.framework */; };
 		A781B441438EB39107E76E60 /* Pods_DailyJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAC162948A091C099BDF6F9 /* Pods_DailyJournalTests.framework */; };
 /* End PBXBuildFile section */
@@ -38,7 +38,6 @@
 		36286AA821980AE1009A3856 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		3634354E21948F9E003CD893 /* DailyJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3634355121948F9E003CD893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3634355321948F9E003CD893 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3634355621948F9E003CD893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3634355821948F9F003CD893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3634355B21948F9F003CD893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		3634356221948F9F003CD893 /* DailyJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3634356621948F9F003CD893 /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
 		3634356821948F9F003CD893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36CD3468219FDDF500D6935F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		773846C667C6BF1152AFDE09 /* Pods-DailyJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyJournalTests/Pods-DailyJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EDA5AA8835729FF828FC43A6 /* Pods-DailyJournal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyJournal.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyJournal/Pods-DailyJournal.release.xcconfig"; sourceTree = "<group>"; };
 		F49E44FE79E058B6795ED170 /* Pods_DailyJournal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyJournal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +121,7 @@
 		36286AB1219818F1009A3856 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3634355321948F9E003CD893 /* ViewController.swift */,
+				36CD3468219FDDF500D6935F /* EntryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36286AA32197F0B3009A3856 /* Entry.swift in Sources */,
-				3634355421948F9E003CD893 /* ViewController.swift in Sources */,
+				36CD3469219FDDF500D6935F /* EntryViewController.swift in Sources */,
 				36286AA52197F2F8009A3856 /* EntryRepository.swift in Sources */,
 				36286AA921980AE1009A3856 /* Identifiable.swift in Sources */,
 				3634355221948F9E003CD893 /* AppDelegate.swift in Sources */,
