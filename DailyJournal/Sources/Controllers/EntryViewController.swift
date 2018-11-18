@@ -45,16 +45,9 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        customize()
         addSubviews()
         layout()
-        
-        headerView.backgroundColor = UIColor.init(red: 0.909, green: 0.510, blue: 0.488, alpha: 1.0)
-        textView.text = tmpTxt
-        textView.font = UIFont.systemFont(ofSize: 50)
-        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
-        dateLabel.textColor = UIColor.white
-        button.tintColor = UIColor.white
-        
         updateSubviews(for: true)
         
         let notificationCenter = NotificationCenter.default
@@ -78,11 +71,12 @@ class EntryViewController: UIViewController {
         
         let isKeyboardWillShow: Bool = note.name == UIResponder.keyboardWillShowNotification
         let keyboardHeight = isKeyboardWillShow ? keyboardFrame.cgRectValue.height : 0
+        let headerViewHeight = isKeyboardWillShow ? 100 : 120
         let animationOption = UIView.AnimationOptions.init(rawValue: curve)
         
         UIView.animate(withDuration: duration, delay: 0.0, options: animationOption, animations: {
             self.textViewBottomConstraint.update(offset: -keyboardHeight)
-            self.headerViewHeightConstraint.update(offset: 100)
+            self.headerViewHeightConstraint.update(offset: headerViewHeight)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -90,6 +84,16 @@ class EntryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         textView.becomeFirstResponder()
+    }
+    
+    private func customize() {
+        headerView.backgroundColor = UIColor.init(red: 0.137, green: 0.796, blue: 0.655, alpha: 1.0)
+        textView.text = tmpTxt
+        textView.font = UIFont.systemFont(ofSize: 50)
+        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
+        dateLabel.textColor = UIColor.white
+        dateLabel.font = UIFont(name: "optima-bold", size: 20)
+        button.tintColor = UIColor.white
     }
     
     private func addSubviews() {
