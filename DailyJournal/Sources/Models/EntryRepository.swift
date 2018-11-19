@@ -9,7 +9,7 @@
 import Foundation
 
 protocol EntryRepository {
-    var entryCount: Int { get }
+    var numberOfEntries: Int { get }
     
     func add(_ entry: Entry)
     func update(_ entry: Entry)
@@ -29,7 +29,7 @@ class InMemoryEntryRepository: EntryRepository {
         self.entries = tempDic
     }
     
-    var entryCount: Int {
+    var numberOfEntries: Int {
         return entries.count
     }
     
