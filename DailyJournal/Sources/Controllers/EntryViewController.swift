@@ -31,11 +31,38 @@ But I’m not lonely because I’m busy developing iOS App for my own.
 I want to get a job as an iOS developer as soon as possible.
 """
 
+extension UIColor {
+    static let mint = UIColor(red: 150/255, green: 203/255, blue: 171/255, alpha: 1)
+}
+
 class EntryViewController: UIViewController {
-    let headerView: UIView = UIView()
-    let textView: UITextView = UITextView()
-    let dateLabel: UILabel = UILabel()
-    let button: UIButton = UIButton()
+    private let headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mint
+        return view
+    }()
+    
+    private let dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = DateFormatter.entryDateFormatter.string(from: Date())
+        label.font = UIFont(name: "optima-bold", size: 24)
+        label.textColor = .white
+        return label
+    }()
+
+    private let button: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        return button
+    }()
+    
+    private let textView: UITextView = {
+        let textView = UITextView()
+        textView.text = tmpTxt
+        textView.font = UIFont.systemFont(ofSize: 40)
+        return textView
+    }()
+    
     var headerViewHeightConstraint: Constraint!
     var textViewBottomConstraint: Constraint!
     
@@ -45,9 +72,8 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customize()
         addSubviews()
-        layout()
+        setupLayout()
         updateSubviews(for: true)
         
         let notificationCenter = NotificationCenter.default
@@ -86,16 +112,6 @@ class EntryViewController: UIViewController {
         textView.becomeFirstResponder()
     }
     
-    private func customize() {
-        headerView.backgroundColor = UIColor.init(red: 0.137, green: 0.796, blue: 0.655, alpha: 1.0)
-        textView.text = tmpTxt
-        textView.font = UIFont.systemFont(ofSize: 50)
-        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
-        dateLabel.textColor = UIColor.white
-        dateLabel.font = UIFont(name: "optima-bold", size: 20)
-        button.tintColor = UIColor.white
-    }
-    
     private func addSubviews() {
         headerView.addSubview(dateLabel)
         headerView.addSubview(button)
@@ -103,7 +119,7 @@ class EntryViewController: UIViewController {
         view.addSubview(textView)
     }
     
-    private func layout() {
+    private func setupLayout() {
         headerView.snp.makeConstraints {
             $0.leading.top.trailing.equalToSuperview()
             headerViewHeightConstraint = $0.height.equalTo(120).constraint
