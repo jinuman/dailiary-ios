@@ -36,19 +36,6 @@ extension UIColor {
 }
 
 class EntryViewController: UIViewController {
-    private let headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .mint
-        return view
-    }()
-    
-    private let dateLabel: UILabel = {
-        let label = UILabel()
-        label.text = DateFormatter.entryDateFormatter.string(from: Date())
-        label.font = UIFont(name: "optima-bold", size: 24)
-        label.textColor = .white
-        return label
-    }()
 
     private let button: UIButton = {
         let button = UIButton(type: .system)
@@ -63,7 +50,8 @@ class EntryViewController: UIViewController {
         return textView
     }()
     
-    var headerViewHeightConstraint: Constraint!
+    
+    
     var textViewBottomConstraint: Constraint!
     
     let repo: EntryRepository = InMemoryEntryRepository()
@@ -74,7 +62,6 @@ class EntryViewController: UIViewController {
         
         addSubviews()
         setupLayout()
-        updateSubviews(for: true)
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -87,6 +74,11 @@ class EntryViewController: UIViewController {
                                        object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateSubviews(for: true)
+    }
+    
     @objc func handleKeyboardAppearance(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
@@ -97,49 +89,25 @@ class EntryViewController: UIViewController {
         
         let isKeyboardWillShow: Bool = note.name == UIResponder.keyboardWillShowNotification
         let keyboardHeight = isKeyboardWillShow ? keyboardFrame.cgRectValue.height : 0
-        let headerViewHeight = isKeyboardWillShow ? 100 : 120
         let animationOption = UIView.AnimationOptions.init(rawValue: curve)
         
         UIView.animate(withDuration: duration, delay: 0.0, options: animationOption, animations: {
             self.textViewBottomConstraint.update(offset: -keyboardHeight)
-            self.headerViewHeightConstraint.update(offset: headerViewHeight)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        textView.becomeFirstResponder()
-    }
+  
     
     private func addSubviews() {
-        headerView.addSubview(dateLabel)
-        headerView.addSubview(button)
-        view.addSubview(headerView)
         view.addSubview(textView)
     }
     
     private func setupLayout() {
-        headerView.snp.makeConstraints {
-            $0.leading.top.trailing.equalToSuperview()
-            headerViewHeightConstraint = $0.height.equalTo(120).constraint
-        }
-        
         textView.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom)
+            $0.top.equalToSuperview()
             $0.leading.trailing.bottom.equalToSuperview()
             textViewBottomConstraint = $0.bottom.equalToSuperview().constraint
-        }
-        
-        dateLabel.snp.makeConstraints{
-            $0.leading.equalToSuperview().offset(8)
-            $0.bottom.equalToSuperview().offset(-8)
-            $0.trailing.lessThanOrEqualTo(button.snp.leading).offset(-8)
-        }
-        
-        button.snp.makeConstraints{
-            $0.centerY.equalTo(dateLabel)
-            $0.trailing.equalToSuperview().offset(-8)
         }
     }
     
