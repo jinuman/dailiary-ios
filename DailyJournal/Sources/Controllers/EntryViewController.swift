@@ -31,10 +31,6 @@ But I’m not lonely because I’m busy developing iOS App for my own.
 I want to get a job as an iOS developer as soon as possible.
 """
 
-extension UIColor {
-    static let mint = UIColor(red: 150/255, green: 203/255, blue: 171/255, alpha: 1)
-}
-
 class EntryViewController: UIViewController {
 
     let repo: EntryRepository = InMemoryEntryRepository()

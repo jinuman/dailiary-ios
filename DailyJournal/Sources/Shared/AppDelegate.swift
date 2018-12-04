@@ -12,20 +12,29 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigationController: UINavigationController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootVC = EntryViewController()
-        let navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
+        navigationController = UINavigationController(rootViewController: rootVC)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.navigationBar.barStyle = .black
-        navigationController.navigationBar.tintColor = .white
-        
+        customizeNavigationBar()
         return true
+    }
+    
+    private func customizeNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
+        
+        let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
+                                            size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
+        guard let image = bgImage else { return }
+        navigationController?.navigationBar.barTintColor = UIColor(patternImage: image)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
