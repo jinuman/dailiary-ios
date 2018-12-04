@@ -42,14 +42,17 @@ class EntryViewController: UIViewController {
     
     private let rightBarButton: UIBarButtonItem = {
         let rightBarButton = UIBarButtonItem()
-        rightBarButton.tintColor = .white
         return rightBarButton
     }()
     
     private let textView: UITextView = {
         let textView = UITextView()
         textView.text = tmpTxt
-        textView.font = UIFont.systemFont(ofSize: 40)
+        textView.frame = CGRect(x: 0, y: 0,
+                                width: textView.frame.size.width,
+                                height: textView.frame.size.height)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.font = UIFont.systemFont(ofSize: 20)
         return textView
     }()
     
@@ -58,6 +61,7 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
         addSubviews()
         setupLayout()
         setupNavigationBarItems()
