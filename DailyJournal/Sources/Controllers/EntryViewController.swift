@@ -37,10 +37,13 @@ extension UIColor {
 
 class EntryViewController: UIViewController {
 
-    private let button: UIButton = {
-        let button = UIButton(type: .system)
-        button.tintColor = .white
-        return button
+    let repo: EntryRepository = InMemoryEntryRepository()
+    private var editingEntry: Entry?
+    
+    private let rightBarButton: UIBarButtonItem = {
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.tintColor = .white
+        return rightBarButton
     }()
     
     private let textView: UITextView = {
@@ -50,18 +53,14 @@ class EntryViewController: UIViewController {
         return textView
     }()
     
-    
-    
     var textViewBottomConstraint: Constraint!
-    
-    let repo: EntryRepository = InMemoryEntryRepository()
-    private var editingEntry: Entry?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         addSubviews()
         setupLayout()
+        setupNavigationBarItems()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -76,7 +75,12 @@ class EntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateSubviews(for: true)
+        updateSubviews(for: false)
+    }
+    
+    private func setupNavigationBarItems() {
+        navigationItem.title = DateFormatter.entryDateFormatter.string(from: Date())
+        navigationItem.rightBarButtonItem = rightBarButton
     }
     
     @objc func handleKeyboardAppearance(_ note: Notification) {
@@ -97,8 +101,6 @@ class EntryViewController: UIViewController {
         }, completion: nil)
     }
     
-  
-    
     private func addSubviews() {
         view.addSubview(textView)
     }
@@ -106,8 +108,8 @@ class EntryViewController: UIViewController {
     private func setupLayout() {
         textView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.trailing.bottom.equalToSuperview()
-            textViewBottomConstraint = $0.bottom.equalToSuperview().constraint
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            textViewBottomConstraint = $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).constraint
         }
     }
     
@@ -132,20 +134,14 @@ class EntryViewController: UIViewController {
     fileprivate func updateSubviews(for isEditing: Bool) {
         if isEditing {
             textView.isEditable = true
-            
-            button.setImage(#imageLiteral(resourceName: "baseline_save_white_36pt"), for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self,
-                             action: #selector(saveEntry(_:)),
-                             for: UIControl.Event.touchUpInside)
+            rightBarButton.image = #imageLiteral(resourceName: "baseline_save_white_36pt")
+            rightBarButton.target = self
+            rightBarButton.action = #selector(saveEntry(_:))
         } else {
             textView.isEditable = false
-            
-            button.setImage(#imageLiteral(resourceName: "baseline_edit_white_36pt"), for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self,
-                             action: #selector(editEntry(_:)),
-                             for: UIControl.Event.touchUpInside)
+            rightBarButton.image = #imageLiteral(resourceName: "baseline_edit_white_36pt")
+            rightBarButton.target = self
+            rightBarButton.action = #selector(editEntry(_:))
         }
     }
     
