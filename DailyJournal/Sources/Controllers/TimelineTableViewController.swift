@@ -12,7 +12,8 @@ class TimelineTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        title = "타임라인"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
