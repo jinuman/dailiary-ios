@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimelineCell" id="LaO-HF-vde" customClass="TimelineTableViewCell" customModule="DailyJournal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimelineCell" id="LaO-HF-vde" customClass="TimelineTableViewCell" customModule="DailyJournal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LaO-HF-vde" id="wyA-XX-vfT">
@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-dT-ZmQ">
-                                                    <rect key="frame" x="15" y="13.333333333333343" width="345" height="53"/>
+                                                    <rect key="frame" x="15" y="13.333333333333336" width="345" height="53.000000000000007"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="일기 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGT-e7-UVj">
                                                             <rect key="frame" x="0.0" y="17" width="257" height="19.333333333333329"/>
@@ -131,12 +131,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="ILf-X2-U7T">
                         <rightBarButtonItems>
-                            <barButtonItem title="Delete" image="baseline_delete_white_24pt" id="Mvr-sU-RSn"/>
+                            <barButtonItem title="Delete" image="baseline_delete_white_24pt" id="Mvr-sU-RSn">
+                                <connections>
+                                    <action selector="removeEntry:" destination="wrP-UE-Swj" id="RA8-2X-E4L"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Save&amp;Edit" image="baseline_edit_white_24pt" id="599-dZ-com"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="deleteButton" destination="Mvr-sU-RSn" id="VcX-uO-PoD"/>
+                        <outlet property="removeButton" destination="Mvr-sU-RSn" id="VcX-uO-PoD"/>
                         <outlet property="saveEditButton" destination="599-dZ-com" id="fSE-BV-zj0"/>
                         <outlet property="textView" destination="LCO-Fd-csq" id="f3E-pS-iKV"/>
                         <outlet property="textViewBottomConstraint" destination="C4f-GZ-enr" id="aTA-41-jhV"/>
