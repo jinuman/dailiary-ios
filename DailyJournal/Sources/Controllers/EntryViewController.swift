@@ -10,6 +10,11 @@ import UIKit
 
 class EntryViewController: UIViewController {
 
+    @IBOutlet weak var saveEditButton: UIBarButtonItem!
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

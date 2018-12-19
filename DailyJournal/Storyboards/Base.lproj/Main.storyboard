@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-dT-ZmQ">
-                                                    <rect key="frame" x="15" y="13" width="345" height="53.000000000000007"/>
+                                                    <rect key="frame" x="15" y="13.333333333333336" width="345" height="53.000000000000007"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="일기 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGT-e7-UVj">
                                                             <rect key="frame" x="0.0" y="17" width="257" height="19.333333333333329"/>
@@ -91,7 +91,7 @@
                     <navigationItem key="navigationItem" id="VB8-c1-5hN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GyD-cG-VFQ">
                             <connections>
-                                <segue destination="wrP-UE-Swj" kind="show" identifier="addEntry" id="GD1-SA-tJ2"/>
+                                <segue destination="wrP-UE-Swj" kind="show" identifier="addEntry" id="cUL-ij-uUm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -107,13 +107,40 @@
                     <view key="view" contentMode="scaleToFill" id="Paf-BV-IpZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LCO-Fd-csq">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LCO-Fd-csq" firstAttribute="bottom" secondItem="urf-8T-ZQ9" secondAttribute="bottom" id="C4f-GZ-enr"/>
+                            <constraint firstItem="urf-8T-ZQ9" firstAttribute="trailing" secondItem="LCO-Fd-csq" secondAttribute="trailing" id="T7H-UR-WLQ"/>
+                            <constraint firstItem="LCO-Fd-csq" firstAttribute="top" secondItem="urf-8T-ZQ9" secondAttribute="top" id="g5P-4E-x1Y"/>
+                            <constraint firstItem="LCO-Fd-csq" firstAttribute="leading" secondItem="urf-8T-ZQ9" secondAttribute="leading" id="iap-g4-obw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="urf-8T-ZQ9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ILf-X2-U7T">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Delete" id="Mvr-sU-RSn"/>
+                            <barButtonItem title="Save&amp;Edit" id="599-dZ-com"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deleteButton" destination="Mvr-sU-RSn" id="VcX-uO-PoD"/>
+                        <outlet property="saveEditButton" destination="599-dZ-com" id="fSE-BV-zj0"/>
+                        <outlet property="textView" destination="LCO-Fd-csq" id="f3E-pS-iKV"/>
+                        <outlet property="textViewBottomConstraint" destination="C4f-GZ-enr" id="aTA-41-jhV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7B-yd-OJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189" y="129"/>
+            <point key="canvasLocation" x="1242" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y4T-w3-uJA">
