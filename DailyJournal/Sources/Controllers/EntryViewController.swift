@@ -83,15 +83,32 @@ class EntryViewController: UIViewController {
     }
     
     @objc func saveEntry(_ sender: UIBarButtonItem) {
-        if let editing = editingEntry {
-            editing.text = textView.text
-            repo.update(editing)
-        } else {
-            let entry: Entry = Entry(text: textView.text)
-            repo.add(entry)
-            editingEntry = entry
+        let alertController = UIAlertController(
+            title: "저장할까요?",
+            message: nil,
+            preferredStyle: .alert
+        )
+        
+        let saveAction: UIAlertAction = UIAlertAction(title: "저장", style: .default) { [weak self] (_) in
+            if let editing = self?.editingEntry {
+                editing.text = self?.textView.text ?? ""
+                self?.repo.update(editing)
+            } else {
+                let entry: Entry = Entry(text: self?.textView.text ?? "")
+                self?.repo.add(entry)
+                self?.editingEntry = entry
+            }
+            self?.updateSubviews(isEditing: false)
         }
-        updateSubviews(isEditing: false)
+        let cancelAction: UIAlertAction = UIAlertAction(
+            title: "취소",
+            style: .cancel,
+            handler: nil
+        )
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     @objc func editEntry(_ sender: UIBarButtonItem) {
@@ -104,7 +121,7 @@ class EntryViewController: UIViewController {
         let alertController = UIAlertController(
             title: "현재 일기를 삭제할까요?",
             message: "이 동작은 되돌릴 수 없습니다",
-            preferredStyle: .alert
+            preferredStyle: .actionSheet
         )
         
         let removeAction: UIAlertAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
