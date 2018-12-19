@@ -94,7 +94,39 @@ extension TimelineTableViewController: UITableViewDataSource {
         
         return cell
     }
-    
+}
+
+extension TimelineTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let removeAction = UIContextualAction(style: .normal, title:  nil) { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            
+            let date = self.dates[indexPath.section]
+            let entries = self.entries(for: date)
+            let entry = entries[indexPath.row]
+            
+            self.repo.remove(entry)
+            
+            if entries.count == 1 {
+                self.dates = self.dates.filter { $0 != date }
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                tableView.beginUpdates()
+                if entries.count == 1 {
+                    tableView.deleteSections(IndexSet.init(integer: indexPath.section), with: .automatic)
+                } else {
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+                tableView.endUpdates()
+            }
+            success(true)
+        }
+        
+        removeAction.image = #imageLiteral(resourceName: "baseline_delete_white_24pt")
+        removeAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [removeAction])
+    }
 }
 
 extension TimelineTableViewController: EntryViewControllerDelegate {
