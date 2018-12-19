@@ -15,6 +15,7 @@
 		36B4F90F21CA1C30007A4DD7 /* DailyJournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F90E21CA1C30007A4DD7 /* DailyJournalTests.swift */; };
 		36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F91C21CA2152007A4DD7 /* Entry.swift */; };
 		36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92121CA2216007A4DD7 /* EntryViewController.swift */; };
+		36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		36B4F91021CA1C30007A4DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36B4F91C21CA2152007A4DD7 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		36B4F92121CA2216007A4DD7 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */,
+				36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */,
 				36B4F92121CA2216007A4DD7 /* EntryViewController.swift */,
 			);
 			path = Controllers;
@@ -253,6 +256,7 @@
 			files = (
 				36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */,
 				36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */,
+				36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */,
 				36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */,
 				36B4F8FA21CA1C2E007A4DD7 /* AppDelegate.swift in Sources */,
 			);
