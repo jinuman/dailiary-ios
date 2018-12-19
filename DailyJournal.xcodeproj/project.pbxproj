@@ -18,6 +18,7 @@
 		36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */; };
 		36B4F92821CA2DAF007A4DD7 /* UIKit+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */; };
 		36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92921CA3103007A4DD7 /* EntryRepository.swift */; };
+		36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+DailyJournal.swift"; sourceTree = "<group>"; };
 		36B4F92921CA3103007A4DD7 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
+		36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DailyJournal.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */,
 				36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */,
+				36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */,
 				36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */,
 				36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */,
 				36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */,

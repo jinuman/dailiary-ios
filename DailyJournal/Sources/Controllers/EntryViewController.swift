@@ -32,6 +32,7 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = DateFormatter.entryDateFormatter.string(from: Date())
         textView.font = UIFont.systemFont(ofSize: 40)
         textView.text = longtxt
     }
