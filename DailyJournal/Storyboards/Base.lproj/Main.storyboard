@@ -89,7 +89,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VB8-c1-5hN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GyD-cG-VFQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GyD-cG-VFQ">
+                            <connections>
+                                <segue destination="wrP-UE-Swj" kind="show" identifier="addEntry" id="GD1-SA-tJ2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
