@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class Entry {
+    let id: UUID
+    let createdAt: Date
+    var text: String
+    
+    init(id: UUID = UUID(), createdAt: Date = Date(), text: String) {
+        self.id = id
+        self.createdAt = createdAt
+        self.text = text
+    }
+}
