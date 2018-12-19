@@ -8,20 +8,6 @@
 
 import UIKit
 
-let longtxt = """
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-I want to get a job as an iOS developer as soon as possible.
-"""
-
 class EntryViewController: UIViewController {
     
     @IBOutlet weak var saveEditButton: UIBarButtonItem!
@@ -36,8 +22,7 @@ class EntryViewController: UIViewController {
         super.viewDidLoad()
         
         title = DateFormatter.entryDateFormatter.string(from: Date())
-        textView.font = UIFont.systemFont(ofSize: 40)
-        textView.text = longtxt
+        textView.font = UIFont.systemFont(ofSize: 20)
         
         let nc = NotificationCenter.default
         nc.addObserver(self,
