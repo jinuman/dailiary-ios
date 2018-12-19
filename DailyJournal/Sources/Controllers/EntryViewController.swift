@@ -8,6 +8,20 @@
 
 import UIKit
 
+let longtxt = """
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+I want to get a job as an iOS developer as soon as possible.
+"""
+
 class EntryViewController: UIViewController {
 
     @IBOutlet weak var saveEditButton: UIBarButtonItem!
@@ -17,8 +31,9 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        textView.font = UIFont.systemFont(ofSize: 40)
+        textView.text = longtxt
     }
 
 }
