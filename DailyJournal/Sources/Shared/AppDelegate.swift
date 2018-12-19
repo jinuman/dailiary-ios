@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         customizeNavigationBar()
+        addDummyData()
         
         return true
     }
@@ -30,6 +31,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
                                                 size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
             navController.navigationBar.barTintColor = UIColor(patternImage: bgImage!)
+        }
+    }
+    
+    func addDummyData() {
+        let entries: [Entry] = [
+            // 어제
+            Entry(createdAt: Date.before(1), text: "어제 일기"),
+            Entry(createdAt: Date.before(1), text: "어제 일기"),
+            Entry(createdAt: Date.before(1), text: "어제 일기"),
+            // 2일 전
+            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
+            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
+            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
+            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
+            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
+            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
+            // 3일 전
+            Entry(createdAt: Date.before(3), text: "3일 전 일기"),
+            Entry(createdAt: Date.before(3), text: "3일 전 일기")
+        ]
+        let repo = InMemoryEntryRepository.shared
+        entries.forEach {
+            repo.add($0)
         }
     }
 

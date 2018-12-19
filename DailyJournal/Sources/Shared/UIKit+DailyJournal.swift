@@ -29,10 +29,10 @@ extension UIImage {
 
 extension UIColor {
     static var gradientStart: UIColor {
-        return .init(red: 0.909, green: 0.510, blue: 0.488, alpha: 1.0)
+        return .init(red: 60/255, green: 220/255, blue: 180/255, alpha: 1.0)
     }
     
     static var gradientEnd: UIColor {
-        return .init(red: 0.903, green: 0.640, blue: 0.774, alpha: 1.0)
+        return .init(red: 120/255, green: 220/255, blue: 240/255, alpha: 1.0)
     }
 }

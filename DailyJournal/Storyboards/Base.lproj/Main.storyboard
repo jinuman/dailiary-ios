@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-dT-ZmQ">
-                                                    <rect key="frame" x="15" y="13.333333333333339" width="345" height="53"/>
+                                                    <rect key="frame" x="15" y="13.333333333333343" width="345" height="53"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="일기 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGT-e7-UVj">
                                                             <rect key="frame" x="0.0" y="17" width="257" height="19.333333333333329"/>
@@ -71,6 +71,7 @@
                                             <outlet property="ampmLabel" destination="aRv-jw-zUh" id="UBQ-Wo-iQW"/>
                                             <outlet property="entryTextLabel" destination="PGT-e7-UVj" id="EIq-2K-T0H"/>
                                             <outlet property="timeLabel" destination="84A-1G-Wdk" id="iky-KX-iv1"/>
+                                            <segue destination="wrP-UE-Swj" kind="show" identifier="showEntry" id="2uE-h7-ST2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -95,6 +96,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="timelineTableView" destination="ubw-fo-afJ" id="KLP-BT-iKg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,4 +169,7 @@
         <image name="baseline_delete_white_24pt" width="24" height="24"/>
         <image name="baseline_edit_white_24pt" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2uE-h7-ST2"/>
+    </inferredMetricsTieBreakers>
 </document>
