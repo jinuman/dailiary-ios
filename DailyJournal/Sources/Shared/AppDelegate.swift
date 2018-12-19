@@ -38,16 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let entries: [Entry] = [
             // 어제
             Entry(createdAt: Date.before(1), text: "어제 일기"),
-            Entry(createdAt: Date.before(1), text: "어제 일기"),
-            Entry(createdAt: Date.before(1), text: "어제 일기"),
             // 2일 전
             Entry(createdAt: Date.before(2), text: "2일 전 일기"),
             Entry(createdAt: Date.before(2), text: "2일 전 일기"),
-            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
-            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
-            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
-            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
             // 3일 전
+            Entry(createdAt: Date.before(3), text: "3일 전 일기"),
             Entry(createdAt: Date.before(3), text: "3일 전 일기"),
             Entry(createdAt: Date.before(3), text: "3일 전 일기")
         ]
