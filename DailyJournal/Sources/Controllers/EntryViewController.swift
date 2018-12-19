@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EntryViewControllerDelegate: class {
+    func didRemoveEntry(_ entry: Entry)
+}
+
 class EntryViewController: UIViewController {
     
     @IBOutlet weak var saveEditButton: UIBarButtonItem!
@@ -17,6 +21,10 @@ class EntryViewController: UIViewController {
     
     let repo = InMemoryEntryRepository.shared
     var editingEntry: Entry?
+    weak var delegate: EntryViewControllerDelegate?
+    private var hasEntry: Bool {
+        return editingEntry != nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,10 +98,37 @@ class EntryViewController: UIViewController {
         updateSubviews(isEditing: true)
     }
     
+    @IBAction func removeEntry(_ sender: Any) {
+        guard let entryToRemove = editingEntry else { return }
+        
+        let alertController = UIAlertController(
+            title: "현재 일기를 삭제할까요?",
+            message: "이 동작은 되돌릴 수 없습니다",
+            preferredStyle: .alert
+        )
+        
+        let removeAction: UIAlertAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
+                self.repo.remove(entryToRemove)
+                self.editingEntry = nil
+                self.delegate?.didRemoveEntry(entryToRemove)
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(
+            title: "취소",
+            style: .cancel,
+            handler: nil
+        )
+        
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     fileprivate func updateSubviews(isEditing: Bool) {
         saveEditButton.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
         saveEditButton.target = self
         saveEditButton.action = isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
+        removeButton.isEnabled = hasEntry
         textView.isEditable = isEditing
         _ = isEditing ? textView.becomeFirstResponder() : textView.resignFirstResponder()
     }

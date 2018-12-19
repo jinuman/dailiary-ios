@@ -40,11 +40,13 @@ class TimelineTableViewController: UIViewController {
         case "addEntry":
             let entryVC = segue.destination as? EntryViewController
             entryVC?.editingEntry = nil
+            entryVC?.delegate = self
         case "showEntry":
             if
                 let entryVC = segue.destination as? EntryViewController,
                 let selectedIndexPath = timelineTableView.indexPathForSelectedRow {
                 entryVC.editingEntry = entry(for: selectedIndexPath)
+                entryVC.delegate = self
             }
         default:
             break
@@ -95,3 +97,8 @@ extension TimelineTableViewController: UITableViewDataSource {
     
 }
 
+extension TimelineTableViewController: EntryViewControllerDelegate {
+    func didRemoveEntry(_ entry: Entry) {
+        navigationController?.popViewController(animated: true)
+    }
+}
