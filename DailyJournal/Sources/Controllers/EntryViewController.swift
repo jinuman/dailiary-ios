@@ -103,20 +103,10 @@ class EntryViewController: UIViewController {
     }
     
     fileprivate func updateSubviews(isEditing: Bool) {
-        if isEditing {
-            textView.isEditable = true
-            textView.becomeFirstResponder()
-            
-            saveEditButton.image = #imageLiteral(resourceName: "baseline_save_white_24pt")
-            saveEditButton.target = self
-            saveEditButton.action = #selector(saveEntry(_:))
-        } else {
-            textView.isEditable = false
-            textView.resignFirstResponder()
-            
-            saveEditButton.image = #imageLiteral(resourceName: "baseline_edit_white_24pt")
-            saveEditButton.target = self
-            saveEditButton.action = #selector(editEntry(_:))
-        }
+        saveEditButton.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
+        saveEditButton.target = self
+        saveEditButton.action = isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
+        textView.isEditable = isEditing
+        _ = isEditing ? textView.becomeFirstResponder() : textView.resignFirstResponder()
     }
 }
