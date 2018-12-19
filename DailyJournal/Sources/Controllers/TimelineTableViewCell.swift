@@ -14,6 +14,8 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var ampmLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
