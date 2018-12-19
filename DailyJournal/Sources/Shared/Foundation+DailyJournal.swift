@@ -15,3 +15,10 @@ extension DateFormatter {
         return df
     }()
 }
+
+extension Date {
+    static func before(_ days: Int) -> Date {
+        let timeInterval = Double(days) * 24 * 60 * 60
+        return Date(timeIntervalSinceNow: -timeInterval)
+    }
+}

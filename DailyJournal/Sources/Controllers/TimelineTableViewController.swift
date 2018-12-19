@@ -10,6 +10,8 @@ import UIKit
 
 class TimelineTableViewController: UIViewController {
 
+    let repo = InMemoryEntryRepository.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +32,7 @@ class TimelineTableViewController: UIViewController {
 
 extension TimelineTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return repo.numberOfEntries
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
