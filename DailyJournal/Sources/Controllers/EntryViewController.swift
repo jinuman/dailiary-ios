@@ -16,13 +16,16 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
     let repo = InMemoryEntryRepository.shared
-    private var editingEntry: Entry?
+    var editingEntry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = DateFormatter.entryDateFormatter.string(from: Date())
+        let date: Date = editingEntry?.createdAt ?? Date()
+        title = DateFormatter.entryDateFormatter.string(from: date)
+        
         textView.font = UIFont.systemFont(ofSize: 20)
+        textView.text = editingEntry?.text
         
         let nc = NotificationCenter.default
         nc.addObserver(self,

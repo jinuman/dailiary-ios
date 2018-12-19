@@ -10,7 +10,6 @@ import UIKit
 
 class TimelineTableViewController: UIViewController {
 
-    
     @IBOutlet weak var timelineTableView: UITableView!
     
     let repo = InMemoryEntryRepository.shared
@@ -31,6 +30,8 @@ class TimelineTableViewController: UIViewController {
         dates = entries.compactMap {
             $0.createdAt.hmsRemoved
         }.unique()
+        
+        timelineTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,6 +39,13 @@ class TimelineTableViewController: UIViewController {
         switch identifier {
         case "addEntry":
             let entryVC = segue.destination as? EntryViewController
+            entryVC?.editingEntry = nil
+        case "showEntry":
+            if
+                let entryVC = segue.destination as? EntryViewController,
+                let selectedIndexPath = timelineTableView.indexPathForSelectedRow {
+                entryVC.editingEntry = entry(for: selectedIndexPath)
+            }
         default:
             break
         }

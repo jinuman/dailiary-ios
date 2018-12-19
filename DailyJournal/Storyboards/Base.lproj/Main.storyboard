@@ -71,6 +71,7 @@
                                             <outlet property="ampmLabel" destination="aRv-jw-zUh" id="UBQ-Wo-iQW"/>
                                             <outlet property="entryTextLabel" destination="PGT-e7-UVj" id="EIq-2K-T0H"/>
                                             <outlet property="timeLabel" destination="84A-1G-Wdk" id="iky-KX-iv1"/>
+                                            <segue destination="wrP-UE-Swj" kind="show" identifier="showEntry" id="2uE-h7-ST2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -168,4 +169,7 @@
         <image name="baseline_delete_white_24pt" width="24" height="24"/>
         <image name="baseline_edit_white_24pt" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2uE-h7-ST2"/>
+    </inferredMetricsTieBreakers>
 </document>
