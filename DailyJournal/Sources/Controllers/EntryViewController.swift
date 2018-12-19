@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EntryViewController.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2018. 12. 19..
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EntryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
-
 }
-
