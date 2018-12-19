@@ -23,7 +23,7 @@ I want to get a job as an iOS developer as soon as possible.
 """
 
 class EntryViewController: UIViewController {
-
+    
     @IBOutlet weak var saveEditButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var textView: UITextView!
@@ -38,6 +38,16 @@ class EntryViewController: UIViewController {
         title = DateFormatter.entryDateFormatter.string(from: Date())
         textView.font = UIFont.systemFont(ofSize: 40)
         textView.text = longtxt
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self,
+                       selector: #selector(handleKeyboardAppearance(_:)),
+                       name: UIResponder.keyboardWillShowNotification,
+                       object: nil)
+        nc.addObserver(self,
+                       selector: #selector(handleKeyboardAppearance(_:)),
+                       name: UIResponder.keyboardWillHideNotification,
+                       object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +57,33 @@ class EntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    @objc func handleKeyboardAppearance(_ note: Notification) {
+        guard
+            let userInfo = note.userInfo,
+            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as?
+                NSValue),
+            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as?
+                TimeInterval),
+            let curve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as?
+                UInt)
+            else { return }
+        
+        let isKeyboardWillShow: Bool = note.name ==
+            UIResponder.keyboardWillShowNotification
+        let keyboardHeight = isKeyboardWillShow ? keyboardFrame.cgRectValue.height : 0
+        let animationOption = UIView.AnimationOptions.init(rawValue: curve)
+        
+        UIView.animate(
+            withDuration:  duration,
+            delay: 0.0,
+            options: animationOption,
+            animations: {
+                self.textViewBottomConstraint.constant = -keyboardHeight
+                self.view.layoutIfNeeded()
+            },
+            completion: nil)
     }
     
     @objc func saveEntry(_ sender: UIBarButtonItem) {
