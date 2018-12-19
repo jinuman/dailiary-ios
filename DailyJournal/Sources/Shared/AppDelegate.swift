@@ -15,8 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        customizeNavigationBar()
+        
         return true
+    }
+    
+    private func customizeNavigationBar() {
+        if let navController = window?.rootViewController as? UINavigationController {
+            navController.navigationBar.prefersLargeTitles = true
+            navController.navigationBar.barStyle = UIBarStyle.black
+            navController.navigationBar.tintColor = UIColor.white    // BarButton color
+            
+            let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
+                                                size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
+            navController.navigationBar.barTintColor = UIColor(patternImage: bgImage!)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
