@@ -11,7 +11,7 @@ import UIKit
 class EntryViewController: UIViewController {
     
     @IBOutlet weak var saveEditButton: UIBarButtonItem!
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
