@@ -37,11 +37,11 @@ class EntryViewController: UIViewController {
         
         let nc = NotificationCenter.default
         nc.addObserver(self,
-                       selector: #selector(handleKeyboardAppearance(_:)),
+                       selector: #selector(handleKeyboardAppear(_:)),
                        name: UIResponder.keyboardWillShowNotification,
                        object: nil)
         nc.addObserver(self,
-                       selector: #selector(handleKeyboardAppearance(_:)),
+                       selector: #selector(handleKeyboardAppear(_:)),
                        name: UIResponder.keyboardWillHideNotification,
                        object: nil)
     }
@@ -55,7 +55,7 @@ class EntryViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    @objc func handleKeyboardAppearance(_ note: Notification) {
+    @objc func handleKeyboardAppear(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
             let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as?
