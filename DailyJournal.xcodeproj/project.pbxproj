@@ -19,6 +19,7 @@
 		36B4F92821CA2DAF007A4DD7 /* UIKit+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */; };
 		36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92921CA3103007A4DD7 /* EntryRepository.swift */; };
 		36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */; };
+		36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D00D8121D5164D000CBDD0 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+DailyJournal.swift"; sourceTree = "<group>"; };
 		36B4F92921CA3103007A4DD7 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DailyJournal.swift"; sourceTree = "<group>"; };
+		36D00D8121D5164D000CBDD0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +110,8 @@
 		36B4F91921CA2114007A4DD7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				36B4F91E21CA2157007A4DD7 /* Models */,
-				36B4F91F21CA215D007A4DD7 /* Controllers */,
+				36B4F91E21CA2157007A4DD7 /* Model */,
+				36B4F91F21CA215D007A4DD7 /* Controller */,
 				36B4F92021CA2164007A4DD7 /* Shared */,
 			);
 			path = Sources;
@@ -133,23 +135,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		36B4F91E21CA2157007A4DD7 /* Models */ = {
+		36B4F91E21CA2157007A4DD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				36B4F91C21CA2152007A4DD7 /* Entry.swift */,
 				36B4F92921CA3103007A4DD7 /* EntryRepository.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		36B4F91F21CA215D007A4DD7 /* Controllers */ = {
+		36B4F91F21CA215D007A4DD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */,
 				36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */,
 				36B4F92121CA2216007A4DD7 /* EntryViewController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		36B4F92021CA2164007A4DD7 /* Shared */ = {
@@ -158,6 +160,7 @@
 				36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */,
 				36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */,
 				36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */,
+				36D00D8121D5164D000CBDD0 /* Environment.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */,
 				36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */,
 				36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */,
+				36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */,
 				36B4F92821CA2DAF007A4DD7 /* UIKit+DailyJournal.swift in Sources */,
 				36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */,
 				36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */,

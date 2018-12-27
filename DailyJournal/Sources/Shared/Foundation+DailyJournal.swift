@@ -22,7 +22,7 @@ extension DateFormatter {
     }()
     
     static var entryTimeFormatter: DateFormatter = { () -> DateFormatter in
-        let df = DateFormatter()
+        let df = DateFormatter() 
 //        df.timeStyle = .short
 //        df.dateStyle = .short
         df.dateFormat = "h:mm"
