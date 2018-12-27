@@ -19,7 +19,10 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
-    let repo = InMemoryEntryRepository.shared
+    var environment: Environment!
+    var repo: EntryRepository {
+        return environment.entryRepository
+    }
     var editingEntry: Entry?
     weak var delegate: EntryViewControllerDelegate?
     private var hasEntry: Bool {

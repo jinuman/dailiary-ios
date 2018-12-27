@@ -11,8 +11,11 @@ import UIKit
 class TimelineTableViewController: UIViewController {
 
     @IBOutlet weak var timelineTableView: UITableView!
+    var environment: Environment!
+    var repo: EntryRepository {
+        return environment.entryRepository
+    }
     
-    let repo = InMemoryEntryRepository.shared
     private var dates = [Date]()
     private var entries: [Entry] {
         return repo.recentEntries(max: repo.numberOfEntries)
@@ -39,13 +42,14 @@ class TimelineTableViewController: UIViewController {
         switch identifier {
         case "addEntry":
             let entryVC = segue.destination as? EntryViewController
-            entryVC?.editingEntry = nil
+            entryVC?.environment = environment
             entryVC?.delegate = self
         case "showEntry":
             if
                 let entryVC = segue.destination as? EntryViewController,
                 let selectedIndexPath = timelineTableView.indexPathForSelectedRow {
                 entryVC.editingEntry = entry(for: selectedIndexPath)
+                entryVC.environment = environment
                 entryVC.delegate = self
             }
         default:
