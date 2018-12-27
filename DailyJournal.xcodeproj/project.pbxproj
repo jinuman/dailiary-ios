@@ -108,8 +108,8 @@
 		36B4F91921CA2114007A4DD7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				36B4F91E21CA2157007A4DD7 /* Models */,
-				36B4F91F21CA215D007A4DD7 /* Controllers */,
+				36B4F91E21CA2157007A4DD7 /* Model */,
+				36B4F91F21CA215D007A4DD7 /* Controller */,
 				36B4F92021CA2164007A4DD7 /* Shared */,
 			);
 			path = Sources;
@@ -133,23 +133,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		36B4F91E21CA2157007A4DD7 /* Models */ = {
+		36B4F91E21CA2157007A4DD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				36B4F91C21CA2152007A4DD7 /* Entry.swift */,
 				36B4F92921CA3103007A4DD7 /* EntryRepository.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		36B4F91F21CA215D007A4DD7 /* Controllers */ = {
+		36B4F91F21CA215D007A4DD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */,
 				36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */,
 				36B4F92121CA2216007A4DD7 /* EntryViewController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		36B4F92021CA2164007A4DD7 /* Shared */ = {
