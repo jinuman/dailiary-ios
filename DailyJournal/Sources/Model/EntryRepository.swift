@@ -66,3 +66,14 @@ class InMemoryEntryRepository: EntryRepository {
         return Array(result)
     }
 }
+
+extension EntryRepository {
+    var allEntries: [Entry] {
+        return recentEntries(max: numberOfEntries)
+    }
+    var uniqueDates: [Date] {
+        return allEntries
+            .compactMap { $0.createdAt.hmsRemoved }
+            .unique()
+    }
+}

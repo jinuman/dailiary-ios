@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3676019021D8B62000DC7A39 /* EntryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */; };
+		3676019121D8B62000DC7A39 /* TimelineViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */; };
 		36B4F8FA21CA1C2E007A4DD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */; };
 		36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */; };
 		36B4F8FF21CA1C2E007A4DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B4F8FD21CA1C2E007A4DD7 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewViewModel.swift; sourceTree = "<group>"; };
+		3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewViewModel.swift; sourceTree = "<group>"; };
 		36B4F8F621CA1C2E007A4DD7 /* DailyJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				36B4F91E21CA2157007A4DD7 /* Model */,
+				36D00D8521D52B00000CBDD0 /* ViewModel */,
 				36B4F91F21CA215D007A4DD7 /* Controller */,
 				36B4F92021CA2164007A4DD7 /* Shared */,
 			);
@@ -163,6 +168,15 @@
 				36D00D8121D5164D000CBDD0 /* Environment.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		36D00D8521D52B00000CBDD0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */,
+				3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +286,11 @@
 				36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */,
 				36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */,
 				36B4F92821CA2DAF007A4DD7 /* UIKit+DailyJournal.swift in Sources */,
+				3676019021D8B62000DC7A39 /* EntryViewViewModel.swift in Sources */,
 				36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */,
 				36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */,
 				36B4F8FA21CA1C2E007A4DD7 /* AppDelegate.swift in Sources */,
+				3676019121D8B62000DC7A39 /* TimelineViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
