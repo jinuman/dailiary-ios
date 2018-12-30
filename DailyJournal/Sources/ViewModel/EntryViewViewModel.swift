@@ -64,6 +64,7 @@ class EntryViewViewModel {
         } else {
             let newEntry = Entry(text: text)
             repo.add(newEntry)
+            self.entry = newEntry
             delegate?.didAddEntry(newEntry)
         }
     }
