@@ -13,7 +13,7 @@ class TimelineViewViewModel {
     let environment: Environment
     var dates = [Date]()
     
-    var repo: EntryRepository {
+    private var repo: EntryRepository {
         return environment.entryRepository
     }
     private var entries: [Entry] {
@@ -42,13 +42,25 @@ class TimelineViewViewModel {
         let date = dates[indexPath.section]
         let entries = self.entries(for: date)
         let entryToRemove = entries[indexPath.row]
-        environment.entryRepository.remove(entryToRemove)
+        repo.remove(entryToRemove)
         
         if entries.count == 1 {
             self.dates = self.dates.filter {
                 $0 != date
             }
         }
+    }
+    
+    var newEntryViewViewModel: EntryViewViewModel {
+        let vm = EntryViewViewModel(environment: environment)
+        vm.delegate = self
+        return vm
+    }
+    
+    func entryViewViewModel(for indexPath: IndexPath) -> EntryViewViewModel {
+        let vm = EntryViewViewModel(environment: environment, entry: entry(for: indexPath))
+        vm.delegate = self
+        return vm
     }
 }
 
@@ -65,5 +77,15 @@ extension TimelineViewViewModel {
     func numberOfRows(in section: Int) -> Int {
         let date = dates[section]
         return entries(for: date).count
+    }
+}
+
+extension TimelineViewViewModel: EntryViewViewModelDelegate {
+    func didAddEntry(_ entry: Entry) {
+        dates = repo.uniqueDates
+    }
+    
+    func didRemoveEntry(_ entry: Entry) {
+        dates = repo.uniqueDates
     }
 }

@@ -72,8 +72,8 @@ extension EntryRepository {
         return recentEntries(max: numberOfEntries)
     }
     var uniqueDates: [Date] {
-        return allEntries.compactMap {
-            $0.createdAt.hmsRemoved
-        }.unique()
+        return allEntries
+            .compactMap { $0.createdAt.hmsRemoved }
+            .unique()
     }
 }

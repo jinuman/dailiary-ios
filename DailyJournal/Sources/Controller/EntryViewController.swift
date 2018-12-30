@@ -8,35 +8,25 @@
 
 import UIKit
 
-protocol EntryViewControllerDelegate: class {
-    func didRemoveEntry(_ entry: Entry)
-}
-
 class EntryViewController: UIViewController {
     
     @IBOutlet weak var saveEditButton: UIBarButtonItem!
     @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
-    
-    var environment: Environment!
-    var repo: EntryRepository {
-        return environment.entryRepository
-    }
-    var editingEntry: Entry?
-    weak var delegate: EntryViewControllerDelegate?
-    private var hasEntry: Bool {
-        return editingEntry != nil
-    }
+    var viewModel: EntryViewViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let date: Date = editingEntry?.createdAt ?? Date()
-        title = DateFormatter.entryDateFormatter.string(from: date)
+        title = viewModel.entryTitle
         
         textView.font = UIFont.systemFont(ofSize: 20)
-        textView.text = editingEntry?.text
+        textView.text = viewModel.textViewText
+        
+        if viewModel.hasEntry == false {
+            viewModel.startEditing()
+        }
+        updateSubviews()
         
         let nc = NotificationCenter.default
         nc.addObserver(self,
@@ -49,13 +39,11 @@ class EntryViewController: UIViewController {
                        object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateSubviews(isEditing: false)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if viewModel.isEditing {
+            textView.becomeFirstResponder()
+        }
     }
     
     @objc func handleKeyboardAppear(_ note: Notification) {
@@ -91,17 +79,10 @@ class EntryViewController: UIViewController {
             message: nil,
             preferredStyle: .alert
         )
-        
         let saveAction: UIAlertAction = UIAlertAction(title: "저장", style: .default) { [weak self] (_) in
-            if let editing = self?.editingEntry {
-                editing.text = self?.textView.text ?? ""
-                self?.repo.update(editing)
-            } else {
-                let entry: Entry = Entry(text: self?.textView.text ?? "")
-                self?.repo.add(entry)
-                self?.editingEntry = entry
-            }
-            self?.updateSubviews(isEditing: false)
+            self?.viewModel.completeEditing(with: self?.textView.text ?? "")
+            self?.updateSubviews()
+            self?.textView.resignFirstResponder()
         }
         let cancelAction: UIAlertAction = UIAlertAction(
             title: "취소",
@@ -115,11 +96,13 @@ class EntryViewController: UIViewController {
     }
     
     @objc func editEntry(_ sender: UIBarButtonItem) {
-        updateSubviews(isEditing: true)
+        viewModel.startEditing()
+        updateSubviews()
+        textView.becomeFirstResponder()
     }
     
     @IBAction func removeEntry(_ sender: Any) {
-        guard let entryToRemove = editingEntry else { return }
+        guard viewModel.hasEntry else { return }
         
         let alertController = UIAlertController(
             title: "현재 일기를 삭제할까요?",
@@ -128,9 +111,8 @@ class EntryViewController: UIViewController {
         )
         
         let removeAction: UIAlertAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
-                self.repo.remove(entryToRemove)
-                self.editingEntry = nil
-                self.delegate?.didRemoveEntry(entryToRemove)
+            guard let _ = self.viewModel.removeEntry() else { return }
+            self.navigationController?.popViewController(animated: true)
         }
         
         let cancelAction: UIAlertAction = UIAlertAction(
@@ -144,12 +126,11 @@ class EntryViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    fileprivate func updateSubviews(isEditing: Bool) {
-        saveEditButton.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
+    fileprivate func updateSubviews() {
+        saveEditButton.image = viewModel.buttonImage
         saveEditButton.target = self
-        saveEditButton.action = isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
-        removeButton.isEnabled = hasEntry
-        textView.isEditable = isEditing
-        _ = isEditing ? textView.becomeFirstResponder() : textView.resignFirstResponder()
+        saveEditButton.action = viewModel.isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
+        removeButton.isEnabled = viewModel.removeButtonEnabled
+        textView.isEditable = viewModel.textViewEditable
     }
 }

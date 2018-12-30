@@ -9,7 +9,7 @@
 import UIKit
 
 class TimelineTableViewController: UIViewController {
-
+    
     @IBOutlet weak var timelineTableView: UITableView!
     
     var viewModel: TimelineViewViewModel!
@@ -21,7 +21,6 @@ class TimelineTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.dates = viewModel.environment.entryRepository.uniqueDates
         timelineTableView.reloadData()
     }
     
@@ -30,16 +29,15 @@ class TimelineTableViewController: UIViewController {
         switch identifier {
         case "addEntry":
             let entryVC = segue.destination as? EntryViewController
-            entryVC?.environment = viewModel.environment
-            entryVC?.delegate = self
+            entryVC?.viewModel = viewModel.newEntryViewViewModel
+            
         case "showEntry":
             if
                 let entryVC = segue.destination as? EntryViewController,
                 let selectedIndexPath = timelineTableView.indexPathForSelectedRow {
-                entryVC.editingEntry = viewModel.entry(for: selectedIndexPath)
-                entryVC.environment = viewModel.environment
-                entryVC.delegate = self
+                entryVC.viewModel = viewModel.entryViewViewModel(for: selectedIndexPath)
             }
+            
         default:
             break
         }
@@ -96,11 +94,5 @@ extension TimelineTableViewController: UITableViewDelegate {
         removeAction.backgroundColor = .red
         
         return UISwipeActionsConfiguration(actions: [removeAction])
-    }
-}
-
-extension TimelineTableViewController: EntryViewControllerDelegate {
-    func didRemoveEntry(_ entry: Entry) {
-        navigationController?.popViewController(animated: true)
     }
 }
