@@ -11,7 +11,7 @@ import Foundation
 class TimelineViewViewModel {
     
     let environment: Environment
-    var dates = [Date]()
+    private var dates = [Date]()
     
     private var repo: EntryRepository {
         return environment.entryRepository
@@ -31,7 +31,7 @@ class TimelineViewViewModel {
         }
     }
     
-    func entry(for indexPath: IndexPath) -> Entry {
+    private func entry(for indexPath: IndexPath) -> Entry {
         let date = dates[indexPath.section]
         let entriesOfDate = entries(for: date)
         let entry = entriesOfDate[indexPath.row]
@@ -61,6 +61,16 @@ class TimelineViewViewModel {
         let vm = EntryViewViewModel(environment: environment, entry: entry(for: indexPath))
         vm.delegate = self
         return vm
+    }
+    
+    func timelineTableViewCellViewModel(for indexPath: IndexPath) -> TimelineTableViewCellViewModel {
+        let entry = self.entry(for: indexPath)
+        
+        return TimelineTableViewCellViewModel(
+            entryText: entry.text,
+            ampmText: DateFormatter.entryTimeFormatter.string(from: entry.createdAt),
+            timeText: DateFormatter.ampmFormatter.string(from: entry.createdAt)
+        )
     }
 }
 

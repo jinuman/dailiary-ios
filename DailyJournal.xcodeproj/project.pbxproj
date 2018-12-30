@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3676019021D8B62000DC7A39 /* EntryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */; };
 		3676019121D8B62000DC7A39 /* TimelineViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */; };
+		3676019321D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676019221D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift */; };
 		36B4F8FA21CA1C2E007A4DD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */; };
 		36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */; };
 		36B4F8FF21CA1C2E007A4DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B4F8FD21CA1C2E007A4DD7 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewViewModel.swift; sourceTree = "<group>"; };
 		3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewViewModel.swift; sourceTree = "<group>"; };
+		3676019221D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		36B4F8F621CA1C2E007A4DD7 /* DailyJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */,
 				3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */,
+				3676019221D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */,
+				3676019321D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift in Sources */,
 				36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */,
 				36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */,
 				36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */,

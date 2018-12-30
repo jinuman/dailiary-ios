@@ -61,12 +61,7 @@ extension TimelineTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineCell", for: indexPath) as? TimelineTableViewCell else { fatalError("TimelineCell Invalid") }
         
-        let entry = self.viewModel.entry(for: indexPath)
-        
-        cell.entryTextLabel.text = entry.text
-        cell.ampmLabel.text = DateFormatter.ampmFormatter.string(from: entry.createdAt)
-        cell.timeLabel.text = DateFormatter.entryTimeFormatter.string(from: entry.createdAt)
-        
+        cell.viewModel = viewModel.timelineTableViewCellViewModel(for: indexPath)
         return cell
     }
 }

@@ -14,15 +14,15 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var ampmLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var viewModel: TimelineTableViewCellViewModel? {
+        didSet {
+            setupCell(with: viewModel)
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func setupCell(with viewModel: TimelineTableViewCellViewModel?) {
+        entryTextLabel.text = viewModel?.entryText
+        ampmLabel.text = viewModel?.ampmText
+        timeLabel.text = viewModel?.timeText
     }
-
 }
