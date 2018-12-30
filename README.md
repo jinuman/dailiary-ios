@@ -5,11 +5,15 @@
 #### Simple daily journal application for iOS   
 > Simple is the best!    
 
+## Design
+
+- Designed with OOP based and MVVM pattern.
+
 ## Execution Screen
 
 - **Create journal**
 
-![-create](https://user-images.githubusercontent.com/26243835/50221021-3d21fb80-03d7-11e9-8dc9-578df3ce25ca.gif)
+![create-journal](https://user-images.githubusercontent.com/26243835/50545674-63a82800-0c5c-11e9-90b6-2c7f29ddfaa3.gif)
 
 - **Read journal**
 
