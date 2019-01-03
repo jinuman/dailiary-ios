@@ -17,7 +17,7 @@ class TimelineViewViewModel {
         return environment.entryRepository
     }
     private var entries: [Entry] {
-        return repo.recentEntries(max: repo.numberOfEntries)
+        return repo.allEntries
     }
     
     init(environment: Environment) {
@@ -33,8 +33,7 @@ class TimelineViewViewModel {
     
     private func entry(for indexPath: IndexPath) -> Entry {
         let date = dates[indexPath.section]
-        let entriesOfDate = entries(for: date)
-        let entry = entriesOfDate[indexPath.row]
+        let entry = entries(for: date)[indexPath.row]
         return entry
     }
     
