@@ -3,8 +3,8 @@
 ## Introduction
 
 #### Simple daily journal application for iOS   
-> Simple is the best!    
-
+> Simple is the best      
+  
 ## Design
 
 - Designed with OOP based and MVVM pattern.
