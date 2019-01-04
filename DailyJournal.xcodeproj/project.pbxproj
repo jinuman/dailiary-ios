@@ -23,6 +23,7 @@
 		36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92921CA3103007A4DD7 /* EntryRepository.swift */; };
 		36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */; };
 		36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D00D8121D5164D000CBDD0 /* Environment.swift */; };
+		36F4179E21DFB8E600B9F5AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		36B4F92921CA3103007A4DD7 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DailyJournal.swift"; sourceTree = "<group>"; };
 		36D00D8121D5164D000CBDD0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */,
 				36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */,
 				36B4F92121CA2216007A4DD7 /* EntryViewController.swift */,
+				36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */,
+				36F4179E21DFB8E600B9F5AD /* SettingsTableViewController.swift in Sources */,
 				3676019321D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift in Sources */,
 				36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */,
 				36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */,
