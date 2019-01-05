@@ -83,7 +83,7 @@ extension TimelineViewViewModel {
     
     func headerTitle(of section: Int) -> String {
         let date = dates[section]
-        return DateFormatter.entryDateFormatter.string(from: date)
+        return DateFormatter.formatter(with: environment.settings.dateFormatOption.rawValue).string(from: date)
     }
     
     func numberOfRows(in section: Int) -> Int {

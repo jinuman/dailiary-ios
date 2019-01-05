@@ -38,7 +38,7 @@ class EntryViewViewModel {
     
     var entryTitle: String {
         let date: Date = entry?.createdAt ?? environment.now()
-        return DateFormatter.entryDateFormatter.string(from: date)
+        return DateFormatter.formatter(with: environment.settings.dateFormatOption.rawValue).string(from: date)
     }
     
     private(set) var isEditing: Bool = false
