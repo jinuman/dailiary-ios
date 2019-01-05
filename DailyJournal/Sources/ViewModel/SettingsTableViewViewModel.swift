@@ -27,6 +27,29 @@ class SettingsTableViewViewModel {
     }
     
     var sectionModels: [SettingsSectionModel] {
-        return []
+        let now = environment.now()
+        
+        return [
+            SettingsSectionModel(
+                title: DateFormatOption.name,
+                cellModels: DateFormatOption.all.map { option in
+                    SettingsCellModel(
+                        title: DateFormatter.formatter(with: option.rawValue).string(from: now),
+                        font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+                        isChecked: option == DateFormatOption.default
+                    )
+                }
+            ),
+            SettingsSectionModel(
+                title: FontSizeOption.name,
+                cellModels: FontSizeOption.all.map { option in
+                    SettingsCellModel(
+                        title: "\(option)",
+                        font: UIFont.systemFont(ofSize: option.rawValue),
+                        isChecked: option == FontSizeOption.default
+                    )
+                }
+            )
+        ]
     }
 }
