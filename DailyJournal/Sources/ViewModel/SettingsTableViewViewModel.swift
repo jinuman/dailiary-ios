@@ -30,4 +30,17 @@ class SettingsTableViewViewModel {
         let now = environment.now()
         return environment.settings.sectionModels(with: now)
     }
+    
+    func selectOption(for indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:     // 날짜 크기 변경
+            let newOption = DateFormatOption.all[indexPath.row]
+            environment.settings.dateFormatOption = newOption
+        case 1:     // 폰트 크기 변경
+            let newOption = FontSizeOption.all[indexPath.row]
+            environment.settings.fontSizeOption = newOption
+        default:
+            break
+        }
+    }
 }

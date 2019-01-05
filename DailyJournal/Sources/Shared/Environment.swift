@@ -10,7 +10,7 @@ import Foundation
 
 class Environment {
     let entryRepository: EntryRepository
-    let settings: Settings
+    var settings: Settings
     let now: () -> Date
     
     init(entryRepository: EntryRepository = InMemoryEntryRepository(),
