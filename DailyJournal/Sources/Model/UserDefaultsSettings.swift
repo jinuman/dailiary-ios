@@ -15,13 +15,7 @@ extension UserDefaults: Settings {
     var dateFormatOption: DateFormatOption {
         get {
             let rawValue = object(forKey: dateFormatOptionKey) as? String
-            if
-                let rawValue = rawValue,
-                let option = DateFormatOption(rawValue: rawValue) {
-                return option
-            } else {
-                return DateFormatOption.default
-            }
+            return rawValue.flatMap(DateFormatOption.init) ?? .default
         }
         set {
             set(newValue.rawValue, forKey: dateFormatOptionKey)
