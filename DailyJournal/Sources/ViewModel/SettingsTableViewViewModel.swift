@@ -44,7 +44,7 @@ class SettingsTableViewViewModel {
                 title: FontSizeOption.name,
                 cellModels: FontSizeOption.all.map { option in
                     SettingsCellModel(
-                        title: "\(option)",
+                        title: option.description,
                         font: UIFont.systemFont(ofSize: option.rawValue),
                         isChecked: option == FontSizeOption.default
                     )

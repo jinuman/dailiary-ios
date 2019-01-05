@@ -23,7 +23,7 @@ enum DateFormatOption: String, SettingsOption {
     static var all: [DateFormatOption] { return [.yearFirst, .dayOfWeekFirst] }
 }
 
-enum FontSizeOption: CGFloat, SettingsOption {
+enum FontSizeOption: CGFloat, SettingsOption, CustomStringConvertible {
     case small = 14
     case medium = 16
     case large = 18
@@ -31,4 +31,12 @@ enum FontSizeOption: CGFloat, SettingsOption {
     static var name: String { return "글자 크기" }
     static var `default`: FontSizeOption { return .medium }
     static var all: [FontSizeOption] { return [.small, .medium, .large] }
+    
+    var description: String {
+        switch self {
+        case .small: return "작게"
+        case .medium: return "중간"
+        case .large: return "크게"
+        }
+    }
 }
