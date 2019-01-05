@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         let repo: InMemoryEntryRepository = InMemoryEntryRepository(entries: entries)
-        let env = Environment(entryRepository: repo)
+        let env = Environment(entryRepository: repo, settings: UserDefaults.standard)
         timelineVC.viewModel = TimelineViewViewModel(environment: env)
     }
     

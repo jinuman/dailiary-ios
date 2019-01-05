@@ -22,6 +22,7 @@ class TimelineTableViewCell: UITableViewCell {
     
     private func setupCell(with viewModel: TimelineTableViewCellViewModel?) {
         entryTextLabel.text = viewModel?.entryText
+        entryTextLabel.font = viewModel?.entryTextFont
         ampmLabel.text = viewModel?.ampmText
         timeLabel.text = viewModel?.timeText
     }

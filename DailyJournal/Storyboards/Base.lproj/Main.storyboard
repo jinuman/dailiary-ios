@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-dT-ZmQ">
-                                                    <rect key="frame" x="20" y="13.333333333333336" width="374" height="53.000000000000007"/>
+                                                    <rect key="frame" x="20" y="13.333333333333339" width="374" height="53"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="일기 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGT-e7-UVj">
                                                             <rect key="frame" x="0.0" y="17" width="286" height="19.333333333333329"/>
@@ -91,6 +91,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VB8-c1-5hN">
+                        <barButtonItem key="leftBarButtonItem" image="baseline_settings_white_24pt" id="JcW-Rm-Lay">
+                            <connections>
+                                <segue destination="5fA-iV-Laa" kind="show" identifier="showSettings" id="GMp-i0-gHV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GyD-cG-VFQ">
                             <connections>
                                 <segue destination="wrP-UE-Swj" kind="show" identifier="addEntry" id="cUL-ij-uUm"/>
@@ -149,7 +154,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7B-yd-OJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="132"/>
+            <point key="canvasLocation" x="1241" y="133"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="bGl-1q-HZd">
+            <objects>
+                <tableViewController title="설정" id="5fA-iV-Laa" customClass="SettingsTableViewController" customModule="DailyJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="BVY-S2-xJS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="2yO-2Y-YeI" style="IBUITableViewCellStyleDefault" id="ppA-rC-7K2">
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ppA-rC-7K2" id="PZ4-w0-LuO">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2yO-2Y-YeI">
+                                            <rect key="frame" x="20" y="0.0" width="350" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5fA-iV-Laa" id="rNX-q0-K9a"/>
+                            <outlet property="delegate" destination="5fA-iV-Laa" id="cp8-is-W7e"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZD-w6-43a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1241" y="-522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y4T-w3-uJA">
@@ -173,6 +215,7 @@
     <resources>
         <image name="baseline_delete_white_24pt" width="24" height="24"/>
         <image name="baseline_edit_white_24pt" width="24" height="24"/>
+        <image name="baseline_settings_white_24pt" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2uE-h7-ST2"/>

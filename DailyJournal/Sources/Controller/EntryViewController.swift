@@ -20,8 +20,8 @@ class EntryViewController: UIViewController {
         super.viewDidLoad()
         title = viewModel.entryTitle
         
-        textView.font = UIFont.systemFont(ofSize: 20)
         textView.text = viewModel.textViewText
+        textView.font = viewModel.textViewFont
         
         if viewModel.hasEntry == false {
             viewModel.startEditing()

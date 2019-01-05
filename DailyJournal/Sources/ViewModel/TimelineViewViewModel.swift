@@ -6,7 +6,7 @@
 //  Copyright © 2018년 jinuman. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TimelineViewViewModel {
     
@@ -67,10 +67,14 @@ class TimelineViewViewModel {
         
         return TimelineTableViewCellViewModel(
             entryText: entry.text,
+            entryTextFont: UIFont.systemFont(ofSize: environment.settings.fontSizeOption.rawValue),
             ampmText: DateFormatter.entryTimeFormatter.string(from: entry.createdAt),
             timeText: DateFormatter.ampmFormatter.string(from: entry.createdAt)
         )
     }
+    
+    lazy var settingsViewModel: SettingsTableViewViewModel =
+        SettingsTableViewViewModel(environment: environment)
 }
 
 extension TimelineViewViewModel {
@@ -80,7 +84,7 @@ extension TimelineViewViewModel {
     
     func headerTitle(of section: Int) -> String {
         let date = dates[section]
-        return DateFormatter.entryDateFormatter.string(from: date)
+        return DateFormatter.formatter(with: environment.settings.dateFormatOption.rawValue).string(from: date)
     }
     
     func numberOfRows(in section: Int) -> Int {
