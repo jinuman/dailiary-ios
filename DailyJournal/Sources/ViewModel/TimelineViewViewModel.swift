@@ -71,6 +71,9 @@ class TimelineViewViewModel {
             timeText: DateFormatter.ampmFormatter.string(from: entry.createdAt)
         )
     }
+    
+    lazy var settingsViewModel: SettingsTableViewViewModel =
+        SettingsTableViewViewModel(environment: environment)
 }
 
 extension TimelineViewViewModel {

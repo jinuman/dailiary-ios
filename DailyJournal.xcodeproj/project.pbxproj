@@ -24,6 +24,8 @@
 		36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */; };
 		36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D00D8121D5164D000CBDD0 /* Environment.swift */; };
 		36F4179E21DFB8E600B9F5AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */; };
+		36F417A021DFC3B200B9F5AD /* SettingsTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */; };
+		36F417A221E0A18A00B9F5AD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F417A121E0A18A00B9F5AD /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DailyJournal.swift"; sourceTree = "<group>"; };
 		36D00D8121D5164D000CBDD0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewViewModel.swift; sourceTree = "<group>"; };
+		36F417A121E0A18A00B9F5AD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 			children = (
 				36B4F91C21CA2152007A4DD7 /* Entry.swift */,
 				36B4F92921CA3103007A4DD7 /* EntryRepository.swift */,
+				36F417A121E0A18A00B9F5AD /* Settings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */,
 				3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */,
 				3676019221D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift */,
+				36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,7 +301,9 @@
 				36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */,
 				36B4F92821CA2DAF007A4DD7 /* UIKit+DailyJournal.swift in Sources */,
 				3676019021D8B62000DC7A39 /* EntryViewViewModel.swift in Sources */,
+				36F417A221E0A18A00B9F5AD /* Settings.swift in Sources */,
 				36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */,
+				36F417A021DFC3B200B9F5AD /* SettingsTableViewViewModel.swift in Sources */,
 				36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */,
 				36B4F8FA21CA1C2E007A4DD7 /* AppDelegate.swift in Sources */,
 				3676019121D8B62000DC7A39 /* TimelineViewViewModel.swift in Sources */,
