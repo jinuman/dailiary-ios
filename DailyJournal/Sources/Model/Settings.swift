@@ -8,6 +8,16 @@
 
 import UIKit
 
+protocol Settings {
+    var dateFormatOption: DateFormatOption { get set }
+    var fontSizeOption: FontSizeOption { get set }
+}
+
+class InMemorySettings: Settings {
+    var dateFormatOption: DateFormatOption = .default
+    var fontSizeOption: FontSizeOption = .default
+}
+
 protocol SettingsOption {
     static var name: String { get }
     static var `default`: Self { get }
@@ -38,5 +48,32 @@ enum FontSizeOption: CGFloat, SettingsOption, CustomStringConvertible {
         case .medium: return "중간"
         case .large: return "크게"
         }
+    }
+}
+
+extension Settings {
+    func sectionModels(with now: Date) -> [SettingsSectionModel] {
+        return [
+            SettingsSectionModel(
+                title: DateFormatOption.name,
+                cellModels: DateFormatOption.all.map { option in
+                    SettingsCellModel(
+                        title: DateFormatter.formatter(with: option.rawValue).string(from: now),
+                        font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+                        isChecked: option == dateFormatOption
+                    )
+                }
+            ),
+            SettingsSectionModel(
+                title: FontSizeOption.name,
+                cellModels: FontSizeOption.all.map { option in
+                    SettingsCellModel(
+                        title: option.description,
+                        font: UIFont.systemFont(ofSize: option.rawValue),
+                        isChecked: option == fontSizeOption
+                    )
+                }
+            )
+        ]
     }
 }
