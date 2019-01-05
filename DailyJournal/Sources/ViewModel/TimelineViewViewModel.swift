@@ -6,7 +6,7 @@
 //  Copyright © 2018년 jinuman. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TimelineViewViewModel {
     
@@ -67,6 +67,7 @@ class TimelineViewViewModel {
         
         return TimelineTableViewCellViewModel(
             entryText: entry.text,
+            entryTextFont: UIFont.systemFont(ofSize: environment.settings.fontSizeOption.rawValue),
             ampmText: DateFormatter.entryTimeFormatter.string(from: entry.createdAt),
             timeText: DateFormatter.ampmFormatter.string(from: entry.createdAt)
         )
