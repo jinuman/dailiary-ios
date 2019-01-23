@@ -16,7 +16,7 @@ class TimelineViewViewModel {
     private var repo: EntryRepository {
         return environment.entryRepository
     }
-    private var entries: [Entry] {
+    private var entries: [EntryType] {
         return repo.allEntries
     }
     
@@ -25,13 +25,13 @@ class TimelineViewViewModel {
         self.dates = repo.uniqueDates
     }
     
-    private func entries(for date: Date) -> [Entry] {
+    private func entries(for date: Date) -> [EntryType] {
         return entries.filter {
             $0.createdAt.hmsRemoved == date
         }
     }
     
-    private func entry(for indexPath: IndexPath) -> Entry {
+    private func entry(for indexPath: IndexPath) -> EntryType {
         let date = dates[indexPath.section]
         let entry = entries(for: date)[indexPath.row]
         return entry
@@ -94,11 +94,11 @@ extension TimelineViewViewModel {
 }
 
 extension TimelineViewViewModel: EntryViewViewModelDelegate {
-    func didAddEntry(_ entry: Entry) {
+    func didAddEntry(_ entry: EntryType) {
         dates = repo.uniqueDates
     }
     
-    func didRemoveEntry(_ entry: Entry) {
+    func didRemoveEntry(_ entry: EntryType) {
         dates = repo.uniqueDates
     }
 }

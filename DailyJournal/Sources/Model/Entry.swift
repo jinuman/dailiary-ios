@@ -8,7 +8,13 @@
 
 import Foundation
 
-class Entry {
+protocol EntryType: class {
+    var id: UUID { get }
+    var createdAt: Date { get }
+    var text: String { get set }
+}
+
+class Entry: EntryType {
     let id: UUID
     let createdAt: Date
     var text: String
