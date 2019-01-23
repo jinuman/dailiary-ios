@@ -40,13 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let timelineVC = navController.topViewController as? TimelineTableViewController
             else { return }
         
-        let config = Realm.Configuration(inMemoryIdentifier: "InMemoryRealm")
-        guard let realm = try? Realm(configuration: config) else { fatalError("realm config error!") }
+//        let config = Realm.Configuration(inMemoryIdentifier: "InMemoryRealm")
+        guard let realm = try? Realm() else { fatalError("realm config error!") }
         let repo = RealmEntryRepository(realm: realm)
         let env = Environment(
             entryRepository: repo,
             entryFactory: RealmEntry.entry,
             settings: UserDefaults.standard)
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         timelineVC.viewModel = TimelineViewViewModel(environment: env)
     }
     
