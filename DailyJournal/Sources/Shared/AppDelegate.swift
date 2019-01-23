@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         customizeNavigationBar()
@@ -39,20 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let timelineVC = navController.topViewController as? TimelineTableViewController
             else { return }
         
-        let entries: [Entry] = [
-            // 어제
-            Entry(createdAt: Date.before(1), text: "어제 일기"),
-            // 2일 전
-            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
-            Entry(createdAt: Date.before(2), text: "2일 전 일기"),
-            // 3일 전
-            Entry(createdAt: Date.before(3), text: "3일 전 일기"),
-            Entry(createdAt: Date.before(3), text: "3일 전 일기"),
-            Entry(createdAt: Date.before(3), text: "3일 전 일기")
-        ]
-        
-        let repo: InMemoryEntryRepository = InMemoryEntryRepository(entries: entries)
-        let env = Environment(entryRepository: repo, settings: UserDefaults.standard)
+        let config = Realm.Configuration(inMemoryIdentifier: "InMemoryRealm")
+        guard let realm = try? Realm(configuration: config) else { fatalError("realm config error!") }
+        let repo = RealmEntryRepository(realm: realm)
+        let env = Environment(
+            entryRepository: repo,
+            entryFactory: RealmEntry.entry,
+            settings: UserDefaults.standard)
         timelineVC.viewModel = TimelineViewViewModel(environment: env)
     }
     

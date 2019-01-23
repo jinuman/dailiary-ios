@@ -10,31 +10,61 @@ import Foundation
 import RealmSwift
 
 class RealmEntryRepository: EntryRepository {
-    var numberOfEntries: Int { return 0 }
-    
-    func add(_ entry: EntryType) {
-        
-    }
-    
-    func update(_ entry: EntryType) {
-        
-    }
-    
-    func remove(_ entry: EntryType) {
-        
-    }
-    
-    func entry(with id: UUID) -> EntryType? {
-        return nil
-    }
-    
-    func recentEntries(max: Int) -> [EntryType] {
-        return []
-    }
-    
-    let realm: Realm
+    private let realm: Realm
     
     init(realm: Realm) {
         self.realm = realm
     }
+    
+    func add(_ entry: EntryType) {
+        guard let realmEntry = entry as? RealmEntry else { fatalError() }
+        do {
+            try realm.write {
+                realm.add(realmEntry)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func update(_ entry: EntryType) {
+        guard let realmEntry = entry as? RealmEntry else { fatalError() }
+        do {
+            try realm.write {
+                realm.add(realmEntry, update: true)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func remove(_ entry: EntryType) {
+        guard let realmEntry = entry as? RealmEntry else { fatalError() }
+        do {
+            try realm.write {
+                realm.delete(realmEntry)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    var numberOfEntries: Int {
+        return realm.objects(RealmEntry.self).count
+    }
+    
+    func entry(with id: UUID) -> EntryType? {
+        return realm.objects(RealmEntry.self)
+            .filter("uuidString == '\(id.uuidString)'")
+            .first
+    }
+    
+    func recentEntries(max: Int) -> [EntryType] {
+        let results = realm.objects(RealmEntry.self)
+            .sorted(byKeyPath: "createdAt", ascending: false)
+            .prefix(max)
+        return Array(results)
+    }
+    
+    
 }
