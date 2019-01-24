@@ -52,7 +52,7 @@ class EntryViewViewModel {
     }
     
     var buttonImage: UIImage {
-        return isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
+        return isEditing ? #imageLiteral(resourceName: "baseline_save_black_24pt") : #imageLiteral(resourceName: "baseline_edit_black_24pt")
     }
     
     func startEditing() {

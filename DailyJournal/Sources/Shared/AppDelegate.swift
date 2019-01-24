@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func customizeNavigationBar() {
         if let navController = window?.rootViewController as? UINavigationController {
             navController.navigationBar.prefersLargeTitles = true
-            navController.navigationBar.barStyle = UIBarStyle.black
-            navController.navigationBar.tintColor = UIColor.white    // BarButton color
+            navController.navigationBar.barStyle = UIBarStyle.default
+            navController.navigationBar.tintColor = UIColor.black    // BarButton color
             
             let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
                                                 size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
