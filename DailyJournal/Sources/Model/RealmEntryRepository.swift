@@ -27,10 +27,11 @@ class RealmEntryRepository: EntryRepository {
         }
     }
     
-    func update(_ entry: EntryType) {
+    func update(_ entry: EntryType, text: String) {
         guard let realmEntry = entry as? RealmEntry else { fatalError() }
         do {
             try realm.write {
+                realmEntry.text = text
                 realm.add(realmEntry, update: true)
             }
         } catch {

@@ -63,8 +63,7 @@ class EntryViewViewModel {
         isEditing = false
         
         if let editingEntry = entry {
-            editingEntry.text = text
-            repo.update(editingEntry)
+            repo.update(editingEntry, text: text)
         } else {
             let newEntry = environment.entryFactory(text)
             repo.add(newEntry)
