@@ -20,6 +20,22 @@ class TimelineViewViewModel {
         return repo.allEntries
     }
     
+    private var filteredEntries: [EntryType] = []
+    
+    var searchText: String? {
+        didSet {
+            guard let text = searchText else {
+                filteredEntries = []
+                return
+            }
+            filteredEntries = environment.entryRepository.entries(has: text)
+        }
+    }
+    
+    var isSearching: Bool {
+        return searchText?.isEmpty == false
+    }
+    
     init(environment: Environment) {
         self.environment = environment
         self.dates = repo.uniqueDates
@@ -32,6 +48,10 @@ class TimelineViewViewModel {
     }
     
     private func entry(for indexPath: IndexPath) -> EntryType {
+        guard isSearching == false else {
+            return filteredEntries[indexPath.row]
+        }
+        
         let date = dates[indexPath.section]
         let entry = entries(for: date)[indexPath.row]
         return entry
@@ -79,15 +99,19 @@ class TimelineViewViewModel {
 
 extension TimelineViewViewModel {
     var numberOfDates: Int {
-        return dates.count
+        return isSearching ? 1 : dates.count
     }
     
-    func headerTitle(of section: Int) -> String {
+    func headerTitle(of section: Int) -> String? {
+        guard isSearching == false else { return nil }
+        
         let date = dates[section]
         return DateFormatter.formatter(with: environment.settings.dateFormatOption.rawValue).string(from: date)
     }
     
     func numberOfRows(in section: Int) -> Int {
+        guard isSearching == false else { return filteredEntries.count }
+        
         let date = dates[section]
         return entries(for: date).count
     }

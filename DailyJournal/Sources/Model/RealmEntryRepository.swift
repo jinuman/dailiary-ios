@@ -60,10 +60,19 @@ class RealmEntryRepository: EntryRepository {
             .first
     }
     
+    func entries(has string: String) -> [EntryType] {
+        let result = realm.objects(RealmEntry.self)
+            .filter("text CONTAINS[c] '\(string)'")
+            .sorted(byKeyPath: "createdAt", ascending: false)
+        
+        return Array(result)
+    }
+    
     func recentEntries(max: Int) -> [EntryType] {
         let results = realm.objects(RealmEntry.self)
             .sorted(byKeyPath: "createdAt", ascending: false)
             .prefix(max)
+        
         return Array(results)
     }
     

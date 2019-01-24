@@ -15,6 +15,7 @@ protocol EntryRepository {
     func update(_ entry: EntryType, text: String)
     func remove(_ entry: EntryType)
     func entry(with id: UUID) -> EntryType?
+    func entries(has string: String) -> [EntryType]
     func recentEntries(max: Int) -> [EntryType]
 }
 
@@ -56,11 +57,19 @@ class InMemoryEntryRepository: EntryRepository {
         return entries[id]
     }
     
+    func entries(has string: String) -> [EntryType] {
+        let result = entries.values
+            .filter { $0.text.contains(string) }
+            .sorted { $0.createdAt > $1.createdAt }
+        
+        return Array(result)
+    }
+
+    
     func recentEntries(max: Int) -> [EntryType] {
         guard max >= 0 else { return [] }
         
-        let result = entries
-            .values
+        let result = entries.values
             .sorted { $0.createdAt > $1.createdAt  }
             .prefix(max)
         
