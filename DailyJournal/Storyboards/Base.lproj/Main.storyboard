@@ -202,10 +202,10 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="17"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                            <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="30"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

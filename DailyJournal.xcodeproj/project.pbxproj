@@ -24,6 +24,7 @@
 		36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */; };
 		36C1860121F83CA8006E01B7 /* RealmEntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1860021F83CA8006E01B7 /* RealmEntryRepository.swift */; };
 		36C1860321F843C6006E01B7 /* RealmEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1860221F843C6006E01B7 /* RealmEntry.swift */; };
+		36C83FF421FA28C20060DFC0 /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36C83FF321FA28C20060DFC0 /* BMJUA_otf.otf */; };
 		36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D00D8121D5164D000CBDD0 /* Environment.swift */; };
 		36F4179E21DFB8E600B9F5AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */; };
 		36F417A021DFC3B200B9F5AD /* SettingsTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */; };
@@ -66,6 +67,7 @@
 		36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DailyJournal.swift"; sourceTree = "<group>"; };
 		36C1860021F83CA8006E01B7 /* RealmEntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEntryRepository.swift; sourceTree = "<group>"; };
 		36C1860221F843C6006E01B7 /* RealmEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEntry.swift; sourceTree = "<group>"; };
+		36C83FF321FA28C20060DFC0 /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
 		36D00D8121D5164D000CBDD0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewViewModel.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		36B4F91B21CA212B007A4DD7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				36C83FF321FA28C20060DFC0 /* BMJUA_otf.otf */,
 				36B4F90021CA1C2F007A4DD7 /* Assets.xcassets */,
 				36B4F90521CA1C2F007A4DD7 /* Info.plist */,
 			);
@@ -319,6 +322,7 @@
 				36B4F90421CA1C2F007A4DD7 /* LaunchScreen.storyboard in Resources */,
 				36B4F90121CA1C2F007A4DD7 /* Assets.xcassets in Resources */,
 				36B4F8FF21CA1C2E007A4DD7 /* Main.storyboard in Resources */,
+				36C83FF421FA28C20060DFC0 /* BMJUA_otf.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
