@@ -11,17 +11,36 @@ import UIKit
 class TimelineTableViewController: UIViewController {
     
     @IBOutlet weak var timelineTableView: UITableView!
+    private let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     var viewModel: TimelineViewViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "타임라인"
+        
+        searchController.searchBar.placeholder = "검색어로 일기를 찾아보세요.."
+        searchController.searchBar.tintColor = .black
+        searchController.searchBar.autocapitalizationType = .none
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        
+        navigationItem.searchController = searchController
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         timelineTableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if searchController.isActive {
+            viewModel.searchText = nil
+            searchController.isActive = false
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,6 +93,10 @@ extension TimelineTableViewController: UITableViewDataSource {
 
 extension TimelineTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard searchController.isActive == false else {
+            return UISwipeActionsConfiguration(actions: [])
+        }
+        
         let removeAction = UIContextualAction(style: .normal, title:  nil) { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             
             let isLastEntryInSection = self.viewModel.numberOfRows(in: indexPath.section) == 1
@@ -95,5 +118,14 @@ extension TimelineTableViewController: UITableViewDelegate {
         removeAction.backgroundColor = .red
         
         return UISwipeActionsConfiguration(actions: [removeAction])
+    }
+}
+
+extension TimelineTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        
+        viewModel.searchText = searchText
+        timelineTableView.reloadData()
     }
 }
