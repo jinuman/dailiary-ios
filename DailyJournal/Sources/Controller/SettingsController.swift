@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewController.swift
+//  SettingsController.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2019. 1. 5..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsController: UITableViewController {
 
-    var viewModel: SettingsTableViewViewModel!
+    var viewModel: SettingsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

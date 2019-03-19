@@ -8,20 +8,21 @@
 
 import Foundation
 
-typealias EntryFactory = (String) -> EntryType
+typealias JournalFactory = (String) -> JournalType
 
 class Environment {
-    let entryRepository: EntryRepository
-    let entryFactory: EntryFactory
+    let journalRepository: JournalRepository
+    let journalFactory: JournalFactory
     var settings: Settings
     let now: () -> Date
     
-    init(entryRepository: EntryRepository = InMemoryEntryRepository(),
-         entryFactory: @escaping EntryFactory = { Entry(text: $0) },
+    init(journalRepository: JournalRepository = InMemoryJournalRepository(),
+         journalFactory: @escaping JournalFactory = { Journal(text: $0) },
          settings: Settings = InMemorySettings(),
          now: @escaping () -> Date = Date.init) {
-        self.entryRepository = entryRepository
-        self.entryFactory = entryFactory
+        
+        self.journalRepository = journalRepository
+        self.journalFactory = journalFactory
         self.settings = settings
         self.now = now
     }

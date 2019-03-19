@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3676019021D8B62000DC7A39 /* EntryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */; };
-		3676019121D8B62000DC7A39 /* TimelineViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */; };
-		3676019321D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676019221D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift */; };
+		3676019021D8B62000DC7A39 /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018E21D8B62000DC7A39 /* JournalViewModel.swift */; };
+		3676019121D8B62000DC7A39 /* TimelineTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676018F21D8B62000DC7A39 /* TimelineTableViewModel.swift */; };
+		3676019321D8B8A900DC7A39 /* TimelineTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676019221D8B8A900DC7A39 /* TimelineTableCellViewModel.swift */; };
 		36B4F8FA21CA1C2E007A4DD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */; };
-		36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */; };
+		36B4F8FC21CA1C2E007A4DD7 /* TimelineTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F8FB21CA1C2E007A4DD7 /* TimelineTableController.swift */; };
 		36B4F8FF21CA1C2E007A4DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B4F8FD21CA1C2E007A4DD7 /* Main.storyboard */; };
 		36B4F90121CA1C2F007A4DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36B4F90021CA1C2F007A4DD7 /* Assets.xcassets */; };
 		36B4F90421CA1C2F007A4DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B4F90221CA1C2F007A4DD7 /* LaunchScreen.storyboard */; };
 		36B4F90F21CA1C30007A4DD7 /* DailyJournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F90E21CA1C30007A4DD7 /* DailyJournalTests.swift */; };
-		36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F91C21CA2152007A4DD7 /* Entry.swift */; };
-		36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92121CA2216007A4DD7 /* EntryViewController.swift */; };
-		36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */; };
+		36B4F91D21CA2152007A4DD7 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F91C21CA2152007A4DD7 /* Journal.swift */; };
+		36B4F92221CA2216007A4DD7 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92121CA2216007A4DD7 /* JournalController.swift */; };
+		36B4F92621CA2534007A4DD7 /* TimelineTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92521CA2534007A4DD7 /* TimelineTableCell.swift */; };
 		36B4F92821CA2DAF007A4DD7 /* UIKit+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */; };
-		36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92921CA3103007A4DD7 /* EntryRepository.swift */; };
+		36B4F92A21CA3103007A4DD7 /* JournalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92921CA3103007A4DD7 /* JournalRepository.swift */; };
 		36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */; };
-		36C1860121F83CA8006E01B7 /* RealmEntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1860021F83CA8006E01B7 /* RealmEntryRepository.swift */; };
-		36C1860321F843C6006E01B7 /* RealmEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1860221F843C6006E01B7 /* RealmEntry.swift */; };
+		36C1860121F83CA8006E01B7 /* RealmJournalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1860021F83CA8006E01B7 /* RealmJournalRepository.swift */; };
+		36C1860321F843C6006E01B7 /* RealmJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1860221F843C6006E01B7 /* RealmJournal.swift */; };
 		36C83FF421FA28C20060DFC0 /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36C83FF321FA28C20060DFC0 /* BMJUA_otf.otf */; };
 		36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D00D8121D5164D000CBDD0 /* Environment.swift */; };
-		36F4179E21DFB8E600B9F5AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */; };
-		36F417A021DFC3B200B9F5AD /* SettingsTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */; };
+		36F4179E21DFB8E600B9F5AD /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179D21DFB8E600B9F5AD /* SettingsController.swift */; };
+		36F417A021DFC3B200B9F5AD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4179F21DFC3B200B9F5AD /* SettingsViewModel.swift */; };
 		36F417A221E0A18A00B9F5AD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F417A121E0A18A00B9F5AD /* Settings.swift */; };
 		36F417A421E0D90E00B9F5AD /* UserDefaultsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F417A321E0D90E00B9F5AD /* UserDefaultsSettings.swift */; };
 		88ABF86748EE61E9FAC48070 /* Pods_DailyJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86374B8EF1B81981E36E4139 /* Pods_DailyJournal.framework */; };
@@ -46,12 +46,12 @@
 
 /* Begin PBXFileReference section */
 		00D091CE7662F98244239BC9 /* Pods_DailyJournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyJournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewViewModel.swift; sourceTree = "<group>"; };
-		3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewViewModel.swift; sourceTree = "<group>"; };
-		3676019221D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		3676018E21D8B62000DC7A39 /* JournalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
+		3676018F21D8B62000DC7A39 /* TimelineTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewModel.swift; sourceTree = "<group>"; };
+		3676019221D8B8A900DC7A39 /* TimelineTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableCellViewModel.swift; sourceTree = "<group>"; };
 		36B4F8F621CA1C2E007A4DD7 /* DailyJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4F8F921CA1C2E007A4DD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
+		36B4F8FB21CA1C2E007A4DD7 /* TimelineTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableController.swift; sourceTree = "<group>"; };
 		36B4F8FE21CA1C2E007A4DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36B4F90021CA1C2F007A4DD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36B4F90321CA1C2F007A4DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,18 +59,18 @@
 		36B4F90A21CA1C30007A4DD7 /* DailyJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4F90E21CA1C30007A4DD7 /* DailyJournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyJournalTests.swift; sourceTree = "<group>"; };
 		36B4F91021CA1C30007A4DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36B4F91C21CA2152007A4DD7 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		36B4F92121CA2216007A4DD7 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
-		36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		36B4F91C21CA2152007A4DD7 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		36B4F92121CA2216007A4DD7 /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
+		36B4F92521CA2534007A4DD7 /* TimelineTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableCell.swift; sourceTree = "<group>"; };
 		36B4F92721CA2DAF007A4DD7 /* UIKit+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+DailyJournal.swift"; sourceTree = "<group>"; };
-		36B4F92921CA3103007A4DD7 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
+		36B4F92921CA3103007A4DD7 /* JournalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRepository.swift; sourceTree = "<group>"; };
 		36B4F92B21CA389C007A4DD7 /* Foundation+DailyJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+DailyJournal.swift"; sourceTree = "<group>"; };
-		36C1860021F83CA8006E01B7 /* RealmEntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEntryRepository.swift; sourceTree = "<group>"; };
-		36C1860221F843C6006E01B7 /* RealmEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmEntry.swift; sourceTree = "<group>"; };
+		36C1860021F83CA8006E01B7 /* RealmJournalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmJournalRepository.swift; sourceTree = "<group>"; };
+		36C1860221F843C6006E01B7 /* RealmJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmJournal.swift; sourceTree = "<group>"; };
 		36C83FF321FA28C20060DFC0 /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
 		36D00D8121D5164D000CBDD0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewViewModel.swift; sourceTree = "<group>"; };
+		36F4179D21DFB8E600B9F5AD /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		36F4179F21DFC3B200B9F5AD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		36F417A121E0A18A00B9F5AD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		36F417A321E0D90E00B9F5AD /* UserDefaultsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSettings.swift; sourceTree = "<group>"; };
 		600E93BBDC9F28B603ECD8F6 /* Pods-DailyJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyJournalTests/Pods-DailyJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,10 +181,10 @@
 		36B4F91E21CA2157007A4DD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				36B4F91C21CA2152007A4DD7 /* Entry.swift */,
-				36C1860221F843C6006E01B7 /* RealmEntry.swift */,
-				36B4F92921CA3103007A4DD7 /* EntryRepository.swift */,
-				36C1860021F83CA8006E01B7 /* RealmEntryRepository.swift */,
+				36B4F91C21CA2152007A4DD7 /* Journal.swift */,
+				36C1860221F843C6006E01B7 /* RealmJournal.swift */,
+				36B4F92921CA3103007A4DD7 /* JournalRepository.swift */,
+				36C1860021F83CA8006E01B7 /* RealmJournalRepository.swift */,
 				36F417A121E0A18A00B9F5AD /* Settings.swift */,
 				36F417A321E0D90E00B9F5AD /* UserDefaultsSettings.swift */,
 			);
@@ -194,10 +194,10 @@
 		36B4F91F21CA215D007A4DD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				36B4F8FB21CA1C2E007A4DD7 /* TimelineTableViewController.swift */,
-				36B4F92521CA2534007A4DD7 /* TimelineTableViewCell.swift */,
-				36B4F92121CA2216007A4DD7 /* EntryViewController.swift */,
-				36F4179D21DFB8E600B9F5AD /* SettingsTableViewController.swift */,
+				36B4F8FB21CA1C2E007A4DD7 /* TimelineTableController.swift */,
+				36B4F92521CA2534007A4DD7 /* TimelineTableCell.swift */,
+				36B4F92121CA2216007A4DD7 /* JournalController.swift */,
+				36F4179D21DFB8E600B9F5AD /* SettingsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,10 +216,10 @@
 		36D00D8521D52B00000CBDD0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3676018E21D8B62000DC7A39 /* EntryViewViewModel.swift */,
-				3676018F21D8B62000DC7A39 /* TimelineViewViewModel.swift */,
-				3676019221D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift */,
-				36F4179F21DFC3B200B9F5AD /* SettingsTableViewViewModel.swift */,
+				3676018E21D8B62000DC7A39 /* JournalViewModel.swift */,
+				3676018F21D8B62000DC7A39 /* TimelineTableViewModel.swift */,
+				3676019221D8B8A900DC7A39 /* TimelineTableCellViewModel.swift */,
+				36F4179F21DFC3B200B9F5AD /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -410,23 +410,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B4F92C21CA389C007A4DD7 /* Foundation+DailyJournal.swift in Sources */,
-				36F4179E21DFB8E600B9F5AD /* SettingsTableViewController.swift in Sources */,
-				3676019321D8B8A900DC7A39 /* TimelineTableViewCellViewModel.swift in Sources */,
-				36B4F91D21CA2152007A4DD7 /* Entry.swift in Sources */,
-				36B4F92A21CA3103007A4DD7 /* EntryRepository.swift in Sources */,
-				36B4F92221CA2216007A4DD7 /* EntryViewController.swift in Sources */,
-				36C1860321F843C6006E01B7 /* RealmEntry.swift in Sources */,
+				36F4179E21DFB8E600B9F5AD /* SettingsController.swift in Sources */,
+				3676019321D8B8A900DC7A39 /* TimelineTableCellViewModel.swift in Sources */,
+				36B4F91D21CA2152007A4DD7 /* Journal.swift in Sources */,
+				36B4F92A21CA3103007A4DD7 /* JournalRepository.swift in Sources */,
+				36B4F92221CA2216007A4DD7 /* JournalController.swift in Sources */,
+				36C1860321F843C6006E01B7 /* RealmJournal.swift in Sources */,
 				36D00D8221D5164D000CBDD0 /* Environment.swift in Sources */,
 				36B4F92821CA2DAF007A4DD7 /* UIKit+DailyJournal.swift in Sources */,
-				36C1860121F83CA8006E01B7 /* RealmEntryRepository.swift in Sources */,
-				3676019021D8B62000DC7A39 /* EntryViewViewModel.swift in Sources */,
+				36C1860121F83CA8006E01B7 /* RealmJournalRepository.swift in Sources */,
+				3676019021D8B62000DC7A39 /* JournalViewModel.swift in Sources */,
 				36F417A221E0A18A00B9F5AD /* Settings.swift in Sources */,
-				36B4F92621CA2534007A4DD7 /* TimelineTableViewCell.swift in Sources */,
-				36F417A021DFC3B200B9F5AD /* SettingsTableViewViewModel.swift in Sources */,
-				36B4F8FC21CA1C2E007A4DD7 /* TimelineTableViewController.swift in Sources */,
+				36B4F92621CA2534007A4DD7 /* TimelineTableCell.swift in Sources */,
+				36F417A021DFC3B200B9F5AD /* SettingsViewModel.swift in Sources */,
+				36B4F8FC21CA1C2E007A4DD7 /* TimelineTableController.swift in Sources */,
 				36F417A421E0D90E00B9F5AD /* UserDefaultsSettings.swift in Sources */,
 				36B4F8FA21CA1C2E007A4DD7 /* AppDelegate.swift in Sources */,
-				3676019121D8B62000DC7A39 /* TimelineViewViewModel.swift in Sources */,
+				3676019121D8B62000DC7A39 /* TimelineTableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

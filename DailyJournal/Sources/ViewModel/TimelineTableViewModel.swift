@@ -1,5 +1,5 @@
 //
-//  TimelineViewViewModel.swift
+//  TimelineTableViewModel.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2018. 12. 28..
@@ -8,19 +8,19 @@
 
 import UIKit
 
-class TimelineViewViewModel {
+class TimelineTableViewModel {
     
     let environment: Environment
     private var dates = [Date]()
     
-    private var repo: EntryRepository {
-        return environment.entryRepository
+    private var repo: JournalRepository {
+        return environment.journalRepository
     }
-    private var entries: [EntryType] {
-        return repo.allEntries
+    private var journals: [JournalType] {
+        return repo.allJournals
     }
     
-    private var filteredEntries: [EntryType] = []
+    private var filteredEntries: [JournalType] = []
     
     var searchText: String? {
         didSet {
@@ -28,7 +28,7 @@ class TimelineViewViewModel {
                 filteredEntries = []
                 return
             }
-            filteredEntries = environment.entryRepository.entries(has: text)
+            filteredEntries = environment.journalRepository.journal(has: text)
         }
     }
     
@@ -41,27 +41,27 @@ class TimelineViewViewModel {
         self.dates = repo.uniqueDates
     }
     
-    private func entries(for date: Date) -> [EntryType] {
-        return entries.filter {
+    private func entries(for date: Date) -> [JournalType] {
+        return journals.filter {
             $0.createdAt.hmsRemoved == date
         }
     }
     
-    private func entry(for indexPath: IndexPath) -> EntryType {
+    private func journal(for indexPath: IndexPath) -> JournalType {
         guard isSearching == false else {
             return filteredEntries[indexPath.row]
         }
         
         let date = dates[indexPath.section]
-        let entry = entries(for: date)[indexPath.row]
-        return entry
+        let journal = entries(for: date)[indexPath.row]
+        return journal
     }
     
-    func removeEntry(at indexPath: IndexPath) {
+    func removeJournal(at indexPath: IndexPath) {
         let date = dates[indexPath.section]
         let entries = self.entries(for: date)
-        let entryToRemove = entries[indexPath.row]
-        repo.remove(entryToRemove)
+        let journalToRemove = entries[indexPath.row]
+        repo.remove(journalToRemove)
         
         if entries.count == 1 {
             self.dates = self.dates.filter {
@@ -70,34 +70,34 @@ class TimelineViewViewModel {
         }
     }
     
-    var newEntryViewViewModel: EntryViewViewModel {
-        let vm = EntryViewViewModel(environment: environment)
+    var newJournalViewViewModel: JournalViewModel {
+        let vm = JournalViewModel(environment: environment)
         vm.delegate = self
         return vm
     }
     
-    func entryViewViewModel(for indexPath: IndexPath) -> EntryViewViewModel {
-        let vm = EntryViewViewModel(environment: environment, entry: entry(for: indexPath))
+    func journalViewViewModel(for indexPath: IndexPath) -> JournalViewModel {
+        let vm = JournalViewModel(environment: environment, journal: journal(for: indexPath))
         vm.delegate = self
         return vm
     }
     
-    func timelineTableViewCellViewModel(for indexPath: IndexPath) -> TimelineTableViewCellViewModel {
-        let entry = self.entry(for: indexPath)
+    func timelineTableViewCellViewModel(for indexPath: IndexPath) -> TimelineTableCellViewModel {
+        let journal = self.journal(for: indexPath)
         
-        return TimelineTableViewCellViewModel(
-            entryText: entry.text,
-            entryTextFont: UIFont.systemFont(ofSize: environment.settings.fontSizeOption.rawValue),
-            ampmText: DateFormatter.entryTimeFormatter.string(from: entry.createdAt),
-            timeText: DateFormatter.ampmFormatter.string(from: entry.createdAt)
+        return TimelineTableCellViewModel(
+            journalText: journal.text,
+            journalTextFont: UIFont.systemFont(ofSize: environment.settings.fontSizeOption.rawValue),
+            ampmText: DateFormatter.journalTimeFormatter.string(from: journal.createdAt),
+            timeText: DateFormatter.ampmFormatter.string(from: journal.createdAt)
         )
     }
     
-    lazy var settingsViewModel: SettingsTableViewViewModel =
-        SettingsTableViewViewModel(environment: environment)
+    lazy var settingsViewModel: SettingsViewModel =
+        SettingsViewModel(environment: environment)
 }
 
-extension TimelineViewViewModel {
+extension TimelineTableViewModel {
     var numberOfDates: Int {
         return isSearching ? 1 : dates.count
     }
@@ -117,12 +117,12 @@ extension TimelineViewViewModel {
     }
 }
 
-extension TimelineViewViewModel: EntryViewViewModelDelegate {
-    func didAddEntry(_ entry: EntryType) {
+extension TimelineTableViewModel: JournalViewModelDelegate {
+    func didAddJournal(_ journal: JournalType) {
         dates = repo.uniqueDates
     }
     
-    func didRemoveEntry(_ entry: EntryType) {
+    func didRemoveJournal(_ journal: JournalType) {
         dates = repo.uniqueDates
     }
 }

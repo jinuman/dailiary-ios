@@ -38,19 +38,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func injectEnvironment() {
         guard
             let navController = window?.rootViewController as? UINavigationController,
-            let timelineVC = navController.topViewController as? TimelineTableViewController
+            let timelineVC = navController.topViewController as? TimelineTableController
             else { return }
         
 //        let config = Realm.Configuration(inMemoryIdentifier: "InMemoryRealm")
         guard let realm = try? Realm() else { fatalError("realm config error!") }
-        let repo = RealmEntryRepository(realm: realm)
+        let repo = RealmJournalRepository(realm: realm)
         let env = Environment(
-            entryRepository: repo,
-            entryFactory: RealmEntry.entry,
+            journalRepository: repo,
+            journalFactory: RealmJournal.journal,
             settings: UserDefaults.standard)
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        timelineVC.viewModel = TimelineViewViewModel(environment: env)
+        timelineVC.viewModel = TimelineTableViewModel(environment: env)
     }
     
 }

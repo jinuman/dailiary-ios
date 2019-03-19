@@ -1,5 +1,5 @@
 //
-//  EntryViewController.swift
+//  JournalController.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2018. 12. 19..
@@ -8,22 +8,22 @@
 
 import UIKit
 
-class EntryViewController: UIViewController {
+class JournalController: UIViewController {
     
     @IBOutlet weak var saveEditButton: UIBarButtonItem!
     @IBOutlet weak var removeButton: UIBarButtonItem!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
-    var viewModel: EntryViewViewModel!
+    var viewModel: JournalViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = viewModel.entryTitle
+        title = viewModel.journalTitle
         
         textView.text = viewModel.textViewText
         textView.font = viewModel.textViewFont
         
-        if viewModel.hasEntry == false {
+        if viewModel.hasJournal == false {
             viewModel.startEditing()
         }
         updateSubviews()
@@ -73,7 +73,7 @@ class EntryViewController: UIViewController {
             completion: nil)
     }
     
-    @objc func saveEntry(_ sender: UIBarButtonItem) {
+    @objc func saveJournal(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(
             title: "저장할까요?",
             message: nil,
@@ -95,14 +95,14 @@ class EntryViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @objc func editEntry(_ sender: UIBarButtonItem) {
+    @objc func editJournal(_ sender: UIBarButtonItem) {
         viewModel.startEditing()
         updateSubviews()
         textView.becomeFirstResponder()
     }
     
-    @IBAction func removeEntry(_ sender: Any) {
-        guard viewModel.hasEntry else { return }
+    @IBAction func removeJournal(_ sender: Any) {
+        guard viewModel.hasJournal else { return }
         
         let alertController = UIAlertController(
             title: "현재 일기를 삭제할까요?",
@@ -111,7 +111,7 @@ class EntryViewController: UIViewController {
         )
         
         let removeAction: UIAlertAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
-            guard let _ = self.viewModel.removeEntry() else { return }
+            guard let _ = self.viewModel.removeJournal() else { return }
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -129,7 +129,7 @@ class EntryViewController: UIViewController {
     fileprivate func updateSubviews() {
         saveEditButton.image = viewModel.buttonImage
         saveEditButton.target = self
-        saveEditButton.action = viewModel.isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
+        saveEditButton.action = viewModel.isEditing ? #selector(saveJournal(_:)) : #selector(editJournal(_:))
         removeButton.isEnabled = viewModel.removeButtonEnabled
         textView.isEditable = viewModel.textViewEditable
     }

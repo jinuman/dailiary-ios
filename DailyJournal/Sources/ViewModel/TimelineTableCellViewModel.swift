@@ -1,5 +1,5 @@
 //
-//  TimelineTableViewCellViewModel.swift
+//  TimelineTableCellViewModel.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2018. 12. 30..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct TimelineTableViewCellViewModel {
-    let entryText: String
-    let entryTextFont: UIFont
+struct TimelineTableCellViewModel {
+    let journalText: String
+    let journalTextFont: UIFont
     let ampmText: String
     let timeText: String
 }

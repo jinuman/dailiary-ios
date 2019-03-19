@@ -1,5 +1,5 @@
 //
-//  TimelineTableViewCell.swift
+//  TimelineTableCell.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2018. 12. 19..
@@ -8,21 +8,21 @@
 
 import UIKit
 
-class TimelineTableViewCell: UITableViewCell {
+class TimelineTableCell: UITableViewCell {
 
-    @IBOutlet weak var entryTextLabel: UILabel!
+    @IBOutlet weak var journalTextLabel: UILabel!
     @IBOutlet weak var ampmLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    var viewModel: TimelineTableViewCellViewModel? {
+    var viewModel: TimelineTableCellViewModel? {
         didSet {
             setupCell(with: viewModel)
         }
     }
     
-    private func setupCell(with viewModel: TimelineTableViewCellViewModel?) {
-        entryTextLabel.text = viewModel?.entryText
-        entryTextLabel.font = viewModel?.entryTextFont
+    private func setupCell(with viewModel: TimelineTableCellViewModel?) {
+        journalTextLabel.text = viewModel?.journalText
+        journalTextLabel.font = viewModel?.journalTextFont
         ampmLabel.text = viewModel?.ampmText
         timeLabel.text = viewModel?.timeText
     }

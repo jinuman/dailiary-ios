@@ -1,5 +1,5 @@
 //
-//  Entry.swift
+//  Journal.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2018. 12. 19..
@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol EntryType: class {
+protocol JournalType: class {
     var id: UUID { get }
     var createdAt: Date { get }
     var text: String { get set }
 }
 
-class Entry: EntryType {
+class Journal: JournalType {
     let id: UUID
     let createdAt: Date
     var text: String

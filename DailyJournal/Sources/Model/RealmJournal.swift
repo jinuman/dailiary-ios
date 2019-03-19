@@ -1,5 +1,5 @@
 //
-//  RealmEntry.swift
+//  RealmJournal.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 23/01/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmEntry: Object, EntryType {
+class RealmJournal: Object, JournalType {
     var id: UUID {
         guard let uuid = UUID(uuidString: uuidString) else { fatalError() }
         return uuid
@@ -25,12 +25,12 @@ class RealmEntry: Object, EntryType {
     
 }
 
-extension RealmEntry {
-    static func entry(with text: String) -> RealmEntry{
-        let entry = RealmEntry()
-        entry.uuidString = UUID().uuidString
-        entry.createdAt = Date()
-        entry.text = text
-        return entry
+extension RealmJournal {
+    static func journal(with text: String) -> RealmJournal {
+        let journal = RealmJournal()
+        journal.uuidString = UUID().uuidString
+        journal.createdAt = Date()
+        journal.text = text
+        return journal
     }
 }

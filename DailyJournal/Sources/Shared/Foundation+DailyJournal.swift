@@ -15,9 +15,9 @@ extension DateFormatter {
         return df
     }
     
-    static var entryDateFormatter: DateFormatter = DateFormatter.formatter(with: "yyyy. MM. dd. EEE")
+    static var journalDateFormatter: DateFormatter = DateFormatter.formatter(with: "yyyy. MM. dd. EEE")
     static var ampmFormatter: DateFormatter = DateFormatter.formatter(with: "a")
-    static var entryTimeFormatter: DateFormatter = DateFormatter.formatter(with: "h:mm")
+    static var journalTimeFormatter: DateFormatter = DateFormatter.formatter(with: "h:mm")
 }
 
 extension Date {

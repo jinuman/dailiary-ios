@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewViewModel.swift
+//  SettingsViewModel.swift
 //  DailyJournal
 //
 //  Created by Jinwoo Kim on 2019. 1. 5..
@@ -19,7 +19,7 @@ struct SettingsCellModel {
     let isChecked: Bool
 }
 
-class SettingsTableViewViewModel {
+class SettingsViewModel {
     let environment: Environment
     
     init(environment: Environment) {
