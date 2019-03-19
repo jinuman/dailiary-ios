@@ -7,6 +7,10 @@ target 'DailyJournal' do
 
   # Pods for DailyJournal
   pod 'RealmSwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'SnapKit'
 
   target 'DailyJournalTests' do
     inherit! :search_paths
