@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol JournalViewModelDelegate: class {
-    func didAddJournal(_ journal: JournalType)
-    func didRemoveJournal(_ journal: JournalType)
-}
-
 class JournalViewModel {
     let environment: Environment
     private var journal: JournalType?
     
-    weak var delegate: JournalViewModelDelegate?
+    weak var delegate: TimelineTableViewModelDelegate?
     
     private var repo: JournalRepository {
         return environment.journalRepository

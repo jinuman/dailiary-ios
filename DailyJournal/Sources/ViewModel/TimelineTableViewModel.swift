@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol TimelineTableViewModelDelegate: class {
+    func didAddJournal(_ journal: JournalType)
+    func didRemoveJournal(_ journal: JournalType)
+}
+
 class TimelineTableViewModel {
     
     let environment: Environment
@@ -117,7 +122,8 @@ extension TimelineTableViewModel {
     }
 }
 
-extension TimelineTableViewModel: JournalViewModelDelegate {
+// MARK:- Regarding TimelineTableDelegate
+extension TimelineTableViewModel: TimelineTableViewModelDelegate {
     func didAddJournal(_ journal: JournalType) {
         dates = repo.uniqueDates
     }
