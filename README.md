@@ -1,9 +1,9 @@
-# DailyJournal
+# MyDiary
 
 ## Introduction
 
-#### Simple daily journal application for iOS   
-> "Simple can be harder than complex. " Quote by **Steve Jobs**
+#### Simple and Light diary application for iOS   
+> "Simple can be harder than complex. " Quote by _Steve Jobs_
   
 ## Design
 
@@ -11,25 +11,23 @@
 
 ## Execution Screen
 
-- **Create journal**
+- **Create diary**
 
-- **Read journal**
+- **Read diary**
 
-- **Update journal**
+- **Update diary**
 
-- **Delete journal**
+- **Delete diary**
 
-- **Search journal**
+- **Search diary**
 
 ## Environments
 
 - iOS 12
 - Swift 4.2
 - Xcode 10
-- CocoaPods
-- Realm 3.3
 
 ## License
 
-DailyJournal is available under the MIT license. 
+MyDiary is available under the MIT license. 
 See `LICENSE` file for details.
