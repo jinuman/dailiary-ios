@@ -24,7 +24,7 @@
 ## Environments
 
 - iOS 12
-- Swift 4.2
+- Swift 5
 - Xcode 10
 
 ## License
