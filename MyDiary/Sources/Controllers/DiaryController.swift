@@ -76,6 +76,12 @@ class DiaryController: UIViewController {
         }
     }
     
+    // In order to fix Notification memory leak.
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK:- Handling methods
     @objc fileprivate func handleRemove() {
         guard viewModel.hasDiary else { return }
