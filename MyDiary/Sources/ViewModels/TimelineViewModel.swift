@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol TimelineViewModelDelegate: class {
-    func didRemoveDiary()  // DiaryController 에서 삭제하면 이 메소드도 수행한다.
-    func didAddDiary()     // 새로 추가한 일기인 상태에서, DiaryController 에서 저장하면 이 메소드도 수행한다.
-}
-
 class TimelineViewModel {
     
     // MARK:- Properties
@@ -129,13 +124,13 @@ extension TimelineViewModel {
     }
 }
 
-// MARK:- Regarding custom TimelineViewModelDelegate methods
-extension TimelineViewModel: TimelineViewModelDelegate {
-    func didRemoveDiary() {
+// MARK:- Regarding custom DiaryViewModelDelegate methods
+extension TimelineViewModel: DiaryViewModelDelegate {
+    func didRemoveDiary() {  // Diary 쪽에서 일기를 삭제했을 때 발생
         self.dates = repo.uniqueDates    // 하나 남은 일기 없앨 때, 날짜도 없앤다.
     }
     
-    func didAddDiary() {
+    func didAddDiary() {  // Diary 쪽에서 일기를 추가할 때 발생
         self.dates = repo.uniqueDates    // 날짜를 수정해준다.
     }
 }

@@ -8,6 +8,12 @@
 
 import UIKit
 
+// Timeline 부분과 통신한다.
+protocol DiaryViewModelDelegate: class {
+    func didRemoveDiary()
+    func didAddDiary()
+}
+
 class DiaryViewModel {
     
     // MARK:- Helper properties
@@ -19,7 +25,7 @@ class DiaryViewModel {
     
     private var diary: Diary?   // 현재 상태의 일기
     
-    weak var delegate: TimelineViewModelDelegate?
+    weak var delegate: DiaryViewModelDelegate?
     
     var hasDiary: Bool {
         return diary != nil
