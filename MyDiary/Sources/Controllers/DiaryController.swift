@@ -57,7 +57,10 @@ class DiaryController: UIViewController {
         title = viewModel.diaryTitle
         
         setAttributedDiaryTextView()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let nc = NotificationCenter.default
         nc.addObserver(self,
                        selector: #selector(handleKeyboardAppear(_:)),
