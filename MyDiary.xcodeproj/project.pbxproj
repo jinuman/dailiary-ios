@@ -143,16 +143,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		362D3DC4224BA1B300EFBF1B /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				362D3DB6224B950200EFBF1B /* TimelineController.swift */,
-				362D3D98224B90C800EFBF1B /* DiaryController.swift */,
-				361B599A224CD88400ED25BA /* SettingsController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		362D3DC5224BA1BE00EFBF1B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,32 +159,42 @@
 			children = (
 				362D3DC2224BA19600EFBF1B /* Shared */,
 				362D3DC5224BA1BE00EFBF1B /* Models */,
-				362D3DC9224BA24B00EFBF1B /* ViewModels */,
-				362D3DC4224BA1B300EFBF1B /* Controllers */,
-				362D3DCE224BCA5500EFBF1B /* Views */,
+				3656397222731A200070FF96 /* Settings */,
+				36563970227319D40070FF96 /* Timeline */,
+				36563971227319F90070FF96 /* Diary */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		362D3DC9224BA24B00EFBF1B /* ViewModels */ = {
+		36563970227319D40070FF96 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
 				362D3DC7224BA24300EFBF1B /* TimelineViewModel.swift */,
 				362D3DCA224BB70800EFBF1B /* TimelineCellViewModel.swift */,
-				362D3DCF224BD8A200EFBF1B /* DiaryViewModel.swift */,
-				361B599C224CDAAE00ED25BA /* SettingsViewModel.swift */,
-				361B599E224CEB6800ED25BA /* SettingsCellViewModel.swift */,
+				362D3DB6224B950200EFBF1B /* TimelineController.swift */,
+				362D3DCC224BCA4D00EFBF1B /* TimelineCell.swift */,
 			);
-			path = ViewModels;
+			path = Timeline;
 			sourceTree = "<group>";
 		};
-		362D3DCE224BCA5500EFBF1B /* Views */ = {
+		36563971227319F90070FF96 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
-				362D3DCC224BCA4D00EFBF1B /* TimelineCell.swift */,
+				362D3DCF224BD8A200EFBF1B /* DiaryViewModel.swift */,
+				362D3D98224B90C800EFBF1B /* DiaryController.swift */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		3656397222731A200070FF96 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				361B599C224CDAAE00ED25BA /* SettingsViewModel.swift */,
+				361B599E224CEB6800ED25BA /* SettingsCellViewModel.swift */,
+				361B599A224CD88400ED25BA /* SettingsController.swift */,
 				361B59A0224CF0D200ED25BA /* SettingsCell.swift */,
 			);
-			path = Views;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

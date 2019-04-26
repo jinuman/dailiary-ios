@@ -9,7 +9,7 @@
 import UIKit
 
 struct SettingsCellViewModel {
-    let title: String
+    let name: String
     let font: UIFont
     let isChecked: Bool
 }

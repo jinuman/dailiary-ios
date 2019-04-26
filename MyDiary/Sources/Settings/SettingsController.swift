@@ -19,11 +19,9 @@ class SettingsController: UITableViewController {
         view.backgroundColor = .white
         title = "설정"
         tableView = UITableView(frame: .zero, style: .grouped)
-        
         tableView.register(SettingsCell.self, forCellReuseIdentifier: settingsCellId)
     }
     
-    // MARK:- deinit for retain cycle
     deinit {
         print("Settings Controller \(#function)")
     }

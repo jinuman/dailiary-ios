@@ -20,7 +20,7 @@ class InMemorySettings: Settings {
 }
 
 protocol SettingsOption {
-    static var name: String { get }
+    static var title: String { get }
     static var `default`: Self { get }
     static var all: [Self] { get }
 }
@@ -29,7 +29,7 @@ enum DateFormatOption: String, SettingsOption {
     case yearFirst = "yyyy. MM. dd. EEE"
     case dayOfWeekFirst = "EEE, MMM d, yyyy"
     
-    static var name: String {
+    static var title: String {
         return "날짜 표현"
     }
     static var `default`: DateFormatOption {
@@ -46,7 +46,7 @@ enum FontSizeOption: CGFloat, SettingsOption {
     case medium = 16
     case large = 20
     
-    static var name: String {
+    static var title: String {
         return "글자 크기"
     }
     static var `default`: FontSizeOption {
@@ -71,31 +71,23 @@ extension Settings {
     func sectionModels(with now: Date) -> [SettingsSectionModel] {
         return [
             SettingsSectionModel(
-                title: DateFormatOption.name,
-                settings: DateFormatOption.all.map {
-                    Option(
-                        title: DateFormatter.formatter(with: $0.rawValue).string(from: now),
-                        font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
-                        isChecked: $0 == dateFormatOption
-                    )
+                title: DateFormatOption.title,
+                options: DateFormatOption.all.map {
+                    Option(name: DateFormatter.formatter(with: $0.rawValue).string(from: now),
+                           font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+                           isChecked: $0 == dateFormatOption)
                 }
             ),
             SettingsSectionModel(
-                title: FontSizeOption.name,
-                settings: FontSizeOption.all.map {
-                    Option(
-                        title: $0.description,
-                        font: UIFont.systemFont(ofSize: $0.rawValue),
-                        isChecked: $0 == fontSizeOption
-                    )
+                title: FontSizeOption.title,
+                options: FontSizeOption.all.map {
+                    Option(name: $0.description,
+                           font: UIFont.systemFont(ofSize: $0.rawValue),
+                           isChecked: $0 == fontSizeOption)
                 }
             )
         ]
     }
 }
 
-struct Option {
-    let title: String
-    let font: UIFont
-    let isChecked: Bool
-}
+

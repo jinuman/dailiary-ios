@@ -30,6 +30,7 @@ class TimelineViewModel {
         return vm
     }
     
+    // DI
     lazy var settingsViewModel: SettingsViewModel = SettingsViewModel(environment: environment)
     
     private var filteredDiaries = [Diary]()

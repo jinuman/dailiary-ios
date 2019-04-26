@@ -8,9 +8,16 @@
 
 import UIKit
 
+// 하나의 셀의 정보
+struct Option {
+    let name: String
+    let font: UIFont
+    let isChecked: Bool
+}
+
 struct SettingsSectionModel {
     let title: String
-    let settings: [Option]
+    let options: [Option]
 }
 
 class SettingsViewModel {
@@ -33,20 +40,20 @@ class SettingsViewModel {
     
     // MARK:- Helper methods
     private func setting(for indexPath: IndexPath) -> Option {
-        return self.sectionModels[indexPath.section].settings[indexPath.row]
+        return self.sectionModels[indexPath.section].options[indexPath.row]
     }
     
     func settingsCellViewModel(for indexPath: IndexPath) -> SettingsCellViewModel {
-        let setting = self.setting(for: indexPath)
+        let option = self.setting(for: indexPath)
         
         // Setting 셀 채우기
-        return SettingsCellViewModel(title: setting.title,
-                                     font: setting.font,
-                                     isChecked: setting.isChecked)
+        return SettingsCellViewModel(name: option.name,
+                                     font: option.font,
+                                     isChecked: option.isChecked)
     }
     
     func numberOfRows(in section: Int) -> Int {
-        return self.sectionModels[section].settings.count
+        return self.sectionModels[section].options.count
     }
     
     func headerTitle(of section: Int) -> String {

@@ -27,7 +27,7 @@ class SettingsCell: UITableViewCell {
     fileprivate func handleCell(with viewModel: SettingsCellViewModel?) {
         guard let viewModel = viewModel else { return }
         
-        self.textLabel?.text = viewModel.title
+        self.textLabel?.text = viewModel.name
         self.textLabel?.font = viewModel.font
         self.accessoryType = viewModel.isChecked ? .checkmark : .none
     }
