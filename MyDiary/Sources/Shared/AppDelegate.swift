@@ -34,16 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func customizeNavigationBar() {
-        if let navController = window?.rootViewController as? UINavigationController {
-            navController.navigationBar.prefersLargeTitles = true
-            navController.navigationBar.barStyle = UIBarStyle.default
-            navController.navigationBar.tintColor = UIColor.black    // BarButton color
-            
-            let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
-                                                size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
-            guard let image = bgImage else { return }
-            navController.navigationBar.barTintColor = UIColor(patternImage: image)
-        }
+        guard let navController = window?.rootViewController as? UINavigationController else { return }
+        navController.navigationBar.prefersLargeTitles = true
+        navController.navigationBar.barStyle = UIBarStyle.default
+        navController.navigationBar.tintColor = UIColor.black    // BarButton color
+        
+        let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
+                                            size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
+        guard let image = bgImage else { return }
+        navController.navigationBar.barTintColor = UIColor(patternImage: image)
     }
     
     private func injectEnvironment() {
