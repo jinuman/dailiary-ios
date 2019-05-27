@@ -11,13 +11,13 @@
 
 ## Demo Screenshots
 
-![timeline](https://user-images.githubusercontent.com/26243835/58419302-2fc71680-80c5-11e9-9090-d4159690ce4c.jpg)
-
-![search](https://user-images.githubusercontent.com/26243835/58419315-381f5180-80c5-11e9-8346-a5d3f7ff3db1.jpg)
-
-![settings](https://user-images.githubusercontent.com/26243835/58419318-3f465f80-80c5-11e9-9800-0c9b327ef222.jpg)
-
-![diary](https://user-images.githubusercontent.com/26243835/58419328-466d6d80-80c5-11e9-8272-96fa3211164b.jpg)
+<div>
+	<img width="400" alt="timeline" src="https://user-images.githubusercontent.com/26243835/58419302-2fc71680-80c5-11e9-9090-d4159690ce4c.jpg">
+	<img width="400" alt="search" src="https://user-images.githubusercontent.com/26243835/58419315-381f5180-80c5-11e9-8346-a5d3f7ff3db1.jpg">
+	<br>
+	<img width="400" alt="settings" src="https://user-images.githubusercontent.com/26243835/58419318-3f465f80-80c5-11e9-9800-0c9b327ef222.jpg">
+	<img width="400" alt="diary" src="https://user-images.githubusercontent.com/26243835/58419328-466d6d80-80c5-11e9-8272-96fa3211164b.jpg">
+</div>
 
 ## Environments
 
