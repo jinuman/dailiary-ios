@@ -12,12 +12,13 @@
 ## Demo Screenshots
 
 <div>
-	<img width="400" alt="timeline" src="https://user-images.githubusercontent.com/26243835/58419302-2fc71680-80c5-11e9-9090-d4159690ce4c.jpg">
-	<img width="400" alt="search" src="https://user-images.githubusercontent.com/26243835/58419315-381f5180-80c5-11e9-8346-a5d3f7ff3db1.jpg">
+	<img width="400" alt="timeline" src="https://user-images.githubusercontent.com/26243835/58420492-62264300-80c8-11e9-8c4d-3e54ad3d6ff4.png">
+	<img width="400" alt="search" src="https://user-images.githubusercontent.com/26243835/58420496-65213380-80c8-11e9-80b5-bc29fd47029a.png">
 	<br>
-	<img width="400" alt="settings" src="https://user-images.githubusercontent.com/26243835/58419318-3f465f80-80c5-11e9-9800-0c9b327ef222.jpg">
-	<img width="400" alt="diary" src="https://user-images.githubusercontent.com/26243835/58419328-466d6d80-80c5-11e9-8272-96fa3211164b.jpg">
+	<img width="400" alt="settings" src="https://user-images.githubusercontent.com/26243835/58420505-6a7e7e00-80c8-11e9-924c-34719cb64231.png">
+	<img width="400" alt="diary" src="https://user-images.githubusercontent.com/26243835/58420514-6f433200-80c8-11e9-97d4-0a2d781dba1c.png">
 </div>
+
 
 ## Environments
 
