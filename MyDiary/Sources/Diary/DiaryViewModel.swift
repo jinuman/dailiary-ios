@@ -16,7 +16,7 @@ protocol DiaryViewModelDelegate: class {
 
 class DiaryViewModel {
     
-    // MARK:- Helper properties
+    // MARK:- Properties
     private let environment: Environment
     
     private var repo: DiaryRepository {
@@ -44,7 +44,8 @@ class DiaryViewModel {
     }
     
     var diaryTextViewFont: UIFont {
-        return UIFont.systemFont(ofSize: environment.settings.fontSizeOption.rawValue)
+        let fontSize: CGFloat = environment.settings.fontSizeOption.rawValue
+        return UIFont(name: "HoonMakdR", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
     }
     
     var saveEditButtonImage: UIImage {
@@ -66,9 +67,8 @@ class DiaryViewModel {
     }
     
     // MARK:- Helper methods
-    // Editing 시작한다.
     func startEditing() {
-        isEditing = true
+        isEditing = true  // Editing 시작한다.
     }
     
     func completeEditing(with text: String) {

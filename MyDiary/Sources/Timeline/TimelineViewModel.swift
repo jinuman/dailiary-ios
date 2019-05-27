@@ -74,10 +74,9 @@ class TimelineViewModel {
     
     func timelineCellViewModel(for indexPath: IndexPath) -> TimelineCellViewModel {
         let diary = self.diary(for: indexPath)
-        
-        // 셀 채우기
+        let fontSize: CGFloat = environment.settings.fontSizeOption.rawValue
         return TimelineCellViewModel(diaryText: diary.text,
-                                     diaryTextFont: UIFont.systemFont(ofSize: environment.settings.fontSizeOption.rawValue),
+                                     diaryTextFont: UIFont(name: "HoonMakdR", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize),
                                      ampm: DateFormatter.ampmFormatter.string(from: diary.createdAt),
                                      clock: DateFormatter.clockFormatter.string(from: diary.createdAt))
     }

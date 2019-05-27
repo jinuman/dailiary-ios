@@ -74,7 +74,7 @@ extension Settings {
                 title: DateFormatOption.title,
                 options: DateFormatOption.all.map {
                     Option(name: DateFormatter.formatter(with: $0.rawValue).string(from: now),
-                           font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+                           font: UIFont(name: "HoonMakdR", size: UIFont.systemFontSize) ?? UIFont.systemFont(ofSize: UIFont.systemFontSize),
                            isChecked: $0 == dateFormatOption)
                 }
             ),
@@ -82,7 +82,7 @@ extension Settings {
                 title: FontSizeOption.title,
                 options: FontSizeOption.all.map {
                     Option(name: $0.description,
-                           font: UIFont.systemFont(ofSize: $0.rawValue),
+                           font: UIFont(name: "HoonMakdR", size: $0.rawValue) ?? UIFont.systemFont(ofSize: $0.rawValue),
                            isChecked: $0 == fontSizeOption)
                 }
             )

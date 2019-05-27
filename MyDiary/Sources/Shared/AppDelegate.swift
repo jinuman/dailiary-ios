@@ -43,6 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                             size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
         guard let image = bgImage else { return }
         navController.navigationBar.barTintColor = UIColor(patternImage: image)
+        
+        guard
+            let titleFont = UIFont(name: "SangSangShinb7", size: 20),
+            let largeTitleFont = UIFont(name: "SangSangShinb7", size: 34) else { return }
+        
+        navController.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : titleFont ]
+        navController.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.font : largeTitleFont ]
     }
     
     private func injectEnvironment() {

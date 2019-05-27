@@ -41,7 +41,8 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
+		<string>SSShinb7.ttf</string>
+		<string>HoonMakdaeyunpilR.ttf</string>
 	</array>
 </dict>
 </plist>

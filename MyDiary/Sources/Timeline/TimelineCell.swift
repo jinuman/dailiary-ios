@@ -10,7 +10,14 @@ import UIKit
 
 class TimelineCell: UITableViewCell {
     
-    // MARK:- Cell properties
+    // MARK:- Properties
+    var viewModel: TimelineCellViewModel? {
+        didSet {
+            fillupCell(with: viewModel)
+        }
+    }
+    
+    // MARK:- Screen properties
     private let diaryTextLabel: UILabel = {
         let label = UILabel()
         label.text = "일기 내용"
@@ -33,12 +40,6 @@ class TimelineCell: UITableViewCell {
         return label
     }()
     
-    var viewModel: TimelineCellViewModel? {
-        didSet {
-            handleCell(with: viewModel)
-        }
-    }
-    
     // MARK:- Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,19 +51,8 @@ class TimelineCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:- Handling methods
-    // 뷰는 모델에 대해서 알 수 없고, 대신 뷰모델과 커뮤니케이션을 한다.
-    fileprivate func handleCell(with viewModel: TimelineCellViewModel?) {
-        guard let viewModel = viewModel else { return }
-        
-        diaryTextLabel.text = viewModel.diaryText
-        diaryTextLabel.font = viewModel.diaryTextFont
-        ampmLabel.text = viewModel.ampm
-        clockLabel.text = viewModel.clock
-    }
-    
-    // MARK:- Auto-layout
-    fileprivate func setupCell() {
+    // MARK:- Setup screen properties
+    private func setupCell() {
         let timeStackView = UIStackView(arrangedSubviews: [ampmLabel, clockLabel])
         timeStackView.axis = .vertical
         timeStackView.distribution = .fill
@@ -82,5 +72,16 @@ class TimelineCell: UITableViewCell {
         stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,
                          padding: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12))
         
+    }
+    
+    // MARK:- Handling methods
+    // 뷰는 모델에 대해서 알 수 없고, 대신 뷰모델과 커뮤니케이션을 한다.
+    private func fillupCell(with viewModel: TimelineCellViewModel?) {
+        guard let viewModel = viewModel else { return }
+        
+        diaryTextLabel.text = viewModel.diaryText
+        diaryTextLabel.font = viewModel.diaryTextFont
+        ampmLabel.text = viewModel.ampm
+        clockLabel.text = viewModel.clock
     }
 }
