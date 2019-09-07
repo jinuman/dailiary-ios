@@ -8,18 +8,10 @@
 
 import Foundation
 
-protocol DiaryRepository {
-    var numberOfDiaries: Int { get }
-    
-    func add(_ diary: Diary)                    // 생성
-    func update(_ diary: Diary)                 // 수정
-    func remove(_ diary: Diary)                 // 삭제
-    func diary(with id: UUID) -> Diary?         // 아이디로 조회
-    func recentDiaries(max: Int) -> [Diary]     // 최근 일기들 불러오기
-    func diary(has text: String) -> [Diary]     // 검색된 결과 리턴
-}
-
 class InMemoryDiaryRepository: DiaryRepository {
+    
+    static var shared: InMemoryDiaryRepository = InMemoryDiaryRepository()
+    
     private var diaries: [UUID : Diary]
     
     var numberOfDiaries: Int {
@@ -35,9 +27,6 @@ class InMemoryDiaryRepository: DiaryRepository {
         
         self.diaries = result
     }
-    
-    // Singleton property
-    static var shared: InMemoryDiaryRepository = InMemoryDiaryRepository()
     
     func add(_ diary: Diary) {
         diaries[diary.id] = diary
@@ -73,16 +62,3 @@ class InMemoryDiaryRepository: DiaryRepository {
         return Array(result)
     }
 }
-
-extension DiaryRepository {
-    var allDiaries: [Diary] {
-        return recentDiaries(max: numberOfDiaries)
-    }
-    
-    var uniqueDates: [Date] {
-        return allDiaries
-            .compactMap { $0.createdAt.hmsRemoved }
-            .unique()
-    }
-}
-
