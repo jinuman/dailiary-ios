@@ -22,7 +22,7 @@
 
 ## Environments
 
-- iOS 12
+- iOS 11+
 - Swift 5
 - Xcode 10
 
