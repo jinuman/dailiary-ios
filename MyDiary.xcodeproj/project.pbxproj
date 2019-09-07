@@ -21,7 +21,7 @@
 		362D3DA1224B90C800EFBF1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 362D3D9F224B90C800EFBF1B /* LaunchScreen.storyboard */; };
 		362D3DAC224B90C800EFBF1B /* MyDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DAB224B90C800EFBF1B /* MyDiaryTests.swift */; };
 		362D3DB7224B950200EFBF1B /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB6224B950200EFBF1B /* TimelineController.swift */; };
-		362D3DB9224B95EF00EFBF1B /* UIKit_MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB8224B95EF00EFBF1B /* UIKit_MyDiary.swift */; };
+		362D3DB9224B95EF00EFBF1B /* UIKit+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */; };
 		362D3DBB224B989F00EFBF1B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBA224B989F00EFBF1B /* Diary.swift */; };
 		362D3DBD224B99C800EFBF1B /* Foundation+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */; };
 		362D3DBF224B9A0000EFBF1B /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBE224B9A0000EFBF1B /* DiaryRepository.swift */; };
@@ -61,7 +61,7 @@
 		362D3DAB224B90C800EFBF1B /* MyDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDiaryTests.swift; sourceTree = "<group>"; };
 		362D3DAD224B90C800EFBF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		362D3DB6224B950200EFBF1B /* TimelineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
-		362D3DB8224B95EF00EFBF1B /* UIKit_MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit_MyDiary.swift; sourceTree = "<group>"; };
+		362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+MyDiary.swift"; sourceTree = "<group>"; };
 		362D3DBA224B989F00EFBF1B /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+MyDiary.swift"; sourceTree = "<group>"; };
 		362D3DBE224B9A0000EFBF1B /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			children = (
 				362D3D96224B90C800EFBF1B /* AppDelegate.swift */,
 				362D3DC0224BA01800EFBF1B /* Environment.swift */,
-				362D3DB8224B95EF00EFBF1B /* UIKit_MyDiary.swift */,
+				362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */,
 				362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */,
 			);
 			path = Shared;
@@ -328,7 +328,7 @@
 				362D3DBD224B99C800EFBF1B /* Foundation+MyDiary.swift in Sources */,
 				362D3DCD224BCA4D00EFBF1B /* TimelineCell.swift in Sources */,
 				362D3D99224B90C800EFBF1B /* DiaryController.swift in Sources */,
-				362D3DB9224B95EF00EFBF1B /* UIKit_MyDiary.swift in Sources */,
+				362D3DB9224B95EF00EFBF1B /* UIKit+MyDiary.swift in Sources */,
 				361B599B224CD88400ED25BA /* SettingsController.swift in Sources */,
 				362D3D97224B90C800EFBF1B /* AppDelegate.swift in Sources */,
 				362D3DC8224BA24300EFBF1B /* TimelineViewModel.swift in Sources */,
