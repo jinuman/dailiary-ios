@@ -17,15 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 0.5)
         
-        window = UIWindow()
-        if let window = window {
-            window.backgroundColor = .white
-            
-            let navController = UINavigationController(rootViewController: TimelineController())
-            window.rootViewController = navController
-            
-            window.makeKeyAndVisible()
-        }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        guard let window = window else { return false }
+        
+        window.backgroundColor = .white
+        
+        let navController = UINavigationController(rootViewController: TimelineController())
+        window.rootViewController = navController
+        
+        window.makeKeyAndVisible()
         
         customizeNavigationBar()
         injectEnvironment()
