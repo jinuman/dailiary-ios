@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SwiftyBeaver
+
+let log = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 0.3)
+        
+        let console = ConsoleDestination()
+        log.addDestination(console)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -25,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navController = UINavigationController(rootViewController: TimelineController())
         window.rootViewController = navController
-        
         window.makeKeyAndVisible()
         
         customizeNavigationBar()
@@ -34,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    // MARK: - Custom methods
     private func customizeNavigationBar() {
         guard let navController = window?.rootViewController as? UINavigationController else { return }
         navController.navigationBar.prefersLargeTitles = true
@@ -49,8 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let titleFont = UIFont(name: "SangSangShinb7", size: 20),
             let largeTitleFont = UIFont(name: "SangSangShinb7", size: 34) else { return }
         
-        navController.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : titleFont ]
-        navController.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.font : largeTitleFont ]
+        let titleTextAttributes: [NSAttributedString.Key : Any] = [.font : titleFont]
+        let largeTitleTextAttributes: [NSAttributedString.Key : Any] = [.font : largeTitleFont]
+        
+        navController.navigationBar.titleTextAttributes = titleTextAttributes
+        navController.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes
     }
     
     private func injectEnvironment() {
