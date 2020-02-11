@@ -124,7 +124,29 @@ class DiaryViewController: UIViewController {
         diaryTextView.attributedText = NSAttributedString(string: viewModel.diaryTextViewText ?? " ", attributes: atributes)
     }
     
-    // MARK:- Handling methods
+    // 뷰모델에 따라 UI 업데이트
+    private func updateSubviews() {
+        saveEditButton.image = viewModel.saveEditButtonImage
+        saveEditButton.target = self
+        saveEditButton.action = viewModel.isEditing
+            ? #selector(handleSave)
+            : #selector(handleEdit)
+        removeButton.isEnabled = viewModel.removeButtonEnabled
+        diaryTextView.isEditable = viewModel.diaryTextViewEditable
+    }
+    
+    private func setupNavigationBarItems() {
+        removeButton.image = #imageLiteral(resourceName: "baseline_delete_black_24pt")
+        removeButton.style = .plain
+        removeButton.target = self
+        removeButton.action = #selector(handleRemove)
+        
+        navigationItem.rightBarButtonItems = [
+            removeButton,
+            saveEditButton
+        ]
+    }
+    
     @objc private func handleRemove() {
         guard viewModel.hasDiary else { return }
         
@@ -146,7 +168,6 @@ class DiaryViewController: UIViewController {
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    
     
     @objc private func handleEdit() {
         viewModel.startEditing()
@@ -203,32 +224,10 @@ class DiaryViewController: UIViewController {
         },
             completion: nil)
     }
-    
-    // 뷰모델에 따라 UI 업데이트
-    private func updateSubviews() {
-        saveEditButton.image = viewModel.saveEditButtonImage
-        saveEditButton.target = self
-        saveEditButton.action = viewModel.isEditing
-            ? #selector(handleSave)
-            : #selector(handleEdit)
-        removeButton.isEnabled = viewModel.removeButtonEnabled
-        diaryTextView.isEditable = viewModel.diaryTextViewEditable
-    }
-    
-    private func setupNavigationBarItems() {
-        removeButton.image = #imageLiteral(resourceName: "baseline_delete_black_24pt")
-        removeButton.style = .plain
-        removeButton.target = self
-        removeButton.action = #selector(handleRemove)
-        
-        navigationItem.rightBarButtonItems = [
-            removeButton,
-            saveEditButton
-        ]
-    }
 }
 
-// MARK:- Regarding Gesture Recognizer
+// MARK: - Extensions
+
 extension DiaryViewController: UIGestureRecognizerDelegate {
     // view 를 탭하면 키보드를 내린다.
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
