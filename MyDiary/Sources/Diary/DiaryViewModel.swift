@@ -8,7 +8,6 @@
 
 import UIKit
 
-// Timeline 부분과 통신한다.
 protocol DiaryViewModelDelegate: class {
     func didRemoveDiary()
     func didAddDiary()
@@ -60,13 +59,13 @@ class DiaryViewModel {
         return isEditing
     }
     
-    // MARK:- Initializer
+    // MARK:- Initializing
     init(environment: Environment, selectedDiary: Diary? = nil) {
         self.environment = environment
         self.diary = selectedDiary
     }
     
-    // MARK:- Helper methods
+    // MARK:- Methods
     func startEditing() {
         isEditing = true  // Editing 시작한다.
     }

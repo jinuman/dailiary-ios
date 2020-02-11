@@ -114,7 +114,7 @@ class DiaryController: UIViewController {
                                                 message: "이 동작은 되돌릴 수 없습니다.",
                                                 preferredStyle: .actionSheet)
         
-        let removeAction: UIAlertAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
+        let removeAction: UIAlertAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
             guard let _ = viewModel.removeDiary() else { return }  // 나중에 최근 삭제한 내용 저장할 때 필요할지도 모른다.
             self.navigationController?.popViewController(animated: true)
         }
