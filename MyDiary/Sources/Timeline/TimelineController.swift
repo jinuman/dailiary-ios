@@ -77,9 +77,8 @@ class TimelineController: UITableViewController {
     // MARK:- Handling methods
     @objc private func handleAdd() {
         guard let viewModel = viewModel else { return }
-        let diaryController = DiaryController()
-        diaryController.viewModel = viewModel.newDiaryViewModel
-        navigationController?.pushViewController(diaryController, animated: true)
+        let diaryViewController = DiaryViewController(viewModel: viewModel.newDiaryViewModel)
+        self.navigationController?.pushViewController(diaryViewController, animated: true)
     }
     
     @objc private func showSettings() {
@@ -132,9 +131,9 @@ extension TimelineController {
             let viewModel = viewModel,
             let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
         
-        let diaryController = DiaryController()
-        diaryController.viewModel = viewModel.diaryViewModel(for: selectedIndexPath)    // env 주입
-        navigationController?.pushViewController(diaryController, animated: true)
+        let diaryViewModel = viewModel.diaryViewModel(for: selectedIndexPath)
+        let diaryViewController = DiaryViewController(viewModel: diaryViewModel) // env 주입
+        self.navigationController?.pushViewController(diaryViewController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

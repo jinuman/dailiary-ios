@@ -1,5 +1,5 @@
 //
-//  DiaryController.swift
+//  DiaryViewController.swift
 //  MyDiary
 //
 //  Created by Jinwoo Kim on 27/03/2019.
@@ -8,12 +8,14 @@
 
 import UIKit
 
-class DiaryController: UIViewController {
+class DiaryViewController: UIViewController {
     
-    // MARK:- Properties
-    var viewModel: DiaryViewModel?
+    // MARK: - Properties
     
-    // MARK:- Screen properties
+    private(set) var viewModel: DiaryViewModel
+    
+    // MARK: UI
+    
     private let saveEditButton = UIBarButtonItem()
     private let removeButton = UIBarButtonItem()
     
@@ -27,10 +29,27 @@ class DiaryController: UIViewController {
     
     private var diaryTextViewBottomConstraint: NSLayoutConstraint?
     
-    // MARK:- Life Cycle methods
+    // MARK: - Initializing
+    
+    required init(viewModel: DiaryViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.configure(viewModel: viewModel)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("Diary Controller \(#function)")
+    }
+    
+    // MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubviews()
+        configureLayout()
         setupNavigationBarItems()
     }
     
@@ -49,7 +68,7 @@ class DiaryController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let viewModel = viewModel else { return }
+        
         if viewModel.isEditing {
             diaryTextView.becomeFirstResponder()
         }
@@ -61,13 +80,15 @@ class DiaryController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    deinit {
-        print("Diary Controller \(#function)")
+    // MARK: - Binding
+    
+    private func configure(viewModel: DiaryViewModel) {
+        
     }
     
-    // MARK:- Screen setup methods
-    private func setupSubviews() {
-        guard let viewModel = viewModel else { return }
+    // MARK: - Methods
+    
+    private func configureLayout() {
         view.backgroundColor = .white
         title = viewModel.diaryTitle
         // Add gesture to view
@@ -94,7 +115,6 @@ class DiaryController: UIViewController {
     }
     
     private func setAttributedDiaryTextView() {
-        guard let viewModel = viewModel else { return }
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 20
         let atributes = [
@@ -106,16 +126,17 @@ class DiaryController: UIViewController {
     
     // MARK:- Handling methods
     @objc private func handleRemove() {
-        guard
-            let viewModel = viewModel,
-            viewModel.hasDiary else { return }
+        guard viewModel.hasDiary else { return }
         
         let alertController = UIAlertController(title: "현재 일기를 삭제할까요?",
                                                 message: "이 동작은 되돌릴 수 없습니다.",
                                                 preferredStyle: .actionSheet)
         
-        let removeAction: UIAlertAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
-            guard let _ = viewModel.removeDiary() else { return }  // 나중에 최근 삭제한 내용 저장할 때 필요할지도 모른다.
+        let removeAction = UIAlertAction(
+                title: "삭제",
+                style: .destructive)
+        { [weak self] _ in
+            guard let self = self else { return }
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -128,16 +149,13 @@ class DiaryController: UIViewController {
     
     
     @objc private func handleEdit() {
-        guard let viewModel = viewModel else { return }
         viewModel.startEditing()
         updateSubviews()
         diaryTextView.becomeFirstResponder()    // 키보드 올리기
     }
     
     @objc private func handleSave() {
-        guard
-            let viewModel = viewModel,
-            let text = diaryTextView.text else { return }
+        guard let text = diaryTextView.text else { return }
         
         viewModel.completeEditing(with: text)
         
@@ -188,7 +206,6 @@ class DiaryController: UIViewController {
     
     // 뷰모델에 따라 UI 업데이트
     private func updateSubviews() {
-        guard let viewModel = viewModel else { return }
         saveEditButton.image = viewModel.saveEditButtonImage
         saveEditButton.target = self
         saveEditButton.action = viewModel.isEditing
@@ -212,7 +229,7 @@ class DiaryController: UIViewController {
 }
 
 // MARK:- Regarding Gesture Recognizer
-extension DiaryController: UIGestureRecognizerDelegate {
+extension DiaryViewController: UIGestureRecognizerDelegate {
     // view 를 탭하면 키보드를 내린다.
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         self.view.endEditing(true)
