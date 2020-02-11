@@ -21,11 +21,11 @@ class DiaryViewController: UIViewController {
     private let removeButton = UIBarButtonItem()
     
     private let diaryTextView: UITextView = {
-        let tv = UITextView()
-        tv.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        tv.returnKeyType = .continue
-        tv.keyboardType = .default
-        return tv
+        let textView = UITextView()
+        textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        textView.returnKeyType = .continue
+        textView.keyboardType = .default
+        return textView
     }()
     
     private var diaryTextViewBottomConstraint: NSLayoutConstraint?
@@ -114,46 +114,51 @@ class DiaryViewController: UIViewController {
                                                             padding: UIEdgeInsets(top: 8, left: 12, bottom: 0, right: 12))
         diaryTextViewBottomConstraint = diaryTextviewConstraints.bottom
         
-        setAttributedDiaryTextView()
+        self.configureAttributedDiaryTextView()
     }
     
     private func configureNavigationBarItems() {
-        self.title = viewModel.diaryTitle
+        self.title = self.viewModel.diaryTitle
         
         self.removeButton.image = #imageLiteral(resourceName: "baseline_delete_black_24pt")
         self.removeButton.style = .plain
         self.removeButton.target = self
-        self.removeButton.action = #selector(handleRemove)
+        self.removeButton.action = #selector(self.handleRemove)
         
         navigationItem.rightBarButtonItems = [
-            removeButton,
-            saveEditButton
+            self.removeButton,
+            self.saveEditButton
         ]
     }
     
-    private func setAttributedDiaryTextView() {
+    private func configureAttributedDiaryTextView() {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 20
-        let atributes = [
+        
+        let attributes = [
             NSAttributedString.Key.paragraphStyle: style,
-            NSAttributedString.Key.font: viewModel.diaryTextViewFont
+            NSAttributedString.Key.font: self.viewModel.diaryTextViewFont
         ]
-        diaryTextView.attributedText = NSAttributedString(string: viewModel.diaryTextViewText ?? " ", attributes: atributes)
+        
+        self.diaryTextView.attributedText = NSAttributedString(
+            string: self.viewModel.diaryTextViewText ?? " ",
+            attributes: attributes
+        )
     }
     
     // 뷰모델에 따라 UI 업데이트
     private func updateSubviews() {
-        saveEditButton.image = viewModel.saveEditButtonImage
-        saveEditButton.target = self
-        saveEditButton.action = viewModel.isEditing
-            ? #selector(handleSave)
-            : #selector(handleEdit)
-        removeButton.isEnabled = viewModel.removeButtonEnabled
-        diaryTextView.isEditable = viewModel.diaryTextViewEditable
+        self.saveEditButton.image = self.viewModel.saveEditButtonImage
+        self.saveEditButton.target = self
+        self.saveEditButton.action = self.viewModel.isEditing
+            ? #selector(self.handleSave)
+            : #selector(self.handleEdit)
+        self.removeButton.isEnabled = self.viewModel.removeButtonEnabled
+        self.diaryTextView.isEditable = self.viewModel.diaryTextViewEditable
     }
     
     @objc private func handleRemove() {
-        guard viewModel.hasDiary else { return }
+        guard self.viewModel.hasDiary else { return }
         
         let alertController = UIAlertController(title: "현재 일기를 삭제할까요?",
                                                 message: "이 동작은 되돌릴 수 없습니다.",
