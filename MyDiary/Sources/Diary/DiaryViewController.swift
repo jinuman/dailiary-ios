@@ -15,6 +15,7 @@ class DiaryViewController: UIViewController {
     private(set) var viewModel: DiaryViewModel
     
     // MARK: UI
+    private lazy var guide = self.view.safeAreaLayoutGuide
     
     private let saveEditButton = UIBarButtonItem()
     private let removeButton = UIBarButtonItem()
@@ -49,8 +50,7 @@ class DiaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLayout()
-        setupNavigationBarItems()
+        self.configureLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,18 +89,21 @@ class DiaryViewController: UIViewController {
     // MARK: - Methods
     
     private func configureLayout() {
-        view.backgroundColor = .white
-        title = viewModel.diaryTitle
+        self.configureNavigationBarItems()
+        
+        self.view.backgroundColor = .white
+        
         // Add gesture to view
         let tapGesture = UITapGestureRecognizer()
         tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
         
         // + 버튼을 통해 일기 추가면, 에디팅부터 시작하게 한다.
-        if viewModel.hasDiary == false {
-            viewModel.startEditing()
+        if self.viewModel.hasDiary == false {
+            self.viewModel.startEditing()
         }
-        updateSubviews()
+        
+        self.updateSubviews()
         
         let guide = view.safeAreaLayoutGuide
         view.addSubview(diaryTextView)
@@ -112,6 +115,20 @@ class DiaryViewController: UIViewController {
         diaryTextViewBottomConstraint = diaryTextviewConstraints.bottom
         
         setAttributedDiaryTextView()
+    }
+    
+    private func configureNavigationBarItems() {
+        self.title = viewModel.diaryTitle
+        
+        self.removeButton.image = #imageLiteral(resourceName: "baseline_delete_black_24pt")
+        self.removeButton.style = .plain
+        self.removeButton.target = self
+        self.removeButton.action = #selector(handleRemove)
+        
+        navigationItem.rightBarButtonItems = [
+            removeButton,
+            saveEditButton
+        ]
     }
     
     private func setAttributedDiaryTextView() {
@@ -133,18 +150,6 @@ class DiaryViewController: UIViewController {
             : #selector(handleEdit)
         removeButton.isEnabled = viewModel.removeButtonEnabled
         diaryTextView.isEditable = viewModel.diaryTextViewEditable
-    }
-    
-    private func setupNavigationBarItems() {
-        removeButton.image = #imageLiteral(resourceName: "baseline_delete_black_24pt")
-        removeButton.style = .plain
-        removeButton.target = self
-        removeButton.action = #selector(handleRemove)
-        
-        navigationItem.rightBarButtonItems = [
-            removeButton,
-            saveEditButton
-        ]
     }
     
     @objc private func handleRemove() {
