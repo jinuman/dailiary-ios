@@ -21,33 +21,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let console = ConsoleDestination()
         log.addDestination(console)
         
-        window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         
         guard let window = window else { return false }
         
-        window.backgroundColor = .white
+        let timelineViewModel = TimelineViewModel(environment: self.environmentForInject())
+        let timelineViewController = TimelineViewController(viewModel: timelineViewModel)
         
-        let navController = UINavigationController(rootViewController: TimelineViewController())
-        window.rootViewController = navController
+        window.rootViewController =
+            UINavigationController(rootViewController: timelineViewController)
         window.makeKeyAndVisible()
         
-        customizeNavigationBar()
-        injectEnvironment()
+        self.customizeNavigationBar()
         
         return true
     }
     
     // MARK: - Custom methods
     private func customizeNavigationBar() {
-        guard let navController = window?.rootViewController as? UINavigationController else { return }
-        navController.navigationBar.prefersLargeTitles = true
-        navController.navigationBar.barStyle = UIBarStyle.default
-        navController.navigationBar.tintColor = UIColor.black    // BarButton color
+        guard let navigationController =
+            self.window?.rootViewController as? UINavigationController else { return }
         
-        let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
-                                            size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
-        guard let image = bgImage else { return }
-        navController.navigationBar.barTintColor = UIColor(patternImage: image)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.barStyle = UIBarStyle.default
+        navigationController.navigationBar.tintColor = UIColor.black    // BarButton color
+        
+        let backgroundImage = UIImage.gradientImage(
+            with: [.gradientStart, .gradientEnd],
+            size: CGSize(width: UIScreen.main.bounds.size.width, height: 1)
+        )
+        
+        guard let image = backgroundImage else { return }
+        navigationController.navigationBar.barTintColor = UIColor(patternImage: image)
         
         guard
             let titleFont = UIFont(name: "SangSangShinb7", size: 20),
@@ -56,14 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let titleTextAttributes: [NSAttributedString.Key : Any] = [.font : titleFont]
         let largeTitleTextAttributes: [NSAttributedString.Key : Any] = [.font : largeTitleFont]
         
-        navController.navigationBar.titleTextAttributes = titleTextAttributes
-        navController.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes
+        navigationController.navigationBar.titleTextAttributes = titleTextAttributes
+        navigationController.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes
     }
     
-    private func injectEnvironment() {
-        guard
-            let navController = window?.rootViewController as? UINavigationController,
-            let timelineVC = navController.topViewController as? TimelineViewController else { return }
+    private func environmentForInject() -> Environment {
         
         // dummy data
         let diaries: [Diary] = [
@@ -79,9 +81,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Diary(createdAt: Date.before(3), text: "3일 전 일기")
         ]
         
-        let repo: InMemoryDiaryRepository = InMemoryDiaryRepository(diaries: diaries)
-        let env = Environment(diaryRepository: repo, settings: UserDefaults.standard)   // env 생성
-        timelineVC.viewModel = TimelineViewModel(environment: env)                      // env 주입
+        let repository: InMemoryDiaryRepository = InMemoryDiaryRepository(diaries: diaries)
+        
+        // environment 생성
+        let environment = Environment(
+            diaryRepository: repository,
+            settings: UserDefaults.standard
+        )
+        
+        return environment
     }
 
 }
