@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window.backgroundColor = .white
         
-        let navController = UINavigationController(rootViewController: TimelineController())
+        let navController = UINavigationController(rootViewController: TimelineViewController())
         window.rootViewController = navController
         window.makeKeyAndVisible()
         
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func injectEnvironment() {
         guard
             let navController = window?.rootViewController as? UINavigationController,
-            let timelineVC = navController.topViewController as? TimelineController else { return }
+            let timelineVC = navController.topViewController as? TimelineViewController else { return }
         
         // dummy data
         let diaries: [Diary] = [

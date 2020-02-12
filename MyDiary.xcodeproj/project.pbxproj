@@ -23,7 +23,7 @@
 		362D3D9E224B90C800EFBF1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 362D3D9D224B90C800EFBF1B /* Assets.xcassets */; };
 		362D3DA1224B90C800EFBF1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 362D3D9F224B90C800EFBF1B /* LaunchScreen.storyboard */; };
 		362D3DAC224B90C800EFBF1B /* MyDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DAB224B90C800EFBF1B /* MyDiaryTests.swift */; };
-		362D3DB7224B950200EFBF1B /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB6224B950200EFBF1B /* TimelineController.swift */; };
+		362D3DB7224B950200EFBF1B /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB6224B950200EFBF1B /* TimelineViewController.swift */; };
 		362D3DB9224B95EF00EFBF1B /* UIKit+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */; };
 		362D3DBB224B989F00EFBF1B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBA224B989F00EFBF1B /* Diary.swift */; };
 		362D3DBD224B99C800EFBF1B /* Foundation+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */; };
@@ -69,7 +69,7 @@
 		362D3DA7224B90C800EFBF1B /* MyDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		362D3DAB224B90C800EFBF1B /* MyDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDiaryTests.swift; sourceTree = "<group>"; };
 		362D3DAD224B90C800EFBF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		362D3DB6224B950200EFBF1B /* TimelineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
+		362D3DB6224B950200EFBF1B /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+MyDiary.swift"; sourceTree = "<group>"; };
 		362D3DBA224B989F00EFBF1B /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+MyDiary.swift"; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		36563970227319D40070FF96 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
-				362D3DB6224B950200EFBF1B /* TimelineController.swift */,
+				362D3DB6224B950200EFBF1B /* TimelineViewController.swift */,
 				362D3DC7224BA24300EFBF1B /* TimelineViewModel.swift */,
 				362D3DCC224BCA4D00EFBF1B /* TimelineCell.swift */,
 				362D3DCA224BB70800EFBF1B /* TimelineCellViewModel.swift */,
@@ -435,7 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				362D3DD0224BD8A200EFBF1B /* DiaryViewModel.swift in Sources */,
-				362D3DB7224B950200EFBF1B /* TimelineController.swift in Sources */,
+				362D3DB7224B950200EFBF1B /* TimelineViewController.swift in Sources */,
 				361B5999224CCCFD00ED25BA /* InMemorySettings.swift in Sources */,
 				361B59A3224CFDD000ED25BA /* UserDefaultsSettings.swift in Sources */,
 				361B59A1224CF0D200ED25BA /* SettingsCell.swift in Sources */,

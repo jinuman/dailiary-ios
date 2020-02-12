@@ -1,5 +1,5 @@
 //
-//  TimelineController.swift
+//  TimelineViewController.swift
 //  MyDiary
 //
 //  Created by Jinwoo Kim on 27/03/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimelineController: UITableViewController {
+class TimelineViewController: UITableViewController {
     
     // MARK:- Properties
     var viewModel: TimelineViewModel?
@@ -95,7 +95,7 @@ class TimelineController: UITableViewController {
 }
 
 // MARK:- Regarding tableView methods
-extension TimelineController {
+extension TimelineViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
@@ -169,7 +169,7 @@ extension TimelineController {
 }
 
 // MARK:- Regarding UISearchResultsUpdating methods
-extension TimelineController: UISearchResultsUpdating {
+extension TimelineViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard
             let viewModel = viewModel,
