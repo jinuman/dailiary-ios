@@ -10,14 +10,28 @@ import UIKit
 
 class TimelineViewController: UITableViewController {
     
-    // MARK:- Properties
-    var viewModel: TimelineViewModel?
+    // MARK: - Properties
+    
+    private(set) var viewModel: TimelineViewModel
     
     private let cellId = "timelineCellId"
     
     private let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
-    // MARK:- Life Cycle methods
+    // MARK: - Initializing
+    
+    required init(viewModel: TimelineViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.configure(viewModel: viewModel)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,25 +54,40 @@ class TimelineViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        guard let viewModel = viewModel else { return }
         if searchController.isActive {
             viewModel.searchText = nil
             searchController.isActive = false
         }
     }
     
+    // MARK: - Binding
+    
+    private func configure(viewModel: TimelineViewModel) {
+        
+    }
+    
     // MARK:- Setup screen properties
     private func setupTableView() {
-        tableView.register(TimelineCell.self, forCellReuseIdentifier: cellId)
-        tableView.allowsSelection = true
-        tableView.isUserInteractionEnabled = true
+        self.tableView.register(TimelineCell.self, forCellReuseIdentifier: cellId)
+        self.tableView.allowsSelection = true
+        self.tableView.isUserInteractionEnabled = true
     }
     
     private func setupNavigationItems() {
-        navigationItem.title = "타임라인"
+        self.navigationItem.title = "타임라인"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_settings_black_24pt"), style: .plain, target: self, action: #selector(showSettings))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(handleAdd)
+        )
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "baseline_settings_black_24pt"),
+            style: .plain,
+            target: self,
+            action: #selector(showSettings)
+        )
     }
     
     private func setupSearchController() {
@@ -76,13 +105,11 @@ class TimelineViewController: UITableViewController {
     
     // MARK:- Handling methods
     @objc private func handleAdd() {
-        guard let viewModel = viewModel else { return }
         let diaryViewController = DiaryViewController(viewModel: viewModel.newDiaryViewModel)
         self.navigationController?.pushViewController(diaryViewController, animated: true)
     }
     
     @objc private func showSettings() {
-        guard let viewModel = viewModel else { return }
         let settingsController = SettingsController()
         settingsController.viewModel = viewModel.settingsViewModel
         
@@ -98,15 +125,13 @@ class TimelineViewController: UITableViewController {
 extension TimelineViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else { return 0 }
         return viewModel.numberOfRows(in: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TimelineCell,
-            let viewModel = viewModel else {
-            fatalError("Timeline cell is bad")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TimelineCell
+            else {
+                fatalError("Timeline cell is bad")
         }
         cell.viewModel = viewModel.timelineCellViewModel(for: indexPath)
         return cell
@@ -117,19 +142,15 @@ extension TimelineViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        guard let viewModel = viewModel else { return 0 }
         return viewModel.numberOfSections
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let viewModel = viewModel else { return "" }
         return viewModel.headerTitle(of: section)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard
-            let viewModel = viewModel,
-            let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+        guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
         
         let diaryViewModel = viewModel.diaryViewModel(for: selectedIndexPath)
         let diaryViewController = DiaryViewController(viewModel: diaryViewModel) // env 주입
@@ -143,11 +164,10 @@ extension TimelineViewController {
 
         let removeAction = UIContextualAction(style: .normal, title:  nil) { [weak self] (action: UIContextualAction, view: UIView, success: (Bool) -> Void) in
             
-            guard
-                let self = self,
-                let viewModel = self.viewModel else { return }
-            let isLastDiaryInSection: Bool = viewModel.numberOfRows(in: indexPath.section) == 1
-            viewModel.removeDiary(at: indexPath)
+            guard let self = self else { return }
+            
+            let isLastDiaryInSection: Bool = self.viewModel.numberOfRows(in: indexPath.section) == 1
+            self.viewModel.removeDiary(at: indexPath)
             
             UIView.animate(withDuration: 0.3) {
                 tableView.beginUpdates()
@@ -171,9 +191,7 @@ extension TimelineViewController {
 // MARK:- Regarding UISearchResultsUpdating methods
 extension TimelineViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard
-            let viewModel = viewModel,
-            let searchText = searchController.searchBar.text else { return }
+        guard let searchText = searchController.searchBar.text else { return }
         
         viewModel.searchText = searchText
         tableView.reloadData()
