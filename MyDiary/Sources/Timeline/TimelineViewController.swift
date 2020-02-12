@@ -16,7 +16,7 @@ class TimelineViewController: UITableViewController {
     
     private let cellId = "timelineCellId"
     
-    private let searchController: UISearchController = UISearchController(searchResultsController: nil)
+    private let searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - Initializing
     
@@ -35,28 +35,28 @@ class TimelineViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
-        setupNavigationItems()
-        setupSearchController()
+        self.configureTableView()
+        self.configureNavigationItems()
+        self.configureSearchController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.searchBar.becomeFirstResponder()
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+//        self.searchController.searchBar.becomeFirstResponder()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        if searchController.isActive {
-            viewModel.searchText = nil
-            searchController.isActive = false
+        if self.searchController.isActive {
+            self.viewModel.searchText = nil
+            self.searchController.isActive = false
         }
     }
     
@@ -66,14 +66,18 @@ class TimelineViewController: UITableViewController {
         
     }
     
-    // MARK:- Setup screen properties
-    private func setupTableView() {
-        self.tableView.register(TimelineCell.self, forCellReuseIdentifier: cellId)
+    // MARK: - Methods
+    
+    private func configureTableView() {
+        self.tableView.register(
+            TimelineCell.self,
+            forCellReuseIdentifier: cellId
+        )
         self.tableView.allowsSelection = true
         self.tableView.isUserInteractionEnabled = true
     }
     
-    private func setupNavigationItems() {
+    private func configureNavigationItems() {
         self.navigationItem.title = "타임라인"
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -90,17 +94,17 @@ class TimelineViewController: UITableViewController {
         )
     }
     
-    private func setupSearchController() {
-        definesPresentationContext = true
+    private func configureSearchController() {
+        self.definesPresentationContext = true
         
-        searchController.searchBar.placeholder = "검색어로 일기를 찾아보세요.."
-        searchController.searchBar.tintColor = .black
-        searchController.searchBar.autocapitalizationType = .none
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.searchBar.placeholder = "검색어로 일기를 찾아보세요.."
+        self.searchController.searchBar.tintColor = .black
+        self.searchController.searchBar.autocapitalizationType = .none
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchResultsUpdater = self
+        self.searchController.hidesNavigationBarDuringPresentation = true
         
-        navigationItem.searchController = searchController
+        self.navigationItem.searchController = self.searchController
     }
     
     // MARK:- Handling methods
@@ -115,9 +119,9 @@ class TimelineViewController: UITableViewController {
         
         let backItem = UIBarButtonItem()
         backItem.title = "뒤로"
-        navigationItem.backBarButtonItem = backItem
+        self.navigationItem.backBarButtonItem = backItem
         
-        navigationController?.pushViewController(settingsController, animated: true)
+        self.navigationController?.pushViewController(settingsController, animated: true)
     }
 }
 
@@ -158,7 +162,7 @@ extension TimelineViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        guard searchController.isActive == false else {
+        guard self.searchController.isActive == false else {
             return UISwipeActionsConfiguration(actions: [])
         }
 
@@ -193,7 +197,7 @@ extension TimelineViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
         
-        viewModel.searchText = searchText
-        tableView.reloadData()
+        self.viewModel.searchText = searchText
+        self.tableView.reloadData()
     }
 }
