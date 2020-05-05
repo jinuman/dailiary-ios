@@ -1,5 +1,5 @@
 //
-//  SwiftyBeaver+MyDiary.swift
+//  SwiftyBeaverExtensions.swift
 //  MyDiary
 //
 //  Created by Jinwoo Kim on 11/02/2020.
@@ -9,17 +9,16 @@
 import Foundation
 import SwiftyBeaver
 
-let log = SwiftyBeaver.self
+let logger = SwiftyBeaver.self
 
 extension SwiftyBeaver {
     
     /**
      로그를 찍어보고 싶은 경우 이 함수를 사용하세요.
      
-     - ex) log.debugPrint("Function called", .verbose)
+     - ex) logger.debugPrint("Function called", .verbose)
      */
-    
-    class func debugPrint(
+    static func debugPrint(
         _ message: @autoclosure () -> Any,
         _ file: String = #file,
         _ function: String = #function,
@@ -30,15 +29,15 @@ extension SwiftyBeaver {
         #if DEBUG
         switch level {
         case .verbose:
-            log.verbose(message(), file, function, line: line, context: context)
+            logger.verbose(message(), file, function, line: line, context: context)
         case .debug:
-            log.debug(message(), file, function, line: line, context: context)
+            logger.debug(message(), file, function, line: line, context: context)
         case .info:
-            log.info(message(), file, function, line: line, context: context)
+            logger.info(message(), file, function, line: line, context: context)
         case .warning:
-            log.warning(message(), file, function, line: line, context: context)
+            logger.warning(message(), file, function, line: line, context: context)
         default:
-            log.error(message(), file, function, line: line, context: context)
+            logger.error(message(), file, function, line: line, context: context)
         }
         #endif
     }

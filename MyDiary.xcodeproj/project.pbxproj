@@ -34,7 +34,7 @@
 		362D3DCD224BCA4D00EFBF1B /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DCC224BCA4D00EFBF1B /* TimelineCell.swift */; };
 		362D3DD0224BD8A200EFBF1B /* DiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DCF224BD8A200EFBF1B /* DiaryViewModel.swift */; };
 		5F14A62E4B3EA2F9F90BD9E1 /* Pods_MyDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877AAFC402F10A7D692CFE73 /* Pods_MyDiaryTests.framework */; };
-		E33D513223F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D513123F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift */; };
+		E33D513223F2A32800DF1497 /* SwiftyBeaverExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D513123F2A32800DF1497 /* SwiftyBeaverExtensions.swift */; };
 		E3BC668B23F3D07E006170AE /* Pods_MyDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F0C8BD2BADB443AFE27F0D /* Pods_MyDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +85,7 @@
 		877AAFC402F10A7D692CFE73 /* Pods_MyDiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDiaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4166ACEDF65C960BA0BE0D /* Pods-MyDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiaryTests.debug.xcconfig"; path = "Target Support Files/Pods-MyDiaryTests/Pods-MyDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC53BC8DF7ADA6EB700F43EE /* Pods-MyDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiary.release.xcconfig"; path = "Target Support Files/Pods-MyDiary/Pods-MyDiary.release.xcconfig"; sourceTree = "<group>"; };
-		E33D513123F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftyBeaver+MyDiary.swift"; sourceTree = "<group>"; };
+		E33D513123F2A32800DF1497 /* SwiftyBeaverExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverExtensions.swift; sourceTree = "<group>"; };
 		E3BC668423F3D02A006170AE /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,7 +185,7 @@
 				362D3DC0224BA01800EFBF1B /* Environment.swift */,
 				362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */,
 				362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */,
-				E33D513123F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift */,
+				E33D513123F2A32800DF1497 /* SwiftyBeaverExtensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				362D3DBD224B99C800EFBF1B /* Foundation+MyDiary.swift in Sources */,
 				362D3DCD224BCA4D00EFBF1B /* TimelineCell.swift in Sources */,
 				362D3D99224B90C800EFBF1B /* DiaryViewController.swift in Sources */,
-				E33D513223F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift in Sources */,
+				E33D513223F2A32800DF1497 /* SwiftyBeaverExtensions.swift in Sources */,
 				362D3DB9224B95EF00EFBF1B /* UIKit+MyDiary.swift in Sources */,
 				361B599B224CD88400ED25BA /* SettingsController.swift in Sources */,
 				362D3D97224B90C800EFBF1B /* AppDelegate.swift in Sources */,
