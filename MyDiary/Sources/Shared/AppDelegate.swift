@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Thread.sleep(forTimeInterval: 0.3)
         
         let console = ConsoleDestination()
-        log.addDestination(console)
+        logger.addDestination(console)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -67,10 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func environmentForInject() -> Environment {
         
-        // dummy data
+        // Temporary dummy data 
         let diaries: [Diary] = [
             // 어제
-            Diary(createdAt: Date.before(1), text: "어제 일기"),
+            Diary(createdAt: Date.before(1), text: longText),
             Diary(createdAt: Date.before(1), text: "어제 일기"),
             // 2일 전
             Diary(createdAt: Date.before(2), text: "2일 전 일기"),
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Diary(createdAt: Date.before(3), text: "3일 전 일기")
         ]
         
-        let repository: InMemoryDiaryRepository = InMemoryDiaryRepository(diaries: diaries)
+        let repository = InMemoryDiaryRepository(diaries: diaries)
         
         // environment 생성
         let environment = Environment(
@@ -93,4 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+let longText: String = """
+Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+"""
 
