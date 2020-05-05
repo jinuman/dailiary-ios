@@ -34,8 +34,8 @@
 		362D3DCD224BCA4D00EFBF1B /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DCC224BCA4D00EFBF1B /* TimelineCell.swift */; };
 		362D3DD0224BD8A200EFBF1B /* DiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DCF224BD8A200EFBF1B /* DiaryViewModel.swift */; };
 		5F14A62E4B3EA2F9F90BD9E1 /* Pods_MyDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877AAFC402F10A7D692CFE73 /* Pods_MyDiaryTests.framework */; };
-		BC5E87EB49C3A493E784D90F /* Pods_MyDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F0C8BD2BADB443AFE27F0D /* Pods_MyDiary.framework */; };
 		E33D513223F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D513123F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift */; };
+		E3BC668B23F3D07E006170AE /* Pods_MyDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F0C8BD2BADB443AFE27F0D /* Pods_MyDiary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +86,7 @@
 		DA4166ACEDF65C960BA0BE0D /* Pods-MyDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiaryTests.debug.xcconfig"; path = "Target Support Files/Pods-MyDiaryTests/Pods-MyDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC53BC8DF7ADA6EB700F43EE /* Pods-MyDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiary.release.xcconfig"; path = "Target Support Files/Pods-MyDiary/Pods-MyDiary.release.xcconfig"; sourceTree = "<group>"; };
 		E33D513123F2A32800DF1497 /* SwiftyBeaver+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftyBeaver+MyDiary.swift"; sourceTree = "<group>"; };
+		E3BC668423F3D02A006170AE /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC5E87EB49C3A493E784D90F /* Pods_MyDiary.framework in Frameworks */,
+				E3BC668B23F3D07E006170AE /* Pods_MyDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +258,7 @@
 		41DB6DF29EDCEEE2DB6D5D44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3BC668423F3D02A006170AE /* SwiftyBeaver.framework */,
 				80F0C8BD2BADB443AFE27F0D /* Pods_MyDiary.framework */,
 				877AAFC402F10A7D692CFE73 /* Pods_MyDiaryTests.framework */,
 			);
@@ -609,15 +611,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C8712337F6D294E9E35081C /* Pods-MyDiary.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K27KLZMF6K;
+				DEVELOPMENT_TEAM = 4D8KV8ZL53;
 				INFOPLIST_FILE = "$(SRCROOT)/MyDiary/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.MyDiary2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.mydiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -628,15 +631,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC53BC8DF7ADA6EB700F43EE /* Pods-MyDiary.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K27KLZMF6K;
+				DEVELOPMENT_TEAM = 4D8KV8ZL53;
 				INFOPLIST_FILE = "$(SRCROOT)/MyDiary/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.MyDiary2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.mydiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
