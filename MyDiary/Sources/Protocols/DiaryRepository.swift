@@ -21,11 +21,11 @@ protocol DiaryRepository {
 
 extension DiaryRepository {
     var allDiaries: [Diary] {
-        return recentDiaries(max: numberOfDiaries)
+        return self.recentDiaries(max: self.numberOfDiaries)
     }
     
     var uniqueDates: [Date] {
-        return allDiaries
+        return self.allDiaries
             .compactMap { $0.createdAt.hmsRemoved }
             .unique()
     }

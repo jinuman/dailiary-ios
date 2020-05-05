@@ -10,16 +10,18 @@ import Foundation
 
 class InMemoryDiaryRepository: DiaryRepository {
     
-    static var shared: InMemoryDiaryRepository = InMemoryDiaryRepository()
+    // MARK: - Properties
     
-    private var diaries: [UUID : Diary]
+    private var diaries: [UUID: Diary]
     
     var numberOfDiaries: Int {
-        return diaries.count
+        return self.diaries.count
     }
     
+    // MARK: - Initializing
+    
     init(diaries: [Diary] = []) {
-        var result = [UUID : Diary]()
+        var result = [UUID: Diary]()
         
         diaries.forEach {
             result[$0.id] = $0
@@ -28,26 +30,28 @@ class InMemoryDiaryRepository: DiaryRepository {
         self.diaries = result
     }
     
+    // MARK: - Methods
+    
     func add(_ diary: Diary) {
-        diaries[diary.id] = diary
+        self.diaries[diary.id] = diary
     }
     
     func update(_ diary: Diary) {
-        diaries[diary.id] = diary
+        self.diaries[diary.id] = diary
     }
     
     func remove(_ diary: Diary) {
-        diaries[diary.id] = nil
+        self.diaries[diary.id] = nil
     }
     
     func diary(with id: UUID) -> Diary? {
-        return diaries[id]
+        return self.diaries[id]
     }
     
     func recentDiaries(max: Int) -> [Diary] {
         guard max >= 0 else { return [] }
         
-        let result = diaries.values
+        let result = self.diaries.values
             .sorted { $0.createdAt > $1.createdAt }  // 내림차순
             .prefix(max)    // max 만큼 뽑기
         
@@ -55,7 +59,7 @@ class InMemoryDiaryRepository: DiaryRepository {
     }
     
     func diary(has text: String) -> [Diary] {
-        let result = diaries.values
+        let result = self.diaries.values
             .filter { $0.text.contains(text) }
             .sorted { $0.createdAt > $1.createdAt }
         
