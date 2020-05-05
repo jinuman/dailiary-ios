@@ -1,5 +1,5 @@
 //
-//  Foundation+MyDiary.swift
+//  FoundationExtensions.swift
 //  MyDiary
 //
 //  Created by Jinwoo Kim on 27/03/2019.

@@ -1,5 +1,5 @@
 //
-//  UIKit_MyDiary.swift
+//  UIKitExtensions.swift
 //  MyDiary
 //
 //  Created by Jinwoo Kim on 27/03/2019.

@@ -24,9 +24,9 @@
 		362D3DA1224B90C800EFBF1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 362D3D9F224B90C800EFBF1B /* LaunchScreen.storyboard */; };
 		362D3DAC224B90C800EFBF1B /* MyDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DAB224B90C800EFBF1B /* MyDiaryTests.swift */; };
 		362D3DB7224B950200EFBF1B /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB6224B950200EFBF1B /* TimelineViewController.swift */; };
-		362D3DB9224B95EF00EFBF1B /* UIKit+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */; };
+		362D3DB9224B95EF00EFBF1B /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DB8224B95EF00EFBF1B /* UIKitExtensions.swift */; };
 		362D3DBB224B989F00EFBF1B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBA224B989F00EFBF1B /* Diary.swift */; };
-		362D3DBD224B99C800EFBF1B /* Foundation+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */; };
+		362D3DBD224B99C800EFBF1B /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBC224B99C800EFBF1B /* FoundationExtensions.swift */; };
 		362D3DBF224B9A0000EFBF1B /* InMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DBE224B9A0000EFBF1B /* InMemoryRepository.swift */; };
 		362D3DC1224BA01800EFBF1B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DC0224BA01800EFBF1B /* Environment.swift */; };
 		362D3DC8224BA24300EFBF1B /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362D3DC7224BA24300EFBF1B /* TimelineViewModel.swift */; };
@@ -70,9 +70,9 @@
 		362D3DAB224B90C800EFBF1B /* MyDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDiaryTests.swift; sourceTree = "<group>"; };
 		362D3DAD224B90C800EFBF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		362D3DB6224B950200EFBF1B /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+MyDiary.swift"; sourceTree = "<group>"; };
+		362D3DB8224B95EF00EFBF1B /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		362D3DBA224B989F00EFBF1B /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
-		362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+MyDiary.swift"; sourceTree = "<group>"; };
+		362D3DBC224B99C800EFBF1B /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		362D3DBE224B9A0000EFBF1B /* InMemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryRepository.swift; sourceTree = "<group>"; };
 		362D3DC0224BA01800EFBF1B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		362D3DC7224BA24300EFBF1B /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +118,16 @@
 				7FEFC56A2528B64969A2CD43 /* Pods-MyDiaryTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		360C18E6246198B800A535F4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				362D3DB8224B95EF00EFBF1B /* UIKitExtensions.swift */,
+				362D3DBC224B99C800EFBF1B /* FoundationExtensions.swift */,
+				E33D513123F2A32800DF1497 /* SwiftyBeaverExtensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		36115B67229BEB740017C08A /* fonts */ = {
@@ -183,9 +193,6 @@
 			children = (
 				362D3D96224B90C800EFBF1B /* AppDelegate.swift */,
 				362D3DC0224BA01800EFBF1B /* Environment.swift */,
-				362D3DB8224B95EF00EFBF1B /* UIKit+MyDiary.swift */,
-				362D3DBC224B99C800EFBF1B /* Foundation+MyDiary.swift */,
-				E33D513123F2A32800DF1497 /* SwiftyBeaverExtensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -214,6 +221,7 @@
 		362D3DC6224BA1C800EFBF1B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				360C18E6246198B800A535F4 /* Utils */,
 				361F1938232390E90052BEAF /* Protocols */,
 				362D3DC2224BA19600EFBF1B /* Shared */,
 				362D3DC5224BA1BE00EFBF1B /* Models */,
@@ -447,11 +455,11 @@
 				361B599D224CDAAE00ED25BA /* SettingsViewModel.swift in Sources */,
 				361F193C232391460052BEAF /* DiaryRepository.swift in Sources */,
 				362D3DBB224B989F00EFBF1B /* Diary.swift in Sources */,
-				362D3DBD224B99C800EFBF1B /* Foundation+MyDiary.swift in Sources */,
+				362D3DBD224B99C800EFBF1B /* FoundationExtensions.swift in Sources */,
 				362D3DCD224BCA4D00EFBF1B /* TimelineCell.swift in Sources */,
 				362D3D99224B90C800EFBF1B /* DiaryViewController.swift in Sources */,
 				E33D513223F2A32800DF1497 /* SwiftyBeaverExtensions.swift in Sources */,
-				362D3DB9224B95EF00EFBF1B /* UIKit+MyDiary.swift in Sources */,
+				362D3DB9224B95EF00EFBF1B /* UIKitExtensions.swift in Sources */,
 				361B599B224CD88400ED25BA /* SettingsController.swift in Sources */,
 				362D3D97224B90C800EFBF1B /* AppDelegate.swift in Sources */,
 				362D3DC8224BA24300EFBF1B /* TimelineViewModel.swift in Sources */,
