@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
+        -> Bool
+    {
         Thread.sleep(forTimeInterval: 0.3)
         
         let console = ConsoleDestination()
@@ -51,18 +55,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             size: CGSize(width: UIScreen.main.bounds.size.width, height: 1)
         )
         
-        guard let image = backgroundImage else { return }
-        navigationController.navigationBar.barTintColor = UIColor(patternImage: image)
+        guard let titleFont = UIFont(name: "SangSangShinb7", size: 20) else { return }
+        guard let largeTitleFont = UIFont(name: "SangSangShinb7", size: 34) else { return }
         
-        guard
-            let titleFont = UIFont(name: "SangSangShinb7", size: 20),
-            let largeTitleFont = UIFont(name: "SangSangShinb7", size: 34) else { return }
-        
-        let titleTextAttributes: [NSAttributedString.Key : Any] = [.font : titleFont]
-        let largeTitleTextAttributes: [NSAttributedString.Key : Any] = [.font : largeTitleFont]
+        let titleTextAttributes: [NSAttributedString.Key: Any] = [.font: titleFont]
+        let largeTitleTextAttributes: [NSAttributedString.Key: Any] = [.font: largeTitleFont]
         
         navigationController.navigationBar.titleTextAttributes = titleTextAttributes
         navigationController.navigationBar.largeTitleTextAttributes = largeTitleTextAttributes
+        
+        guard let backImage = backgroundImage else { return }
+        navigationController.navigationBar.barTintColor = UIColor(patternImage: backImage)
     }
     
     private func environmentForInject() -> Environment {
