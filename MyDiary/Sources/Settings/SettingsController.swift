@@ -9,6 +9,7 @@
 import UIKit
 
 class SettingsController: UITableViewController {
+    
     // MARK:- Properties
     let settingsCellId = "settingsCellId"
     var viewModel: SettingsViewModel!

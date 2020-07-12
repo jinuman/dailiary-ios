@@ -56,20 +56,24 @@ class DiaryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let nc = NotificationCenter.default
-        nc.addObserver(self,
-                       selector: #selector(handleKeyboardAppear(_:)),
-                       name: UIResponder.keyboardWillShowNotification,
-                       object: nil)
-        nc.addObserver(self,
-                       selector: #selector(handleKeyboardAppear(_:)),
-                       name: UIResponder.keyboardWillHideNotification,
-                       object: nil)
+        nc.addObserver(
+            self,
+            selector: #selector(self.handleKeyboardAppear(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        nc.addObserver(
+            self,
+            selector: #selector(self.handleKeyboardAppear(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if viewModel.isEditing {
+        if self.viewModel.isEditing {
             diaryTextView.becomeFirstResponder()
         }
     }
@@ -107,12 +111,15 @@ class DiaryViewController: UIViewController {
         
         let guide = view.safeAreaLayoutGuide
         view.addSubview(diaryTextView)
-        let diaryTextviewConstraints = diaryTextView.anchor(top: guide.topAnchor,
-                                                            leading: guide.leadingAnchor,
-                                                            bottom: guide.bottomAnchor,
-                                                            trailing: guide.trailingAnchor,
-                                                            padding: UIEdgeInsets(top: 8, left: 12, bottom: 0, right: 12))
-        diaryTextViewBottomConstraint = diaryTextviewConstraints.bottom
+        let diaryTextviewConstraints = diaryTextView.anchor(
+            top: guide.topAnchor,
+            leading: guide.leadingAnchor,
+            bottom: guide.bottomAnchor,
+            trailing: guide.trailingAnchor,
+            padding: UIEdgeInsets(top: 8, left: 12, bottom: 0, right: 12)
+        )
+        
+        self.diaryTextViewBottomConstraint = diaryTextviewConstraints.bottom
         
         self.configureAttributedDiaryTextView()
     }
@@ -186,21 +193,23 @@ class DiaryViewController: UIViewController {
     }
     
     @objc private func handleSave() {
-        guard let text = diaryTextView.text else { return }
+        guard let text = self.diaryTextView.text else { return }
         
-        viewModel.completeEditing(with: text)
+        self.viewModel.completeEditing(with: text)
         
-        let alertController = UIAlertController(title: "저장 되었습니다.",
-                                                message: nil,
-                                                preferredStyle: .alert)
+        let alertController = UIAlertController(
+            title: "저장 되었습니다.",
+            message: nil,
+            preferredStyle: .alert
+        )
         
-        present(alertController, animated: true) { [weak self] in
+        self.present(alertController, animated: true) { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true, completion: nil)
         }
         
-        updateSubviews()
-        diaryTextView.resignFirstResponder()
+        self.updateSubviews()
+        self.diaryTextView.resignFirstResponder()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.navigationController?.popViewController(animated: true)
@@ -208,24 +217,24 @@ class DiaryViewController: UIViewController {
     }
     
     @objc private func handleKeyboardAppear(_ notification: Notification) {
-        guard
-            let userInfo = notification.userInfo,
-            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as?
-                NSValue),
-            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as?
-                TimeInterval),
-            let curve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as?
-                UInt)
-            else { return }
+        guard let userInfo = notification.userInfo,
+            let keyboardFrame =
+                userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+            let duration =
+                userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let curve =
+                userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {
+                    return
+        }
         
-        let isKeyboardWillShow: Bool = notification.name == UIResponder.keyboardWillShowNotification
+        let isKeyboardWillShow = notification.name == UIResponder.keyboardWillShowNotification
         let keyboardHeight = isKeyboardWillShow
             ? keyboardFrame.cgRectValue.height
             : 0
         let animationOption = UIView.AnimationOptions.init(rawValue: curve)
         
         UIView.animate(
-            withDuration:  duration,
+            withDuration: duration,
             delay: 0.0,
             options: animationOption,
             animations: {

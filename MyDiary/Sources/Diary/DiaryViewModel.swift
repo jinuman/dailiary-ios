@@ -71,7 +71,7 @@ class DiaryViewModel {
     }
     
     func completeEditing(with text: String) {
-        isEditing = false
+        self.isEditing = false
         
         if let completedDiary = diary {  // 수장하는 일기라면,
             completedDiary.text = text

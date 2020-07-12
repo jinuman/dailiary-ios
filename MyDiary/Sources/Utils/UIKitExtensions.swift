@@ -29,19 +29,26 @@ extension UIImage {
 
 extension UIColor {
     static var gradientStart: UIColor {
-        return .init(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+        return .init(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
     }
     
     static var gradientEnd: UIColor {
-        return .init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        return .init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
     }
 }
 
 extension UIView {
     
     @discardableResult
-    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
-        
+    func anchor(
+        top: NSLayoutYAxisAnchor?,
+        leading: NSLayoutXAxisAnchor?,
+        bottom: NSLayoutYAxisAnchor?,
+        trailing: NSLayoutXAxisAnchor?,
+        padding: UIEdgeInsets = .zero,
+        size: CGSize = .zero)
+        -> AnchoredConstraints
+    {
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
         
@@ -69,30 +76,36 @@ extension UIView {
             anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
         }
         
-        [anchoredConstraints.top, anchoredConstraints.leading, anchoredConstraints.bottom, anchoredConstraints.trailing, anchoredConstraints.width, anchoredConstraints.height].forEach{ $0?.isActive = true }
+        [anchoredConstraints.top,
+         anchoredConstraints.leading,
+         anchoredConstraints.bottom,
+         anchoredConstraints.trailing,
+         anchoredConstraints.width,
+         anchoredConstraints.height]
+            .compactMap { $0 }
+            .forEach {
+                $0.isActive = true
+        }
         
         return anchoredConstraints
     }
     
     func fillSuperview(padding: UIEdgeInsets = .zero) {
-        translatesAutoresizingMaskIntoConstraints = false
         guard let superview = superview else { return }
+        
+        translatesAutoresizingMaskIntoConstraints = false
         topAnchor.constraint(equalTo: superview.topAnchor, constant: padding.top).isActive = true
-        
         leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: padding.left).isActive = true
-        
         bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -padding.bottom).isActive = true
-        
         trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -padding.right).isActive = true
-        
         widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
         heightAnchor.constraint(equalTo: superview.heightAnchor).isActive = true
     }
     
     func centerInSuperview(size: CGSize = .zero) {
-        translatesAutoresizingMaskIntoConstraints = false
         guard let superview = superview else { return }
         
+        translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
         centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
         
@@ -106,14 +119,16 @@ extension UIView {
     }
     
     func centerXInSuperview() {
-        translatesAutoresizingMaskIntoConstraints = false
         guard let superview = superview else { return }
+        
+        translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
     }
     
     func centerYInSuperview() {
-        translatesAutoresizingMaskIntoConstraints = false
         guard let superview = superview else { return }
+        
+        translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
     }
     
