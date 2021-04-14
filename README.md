@@ -1,4 +1,4 @@
-DAILIARY
+Dailiary
 ========
 
 ## Introduction
