@@ -1,32 +1,58 @@
-# MyDiary
+DAILIARY
+========
 
 ## Introduction
 
 #### Simple and Light diary application for iOS
 > "Simple can be harder than complex. " Quote by _Steve Jobs_
 
-## Design
+### Tools
 
-- Designed with OOP based and MVVM pattern.
+- [bundler](https://github.com/rubygems/bundler)
+- [tuist](https://github.com/tuist/tuist)
+- [cocoapods-binary-cache](https://github.com/grab/cocoapods-binary-cache)
 
-## Demo Screenshots
+### Rx
 
-<div>
-	<img width="400" alt="timeline" src="https://user-images.githubusercontent.com/26243835/58420492-62264300-80c8-11e9-8c4d-3e54ad3d6ff4.png">
-	<img width="400" alt="search" src="https://user-images.githubusercontent.com/26243835/58420496-65213380-80c8-11e9-80b5-bc29fd47029a.png">
-	<br>
-	<img width="400" alt="settings" src="https://user-images.githubusercontent.com/26243835/58420505-6a7e7e00-80c8-11e9-924c-34719cb64231.png">
-	<img width="400" alt="diary" src="https://user-images.githubusercontent.com/26243835/58420514-6f433200-80c8-11e9-97d4-0a2d781dba1c.png">
-</div>
+- [RxSwift](https://github.com/ReactiveX/RxSwift)
+- [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources)
+
+### Architecture
+
+- [RIBs](https://github.com/uber/RIBs)
+- [ReactorKit](https://github.com/ReactorKit/ReactorKit)
+
+### Dependency Injection
+
+- [Pure](https://github.com/devxoul/Pure)
+- [Swinject](https://github.com/Swinject/Swinject)
+
+### UI
+
+- [SnapKit](https://github.com/SnapKit/SnapKit)
+
+### Test
+
+- [Quick](https://github.com/Quick/Quick)
+- [Nimble](https://github.com/Quick/Nimble)
+- [MockingKit](https://github.com/danielsaidi/MockingKit)
+
+## Installation
+
+1. `$ git clone repository`
+2. Install [bundler](https://bundler.io/)
+3. `$ bundle install`
+4. Install [tuist](https://tuist.io/)
+5. `$ make`
 
 
-## Environments
+```
+If it doesn't work, please email me or create an issue.
+```
 
-- iOS 11+
-- Swift 5
-- Xcode 10
 
 ## License
 
-MyDiary is available under the MIT license.
-See `LICENSE` file for details.
+`dailiary-ios` is available under the `MIT license`.
+See the `LICENSE` file for more detail.
+
